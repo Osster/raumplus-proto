@@ -1,2 +1,2 @@
 # raumplus
-Website Prototype
+Website Prototype (starter version)
