@@ -100,17 +100,23 @@
                 <input class="form__group__control" type="email" name="email" placeholder="Электронная почта"/>
             </div>
             <div class="form__group">
-                <select class="form__group__control" name="type">
+                <select class="form__group__control select" name="type">
                     <option value="1">Шкаф-купе</option>
                     <option value="2">Шкаф-купе</option>
                     <option value="3">Шкаф-купе</option>
                 </select>
             </div>
             <div class="form__group">
-                <input class="form__group__control" type="file" name="project" placeholder="Прикрепить проект"/>
+                <!--<input class="form__group__control" type="file" name="project" placeholder="Прикрепить проект"/>-->
+                <div class="form__group__control file">
+                    <input type="file" id="project" name="project"/>
+                    <label class="file__label" for="project">Прикрепить проект</label>
+                </div>
             </div>
             <div class="form__group">
-                <input class="form__group__control" type="submit" value="Отправить"/>
+                <button class="form__group__control button" type="submit">
+                    <span>Отправить</span>
+                </button>
             </div>
         </form>
     </div>

@@ -171,11 +171,26 @@ gulp.task('build', [
 
 // запуск задач при изменении файлов
 gulp.task('watch', function() {
-    gulp.watch(path.watch.html, ['html:build']);
-    gulp.watch(path.watch.css, ['css:build']);
-    gulp.watch(path.watch.js, ['js:build']);
-    gulp.watch(path.watch.img, ['image:build']);
-    gulp.watch(path.watch.fonts, ['fonts:build']);
+    gulp.watch(path.watch.html, ['html:build'], function (done) {
+        browserSync.reload();
+        done();
+    });
+    gulp.watch(path.watch.css, ['css:build'], function (done) {
+        browserSync.reload();
+        done();
+    });
+    gulp.watch(path.watch.js, ['js:build'], function (done) {
+        browserSync.reload();
+        done();
+    });
+    gulp.watch(path.watch.img, ['image:build'], function (done) {
+        browserSync.reload();
+        done();
+    });
+    gulp.watch(path.watch.fonts, ['fonts:build'], function (done) {
+        browserSync.reload();
+        done();
+    });
 });
 
 // задача по умолчанию
