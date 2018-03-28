@@ -531,6 +531,122 @@ main {
     }
   }
 
+  .constructor-bar {
+
+    padding: 40px 0 80px;
+
+    &__navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__title {
+        min-width: 360px;
+        height: 70px;
+        font-size: 28px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.14;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+        text-transform: uppercase;
+        padding: 22px 0;
+        margin-left: 25px;
+        position: relative;
+
+        &:before {
+          position: absolute;
+          content: '';
+          width: 140px;
+          height: 2px;
+          object-fit: contain;
+          border: solid 1px #9b9b9b;
+          left: -162px;
+          top: calc(50% - 1px);
+        }
+      }
+    }
+
+    &__content {
+      padding: 40px 0 0;
+
+      &__text {
+        width: 300px;
+        height: 100px;
+        font-size: 21px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.19;
+        letter-spacing: normal;
+        text-align: left;
+        color: #666666;
+        margin: 31px 0 38px;
+      }
+
+      &__list {
+
+        ul {
+          padding-left: 0px;
+          margin-bottom: 50px;
+
+          li {
+            list-style: none;
+            margin-bottom: 25px;
+            margin-left: 60px;
+            position: relative;
+
+            &:before {
+              position: absolute;
+              content: '';
+              width: 40px;
+              height: 1px;
+              border: 1px solid #666666;
+              left: -60px;
+              top: 10px;
+            }
+
+            a {
+              font-size: 18px;
+              font-weight: bold;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 1.28;
+              letter-spacing: normal;
+              text-align: left;
+              color: #666666;
+            }
+          }
+        }
+
+      }
+
+      &__link {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 130px;
+        position: relative;
+
+        &:after {
+          position: absolute;
+          content: '';
+          width: 166px;
+          height: 1px;
+          border: 1px solid #9b9b9b;
+          right: -30px;
+          top: calc(50% - 1px);
+        }
+
+        .button {
+          position: relative;
+        }
+      }
+    }
+  }
+
   .slider {
     position: relative;
 
@@ -663,6 +779,10 @@ main {
       }
     }
   }
+}
+
+footer {
+  padding: 80px 0 0;
 }
 
 /* CONTAINER RESET */
