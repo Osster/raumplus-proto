@@ -8531,6 +8531,48 @@ main {
             height: 43px;
             object-fit: contain;
             margin-bottom: 10px; }
+  main .follow-bar {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+        align-items: center;
+    width: 1560px;
+    height: 140px;
+    background-color: #f5f5f5; }
+    main .follow-bar .container {
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      -ms-flex-align: center;
+          align-items: center; }
+    main .follow-bar__title {
+      min-width: 400px;
+      height: 70px;
+      font-size: 21px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000000;
+      padding: 22px 0;
+      margin-left: 25px;
+      position: relative; }
+      main .follow-bar__title:before {
+        position: absolute;
+        content: '';
+        width: 140px;
+        height: 2px;
+        object-fit: contain;
+        border: solid 1px #9b9b9b;
+        left: -162px;
+        top: calc(50% - 1px); }
+    main .follow-bar__form {
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      margin-left: 65px; }
   main .slider {
     position: relative; }
     main .slider__nav {
