@@ -101,13 +101,19 @@ gulp.task('css:build', function () {
 
 gulp.task('css:critical', function () {
     critical.generate({
-        inline: true,
+        inline: false,
         base: path.dist.html,
         src: 'index.html',
         css: [path.dist.html + 'css/main.css'],
-        dest: 'index.html',
-        width: 1560,
-        height: 900
+        dest: 'css/critical.css',
+        dimensions: [{
+            height: 568,
+            width: 320
+        }, {
+            width: 1560,
+            height: 900
+        }]
+
     });
 });
 
@@ -187,7 +193,7 @@ gulp.task('build',
 gulp.task('watch', function () {
     gulp.watch(path.watch.html,
         function (event) {
-            gulpSequence(['html:build'], 'css:critical')(function (err) {
+            gulpSequence(['html:build'])(function (err) {
                 if (err) console.log(err)
             })
         }, function (done) {

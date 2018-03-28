@@ -8329,7 +8329,7 @@ main {
       -ms-flex-align: center;
           align-items: center; }
       main .catalog-bar__navbar__title {
-        width: 282px;
+        min-width: 282px;
         height: 70px;
         font-size: 28px;
         font-weight: bold;
@@ -8405,8 +8405,132 @@ main {
         left: auto;
         width: 250px; }
       main .catalog-bar_content .slider__content {
-        min-height: 600px;
         width: 100%; }
+        main .catalog-bar_content .slider__content .slide {
+          min-height: 600px; }
+  main .about-bar {
+    padding: 40px 0; }
+    main .about-bar__navbar {
+      width: 100%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      -ms-flex-align: center;
+          align-items: center; }
+      main .about-bar__navbar__title {
+        min-width: 360px;
+        height: 70px;
+        font-size: 28px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.14;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+        text-transform: uppercase;
+        padding: 22px 0;
+        margin-left: 25px;
+        position: relative; }
+        main .about-bar__navbar__title:before {
+          position: absolute;
+          content: '';
+          width: 140px;
+          height: 2px;
+          object-fit: contain;
+          border: solid 1px #9b9b9b;
+          left: -162px;
+          top: calc(50% - 1px); }
+    main .about-bar__content {
+      padding: 40px 0 0; }
+      main .about-bar__content__heading {
+        position: relative; }
+        main .about-bar__content__heading__image {
+          width: 320px;
+          height: 320px;
+          object-fit: contain; }
+        main .about-bar__content__heading__title {
+          min-width: 410px;
+          height: 192px;
+          font-size: 42px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.14;
+          letter-spacing: normal;
+          text-align: left;
+          text-transform: uppercase;
+          color: #322d27;
+          position: absolute;
+          left: 147px;
+          top: 75px; }
+      main .about-bar__content__row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+        main .about-bar__content__row__feature {
+          text-align: center;
+          margin: 45px auto; }
+          main .about-bar__content__row__feature .value {
+            font-size: 48px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #000000;
+            margin: 25px 0 0; }
+          main .about-bar__content__row__feature .desc {
+            font-size: 14px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.29;
+            letter-spacing: normal;
+            text-align: center;
+            color: #666666;
+            margin: 10px 0; }
+      main .about-bar__content__text {
+        width: 470px;
+        height: 96px;
+        font-size: 18px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        text-align: left;
+        color: #322d27;
+        margin-left: 12px; }
+      main .about-bar__content__video {
+        font-size: 16px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.13;
+        letter-spacing: normal;
+        text-align: center;
+        color: #909090;
+        width: 165px; }
+        main .about-bar__content__video a {
+          color: #909090;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+          text-decoration: none; }
+          main .about-bar__content__video a img {
+            width: 43px;
+            height: 43px;
+            object-fit: contain;
+            margin-bottom: 10px; }
   main .slider {
     position: relative; }
     main .slider__nav {
