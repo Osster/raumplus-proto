@@ -8583,6 +8583,7 @@ main {
     top: calc(50% - 1px);
     transition: right 0.6s ease; }
   .button:hover {
+    color: #000001;
     -webkit-transform: rotateX(180deg);
             transform: rotateX(180deg); }
     .button:hover > span {
