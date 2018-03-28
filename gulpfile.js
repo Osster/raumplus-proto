@@ -18,7 +18,8 @@ var gulp = require('gulp'), // подключаем Gulp
     imageminJpegRecompress = require('imagemin-jpeg-recompress'), // сжатие jpeg	
     pngquant = require('imagemin-pngquant'), // сжатие png
     del = require('del'), // плагин для удаления файлов и каталогов
-    rigger = require('gulp-rigger'); //импорт содержимого одного файла в другой
+    rigger = require('gulp-rigger'), //импорт содержимого одного файла в другой
+    embed = require('gulp-image-embed'); // Добавляет картинки в css в формате BASE64
 //merge = require('merge-stream'),
 //buffer = require('vinyl-buffer');
 
@@ -95,6 +96,10 @@ gulp.task('css:build', function () {
         }))
         //.pipe(cleanCSS()) // минимизируем CSS
         //.pipe(sourcemaps.write('./')) // записываем sourcemap
+        .pipe(embed({
+            asset: 'app/',
+            extension: ['svg', 'png', 'gif']
+        }))
         .pipe(gulp.dest(path.dist.css)) // выгружаем в build
         .pipe(browserSync.reload({stream: true})); // перезагрузим сервер
 });
