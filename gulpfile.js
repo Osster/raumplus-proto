@@ -173,14 +173,15 @@ gulp.task('update:prod', function () {
 });
 
 // сборка
-gulp.task('build', [
-    'clean:build',
-    'html:build',
-    'css:build',
-    'js:build',
-    'fonts:build'
-    , 'image:build'
-]);
+gulp.task('build',
+    gulpSequence([
+        'clean:build',
+        'html:build',
+        'css:build',
+        'js:build',
+        'fonts:build',
+        'image:build'
+    ], 'css:critical'));
 
 // запуск задач при изменении файлов
 gulp.task('watch', function () {
