@@ -31,6 +31,8 @@
 
         recalcSize();
 
+        $slider.removeClass('preload');
+
         if (totalSlides > 0) {
             $nav.append('<li><a class="prev" href="#" title="Назад"></a></li>');
             for (var i=0;i<$slides.length; i++) {
