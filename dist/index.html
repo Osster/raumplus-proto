@@ -55,6 +55,8 @@
 
     <section class="slider-bar">
 
+        <div class="gradient-box"></div>
+
         <div class="slider">
 
             <div class="slider__content">
@@ -142,13 +144,13 @@
         </div>
 
         <div class="next-screen">
-            <a class="next-screen__btn" href="#" title="Next Screen">
+            <a class="next-screen__btn" href="#second-screen" title="Next Screen">
                 <img src="img/arrow-down.svg" alt="Scroll Down">
             </a>
         </div>
     </section>
 
-    <section class="counter-bar">
+    <section id="second-screen" class="counter-bar">
         <div class="container">
 
             <div class="counter-bar__title">
@@ -196,6 +198,18 @@
 
                                     <div class="slide__title">Любой размер за 189 000 рублей!</div>
                                 </li>
+                                <li class="slide">
+                                    <img class="img-fluid" src="img/slides/slideset_slide.jpg" alt="Slide"
+                                         srcset="img/slides/slideset_slide@2x.jpg 3120w, img/slides/slideset_slide@3x.jpg 4680w">
+
+                                    <div class="slide__title">Любой размер за 189 000 рублей!</div>
+                                </li>
+                                <li class="slide">
+                                    <img class="img-fluid" src="img/slides/slideset_slide.jpg" alt="Slide"
+                                         srcset="img/slides/slideset_slide@2x.jpg 3120w, img/slides/slideset_slide@3x.jpg 4680w">
+
+                                    <div class="slide__title">Любой размер за 189 000 рублей!</div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -232,7 +246,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 pt-4">
-                    <div class="navigator">
+                    <div class="slideset__nav navigator">
                         <ul>
                             <li><a class="prev" href="#" title="Previous"></a></li>
                             <li><a class="page active" href="#" title="Slide 1"></a></li>
@@ -272,15 +286,25 @@
             </div>
 
             <div class="catalog-bar_content">
-                <div class="slider">
-                    <div class="slider__content">
-                        <div class="slide">
-                            <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                 srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
-                        </div>
+                <div class="slideset">
+                    <div class="slideset__content">
+                        <ul class="slides">
+                            <li class="slide">
+                                <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                            </li>
+                            <li class="slide">
+                                <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                            </li>
+                            <li class="slide">
+                                <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="slider__nav navigator">
+                    <div class="slideset__nav navigator">
                         <ul>
                             <li><a class="prev" href="#" title="Previous"></a></li>
                             <li><a class="page active" href="#" title="Slide 1"></a></li>
@@ -359,7 +383,7 @@
                                 </div>
                             </div>
                             <div class="about-bar__content__row__feature">
-                                <img src="img/cycle.svg"
+                                <img src="img/experience.svg"
                                      class="cycle">
                                 <div class="value">30</div>
                                 <div class="desc">лет профессиональный<br>
@@ -648,49 +672,74 @@
 <link rel="stylesheet" href="css/main.css" as="style"/>
 
 <!-- scripts -->
-<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 <script>
     (function () {
-        $(window).load(function () {
-            var activeSlide = 0;
-            var $slider = $(".slider-bar .slider");
-            var $container = $(".slider-bar .slider__content");
-            var $slides = $(".slider-bar .slider__content > .slide");
-            var $nav = $(".slider-bar .slider__nav ul");
-
-            var sliderWidth = $slider.width();
-            var containerWidth = sliderWidth * $slides.length;
-
-            $container.css('width', containerWidth);
-            $slides.css('width', sliderWidth);
-
-            $nav.html('');
-
-            $nav.append('<li><a class="prev" href="#" title="Previous"></a></li>');
-            for (var i=0;i<$slides.length; i++) {
-                $nav.append('<li><a class="page" href="#" data-slide="' + i + '" title="Slide ' + i + '"></a></li>');
-            }
-            $nav.append('<li><a class="next" href="#" title="Next"></a></li>');
-
-            var navLinks = $nav.find('a.page');
-
-            $(navLinks[activeSlide]).addClass('active');
-            $container.css('left', 0);
-
-            navLinks.on('click', function () {
-                activeSlide = $(this).data('slide');
-                var slide = $slides[activeSlide];
-                $container.css('left', -slide.offsetLeft);
-                $nav.find('a.page.active').removeClass('active');
-                $(navLinks[activeSlide]).addClass('active');
-                //console.log('slide.offsetLeft', slide.offsetLeft);
-                return false;
-            });
-
-            console.log('containerWidth', containerWidth);
-            console.log('$slides', $slides);
-        });
+//        $(window).load(function () {
+//            var activeSlide = 0;
+//            var totalSlides = 0;
+//            var $slider = $(".slider-bar .slider");
+//            var $container = $(".slider-bar .slider__content");
+//            var $slides = $(".slider-bar .slider__content > .slide");
+//            var $nav = $(".slider-bar .slider__nav ul");
+//
+//            var sliderWidth = $slider.width();
+//            var containerWidth = sliderWidth * $slides.length;
+//
+//            totalSlides = $slides.length;
+//
+//            $container.css('width', containerWidth);
+//            $slides.css('width', sliderWidth);
+//
+//            $nav.html('');
+//
+//            var goToSlide = function (_ActiveSlide) {
+//                activeSlide = _ActiveSlide;
+//                var slide = $slides[activeSlide];
+//                $container.css('left', -slide.offsetLeft);
+//                $nav.find('a.page.active').removeClass('active');
+//                $(navLinks[activeSlide]).addClass('active');
+//                //console.log('slide.offsetLeft', slide.offsetLeft);
+//            };
+//
+//            if (totalSlides > 0) {
+//                $nav.append('<li><a class="prev" href="#" title="Previous"></a></li>');
+//                for (var i=0;i<$slides.length; i++) {
+//                    $nav.append('<li><a class="page" href="#" data-slide="' + i + '" title="Slide ' + i + '"></a></li>');
+//                }
+//                $nav.append('<li><a class="next" href="#" title="Next"></a></li>');
+//
+//                var navLinks = $nav.find('a.page');
+//                var navPrev = $nav.find('a.prev');
+//                var navNext = $nav.find('a.next');
+//
+//                $(navLinks[activeSlide]).addClass('active');
+//                $container.css('left', 0);
+//
+//                navLinks.on('click', function () {
+//                    activeSlide = $(this).data('slide');
+//                    goToSlide(activeSlide);
+//                    return false;
+//                });
+//
+//                navPrev.on('click', function () {
+//                    activeSlide = (activeSlide == 0) ? totalSlides-1 : activeSlide-1;
+//                    goToSlide(activeSlide);
+//                    return false;
+//                });
+//
+//                navNext.on('click', function () {
+//                    activeSlide = (activeSlide == totalSlides-1) ? 0 : activeSlide+1;
+//                    goToSlide(activeSlide);
+//                    return false;
+//                });
+//
+//                $(window).on('resize', function () {
+//                    goToSlide(activeSlide);
+//                });
+//            }
+//        });
     })();
 </script>
 

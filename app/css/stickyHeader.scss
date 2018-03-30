@@ -1,0 +1,17 @@
+header {
+  height: 85px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: top 0.6s ease-in-out, background-color 1.2s ease-in-out;
+}
+
+.nav-up {
+  top: -85px;
+}
+
+.nav-float {
+  background-color: rgba(245,245,245, 0.9);
+  //border-bottom: 1px solid darken(#f5f5f5, 20%);
+}

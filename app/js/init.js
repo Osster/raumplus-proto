@@ -1,3 +1,9 @@
+//= scripts/stickyHeader.js
+//= scripts/smoothScrolling.js
+//= scripts/topSlider.js
+//= scripts/slidesetSlider.js
+
+
 $(document).ready(function() {
     $('#responsive').lightSlider({
         item:4,
