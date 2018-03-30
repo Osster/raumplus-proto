@@ -3,6 +3,7 @@
 @import '../../node_modules/lightslider/dist/css/lightslider.min';
 @import "../../node_modules/sweetalert2/dist/sweetalert2.min";
 
-@import "stickyHeader";
+@import "scripts/stickyHeader";
+@import "scripts/overlayNav";
 
 @import "template_styles";
