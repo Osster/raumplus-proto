@@ -132,11 +132,10 @@ main {
   }
 
   .counter-bar {
-    padding-left: 6%;
-    padding-right: 13%;
     min-height: 140px;
     margin: 0 auto;
     background-color: #f5f5f5;
+    text-align: center;
 
 
     &__title {
@@ -151,25 +150,25 @@ main {
       color: #000000;
       text-transform: uppercase;
       padding: 22px 0;
-      margin-left: 28px;
       position: relative;
 
       &:before {
         position: absolute;
         content: '';
-        width: 145px;
+        width: 500px;
         height: 1px;
         object-fit: contain;
         border-top: solid 1px #9b9b9b;
-        left: -165px;
+        left: -520px;
         top: calc(50% - 1px);
       }
     }
 
     &__form {
       display: inline-flex;
-      flex-wrap: wrap;
       margin-left: 65px;
+
+
     }
   }
 
@@ -230,7 +229,7 @@ main {
         min-width: 282px;
         height: 70px;
         font-size: 28px;
-        font-weight: bold;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.14;
@@ -239,17 +238,16 @@ main {
         color: #000000;
         text-transform: uppercase;
         padding: 22px 0;
-        margin-left: 28px;
         position: relative;
 
         &:before {
           position: absolute;
           content: '';
-          width: 145px;
+          width: 500px;
           height: 1px;
           object-fit: contain;
           border-top: solid 1px #9b9b9b;
-          left: -165px;
+          left: -520px;
           top: calc(50% - 1px);
         }
       }
@@ -267,7 +265,7 @@ main {
 
             a {
               font-size: 14px;
-              font-weight: bold;
+              font-weight: 600;
               font-style: normal;
               font-stretch: normal;
               line-height: normal;
@@ -345,7 +343,7 @@ main {
         min-width: 360px;
         height: 70px;
         font-size: 28px;
-        font-weight: bold;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.14;
@@ -354,17 +352,16 @@ main {
         color: #000000;
         text-transform: uppercase;
         padding: 22px 0;
-        margin-left: 28px;
         position: relative;
 
         &:before {
           position: absolute;
           content: '';
-          width: 145px;
+          width: 500px;
           height: 1px;
           object-fit: contain;
           border-top: solid 1px #9b9b9b;
-          left: -165px;
+          left: -520px;
           top: calc(50% - 1px);
         }
       }
@@ -386,7 +383,7 @@ main {
           min-width: 410px;
           height: 192px;
           font-size: 42px;
-          font-weight: bold;
+          font-weight: 600;
           font-style: normal;
           font-stretch: normal;
           line-height: 1.14;
@@ -397,6 +394,21 @@ main {
           position: absolute;
           left: 147px;
           top: 75px;
+        }
+        &__link {
+          text-transform: uppercase;
+          font-family: Cousine;
+          display: block;
+          margin-top: 30px;
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 1px;
+          text-align: left;
+          color: #000000;
+
         }
 
       }
@@ -467,13 +479,24 @@ main {
           align-items: center;
           justify-content: space-between;
           text-decoration: none;
+          @include transition;
 
           img {
             width: 43px;
             height: 43px;
             object-fit: contain;
             margin-bottom: 10px;
+            @include transition;
           }
+        }
+
+        &:hover a {
+          text-decoration: none;
+          color: #000;
+            img {
+              transform: scale(1.2);
+            }
+
         }
       }
     }
@@ -528,7 +551,7 @@ main {
         min-width: 360px;
         height: 70px;
         font-size: 28px;
-        font-weight: bold;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.14;
@@ -537,17 +560,16 @@ main {
         color: #000000;
         text-transform: uppercase;
         padding: 22px 0;
-        margin-left: 28px;
         position: relative;
 
         &:before {
           position: absolute;
           content: '';
-          width: 145px;
+          width: 500px;
           height: 1px;
           object-fit: contain;
           border-top: solid 1px #9b9b9b;
-          left: -165px;
+          left: -520px;
           top: calc(50% - 1px);
         }
       }
@@ -595,7 +617,7 @@ main {
 
             a {
               font-size: 18px;
-              font-weight: bold;
+              font-weight: 600;
               font-style: normal;
               font-stretch: normal;
               line-height: 1.28;
@@ -703,7 +725,7 @@ main {
       &__title {
         padding: 26px 0;
         font-size: 17px;
-        font-weight: bold;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
@@ -744,7 +766,7 @@ main {
 
       .line-1 {
         font-size: 86px;
-        font-weight: bold;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.08;
@@ -757,7 +779,7 @@ main {
 
       .line-2 {
         font-size: 86px;
-        font-weight: bold;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.08;
@@ -877,6 +899,15 @@ footer {
         text-align: left;
         color: #000000;
         margin-bottom: 10px;
+        position: relative;
+
+        @include underline (1px, 0, #000);
+
+        &:after {
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+        }
       }
 
       .email {
@@ -889,6 +920,15 @@ footer {
         text-align: left;
         color: #000000;
         margin-bottom: 10px;
+        position: relative;
+
+        @include underline (1px, 0, #000);
+
+        &:after {
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+        }
       }
 
       .sub {
@@ -918,7 +958,7 @@ footer {
 
     .label {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 600;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
@@ -947,6 +987,8 @@ footer {
           text-align: left;
           color: #666666;
 
+          @include transition;
+
           &:hover {
             color: #000000;
           }
@@ -962,7 +1004,7 @@ footer {
       border: 1px solid #909090;
       border-left: none;
       border-right: none;
-      padding: 14px 0;
+      padding: 28px 0;
       max-width: 1160px;
 
       .row {
@@ -971,11 +1013,19 @@ footer {
         padding: 0 150px;
       }
     }
+
+    a:hover {
+      img {
+        @include transition;
+        transform: scale(1.15);
+      }
+    }
   }
 
   .footer-copy {
     margin-bottom: 100px;
     font-family: FrutigerLTCYR-Roman !important;
+    color: #666666;
 
     .container {
       max-width: 1160px;
@@ -998,7 +1048,8 @@ footer {
 
 /* CONTAINER RESET */
 .container {
-  max-width: 1315px;
+  //max-width: 1315px;
+  max-width: 1280px;
 }
 
 /* NAVIGATOR COMPONENT */
@@ -1093,6 +1144,7 @@ footer {
           background-color: transparent;
           border: none;
           border-radius: 0.25rem;
+          text-align: left;
 
           &::after {
             background-image: url("/img/upload.svg");
@@ -1120,6 +1172,7 @@ footer {
 
       &.select {
         display: inline-block;
+        width: 200px;
         padding: 0.375rem 1.75rem 0.375rem 0.75rem;
         line-height: 1.5;
         vertical-align: middle;
@@ -1168,7 +1221,7 @@ footer {
   border: solid 1px #e3dcd3;
   border-radius: 4px;
   font-family: Cousine !important;
-  font-weight: bold;
+  font-weight: 600;
   font-style: normal;
   font-stretch: normal;
   font-size: 14px;
