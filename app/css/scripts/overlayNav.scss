@@ -85,7 +85,8 @@ $seashell: #f1f1f1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: calc(100vh - 160px);
+        height: calc(100vh - 80px);
+        padding-bottom: 15vh;
         li {
             list-style-type: none;
             position: relative;
@@ -96,7 +97,7 @@ $seashell: #f1f1f1;
                 text-decoration: none;
                 display: block;
                 font-size: 24px;
-                font-weight: bold;
+                font-weight: 600;
                 font-style: normal;
                 font-stretch: normal;
                 line-height: 1;
@@ -204,7 +205,7 @@ $seashell: #f1f1f1;
 }
 
 .menu-overlay-circle span {
-    background-color: $black_90;
+    background-color: #000;
 }
 
 .content-overlay-circle {
