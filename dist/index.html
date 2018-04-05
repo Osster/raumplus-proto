@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <title>RAUMPLUS - PROTOTYPE ALFA VERSION</title>
 
     <!-- styles -->
-    <link rel="stylesheet" href="css/critical.css" as="style"/>
+    <!-- <link rel="stylesheet" href="css/critical.css" as="style"/> -->
 </head>
 <body>
 <!--[if lt IE 10]>
@@ -13,66 +13,78 @@
         href="http://browsehappy.com/">обновите ваш Браузер</a> чтобы увидеть больше возможностей на сайтах!</p>
 <![endif]-->
 
-<header class="w-100">
-    <div class="container">
-        <div class="row p-4">
-            <div class="col-lg-3">
-                <a href="/" title="Raumplus">
-                    <img src="img/logo.svg" alt="Raumplus">
-                </a>
+    <button class="menu-button" type="button">
+        <span class="sr-only">Меню</span>
+        <span class="line line-top"></span>
+        <span class="line line-middle"></span>
+        <span class="line line-bottom"></span>
+    </button>
+
+    <div class="wr-scroll-bar">
+
+        <section class="scroll-bar">
+            <div class="btn-rect sun">
+                <a href="#" title="Theme Switcher Day"><img src="img/sun.svg" alt="Sun"></a>
             </div>
-            <div class="col-lg-9 d-inline-flex justify-content-end align-items-center">
-                <a class="phone mx-3" href="tel:84951911252">8&nbsp;495&nbsp;191&nbsp;12&nbsp;52</a>
-                <a class="email mx-3" href="mailto:mebel@raumplus.ru">mebel@raumplus.ru</a>
-                <a class="search mx-3" href="#"><img src="img/search.svg" alt="Search"></a>
-                <a class="menu-icon mx-3" href="javascript:void(0).toExponential()"><img src="img/menu-icon.svg" alt="Menu"></a>
+            <div class="btn-rect moon">
+                <a href="#" title="Theme Switcher Night"><img src="img/moon.svg" alt="Moon"></a>
             </div>
-        </div>
+
+            <div class="btn-rect meter">
+                <a href="#" title="Show Modal"><img src="img/meter.png" alt="Meter"></a>
+            </div>
+            <div class="btn-rect calc">
+                <a href="#" title="Calculate"><img src="img/calc.png" alt="Calc"></a>
+            </div>
+
+            <div class="btn-rect ask">
+                <a href="#" title="Ask Question"><img src="img/ask.png" alt="Ask"></a>
+            </div>
+        </section>
     </div>
-</header>
 
-<!-- The overlay -->
-<nav id="mainNav" class="overlay">
 
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn">&times;</a>
+<nav class="primary-nav">
 
-    <!-- Overlay content -->
-    <div class="overlay-content">
-        <a href="#"><span class="counter">01.</span> О системах</a>
-        <a href="#"><span class="counter">02.</span> Каталог</a>
-        <a href="#"><span class="counter">03.</span> Акции</a>
-        <a href="#"><span class="counter">04.</span> Блог</a>
-        <a href="#"><span class="counter">05.</span> Шоурумы</a>
-        <a href="#"><span class="counter">06.</span> Производителям</a>
-        <a href="#"><span class="counter">07.</span> Дизайнерам</a>
-        <a href="#"><span class="counter">08.</span> Конструктор</a>
-        <a href="#"><span class="counter">09.</span> Контакты</a>
-    </div>
+    <ul>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">01.</span> О системах</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">02.</span> Каталог</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">03.</span> Акции</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">04.</span> Блог</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">05.</span> Шоурумы</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">06.</span> Производителям</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">07.</span> Дизайнерам</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">08.</span> Конструктор</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">09.</span> Контакты</a></li>
+    </ul>
 
 </nav>
 
+
+<div class="menu-overlay-circle">
+    <span></span>
+</div>
+
+<div class="content-overlay-circle">
+    <span></span>
+</div>
+
+
+<header class="w-100 d-inline-flex justify-content-between align-items-center">
+    <div class="logo">
+        <a href="/" title="Raumplus">
+            <img src="img/logo.svg" alt="Raumplus">
+        </a>
+    </div>
+    <div class="d-inline-flex justify-content-end align-items-center">
+        <a class="phone mx-3" href="tel:84951911252">8&nbsp;495&nbsp;191&nbsp;12&nbsp;52</a>
+        <a class="email mx-3" href="mailto:mebel@raumplus.ru">mebel@raumplus.ru</a>
+        <a class="search mx-3" href="#"><img src="img/search.svg" alt="Search"></a>
+    </div>
+</header>
+
+
 <main>
-
-    <section class="scroll-bar">
-        <div class="btn-rect sun">
-            <a href="#" title="Theme Switcher Day"><img src="img/sun.svg" alt="Sun"></a>
-        </div>
-        <div class="btn-rect moon">
-            <a href="#" title="Theme Switcher Night"><img src="img/moon.svg" alt="Moon"></a>
-        </div>
-
-        <div class="btn-rect meter">
-            <a href="#" title="Show Modal"><img src="img/meter.png" alt="Meter"></a>
-        </div>
-        <div class="btn-rect calc">
-            <a href="#" title="Calculate"><img src="img/calc.png" alt="Calc"></a>
-        </div>
-
-        <div class="btn-rect ask">
-            <a href="#" title="Ask Question"><img src="img/ask.png" alt="Ask"></a>
-        </div>
-    </section>
 
     <section class="slider-bar">
 

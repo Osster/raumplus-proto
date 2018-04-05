@@ -175,13 +175,13 @@ gulp.task('cache:clear', function () {
 
 
 // Update Production
-gulp.task('update:prod', function () {
-    gulp.src(path.dist.css + '/*')
-        .pipe(gulp.dest('/home/projects/trio/bitrix/templates/trio61_rostov/css/'));
+// gulp.task('update:prod', function () {
+//     gulp.src(path.dist.css + '/*')
+//         .pipe(gulp.dest('/home/projects/trio/bitrix/templates/trio61_rostov/css/'));
 
-    gulp.src(path.dist.js + '/*')
-        .pipe(gulp.dest('/home/projects/trio/bitrix/templates/trio61_rostov/js/'));
-});
+//     gulp.src(path.dist.js + '/*')
+//         .pipe(gulp.dest('/home/projects/trio/bitrix/templates/trio61_rostov/js/'));
+// });
 
 // сборка
 gulp.task('build',
