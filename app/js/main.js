@@ -35,7 +35,7 @@
 
 // Импортируем Velocity
 //= velocity.min.js
-
+	
 
 jQuery(document).ready(function($) {
     var overlayMenu = $('.menu-overlay-circle'),
@@ -135,4 +135,9 @@ jQuery(document).ready(function($) {
 			$(this).find('.li-line').addClass('fadeOutLeftBig').removeClass('fadeInLeftBig');
 		}
 	)
+
+
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
 });

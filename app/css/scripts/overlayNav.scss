@@ -8,7 +8,16 @@ $white: #ffffff;
 $color_gray: #3f3f3f;
 $seashell: #f1f1f1;
 
+.wr-menu-button {
+    position: fixed;
+    width:100%;
+    max-width: 1360px;
+    top: 0;
+    left: 50%;
+    z-index: 145;
+    transform: translateX(-50%);
 
+}
 .menu-button {
     width: 56px;
     height: 56px;
@@ -18,11 +27,15 @@ $seashell: #f1f1f1;
     background: none;
     position: fixed;
     z-index: 100;
-    right: 8%;
+    right: 0;
     top: 17px;
     outline: none;
     cursor: pointer;
     z-index: 150;
+
+    @include media-breakpoint-down (sm) {
+        right: 5px;
+    }
 
     &:active {
         opacity: 0.6;
@@ -80,6 +93,13 @@ $seashell: #f1f1f1;
     visibility: hidden;
     animation-duration: 0.2s;
 
+    @include media-breakpoint-down (sm) {
+        font-size: 18px;
+        text-align: left;
+        left: 0;
+        width: 100%;
+    }
+
     ul {
         text-align: center;
         display: flex;
@@ -87,6 +107,10 @@ $seashell: #f1f1f1;
         justify-content: space-between;
         height: calc(100vh - 80px);
         padding-bottom: 15vh;
+        @include media-breakpoint-down (sm) {
+            padding-left: 20px;
+            padding-bottom: 57px;
+        }
         li {
             list-style-type: none;
             position: relative;
@@ -218,18 +242,27 @@ $seashell: #f1f1f1;
 
 .wr-scroll-bar {
   position: fixed;
+  width:100%;
+  max-width: 1360px;
   top: 0;
-  right: 6%;
+  left: 50%;
   z-index: 90;
-  margin: 0 auto;
+  transform: translateX(-50%);
+
+  @media (max-width: 1500px) {
+    right: 3%;
+  }
+  @include media-breakpoint-down (sm) {
+    right: 0;
+  }
 
   .scroll-bar {
-    //background-color: rgba(255, 255, 255, 0.2);
     position: absolute;
-    right: 40px;
+    right: 0;
     height: 100vh;
     width: 40px;
     z-index: 91;
+
     .btn-rect {
       width: 40px;
       height: 40px;
@@ -239,6 +272,7 @@ $seashell: #f1f1f1;
       align-items: center;
       justify-content: center;
       position: absolute;
+
       &.sun {
         top: 180px;
       }
@@ -250,7 +284,7 @@ $seashell: #f1f1f1;
         top: 430px;
       }
       &.calc {
-        top: calc(430px - 40px);
+        top: calc(430px + 40px);
       }
       &.ask {
         bottom: 30px;
@@ -260,143 +294,3 @@ $seashell: #f1f1f1;
     }
   }
 }
-
-
-// .overlay {
-//   opacity: 0;
-//   height: 100%;
-//   width: 100%;
-//   position: fixed; /* Stay in place */
-//   z-index: 200; /* Sit on top */
-//   left: 0;
-//   top: -100%;
-//   background-color: rgb(0,0,0); /* Black fallback color */
-//   background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-//   overflow-x: hidden; /* Disable horizontal scroll */
-//   transition: 0.6s ease; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-//   .overlay-content {
-//     position: relative;
-//     // top: 5%;
-//     // width: 30%;
-//     // margin: 0 auto;
-//     text-align: left;
-//     // margin-top: 30px;
-//     // margin-bottom: 150px;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     a {
-//       padding: 8px;
-//       text-decoration: none;
-//       display: block;
-//       font-size: 24px;
-//       font-weight: bold;
-//       font-style: normal;
-//       font-stretch: normal;
-//       line-height: 2.5;
-//       letter-spacing: 1px;
-//       text-align: left;
-//       text-transform: uppercase;
-//       color: $white;
-//       transition: 0.6s ease;
-//       .counter {
-//         font-size: 14px;
-//         font-weight: 300;
-//         font-style: normal;
-//         font-stretch: normal;
-//         letter-spacing: normal;
-//         text-align: left;
-//         display: inline-block;
-//         position: relative;
-//         margin-right: 30px;
-//         color: $color_gray;
-//         &:before {
-//           position: absolute;
-//           content: '';
-//           top: 50%;
-//           left: calc(-2050px);
-//           width: 2000px;
-//           height: 2px;
-//           background-color: $color_gray;
-//           transition: 0.6s ease;
-//         }
-//       }
-//       &:hover, &:focus, &.active {
-//         color: $white;
-//         .counter {
-//           color: $white;
-//           &:before {
-//             background-color: $white;
-//           }
-//         }
-//       }
-//     }
-//   }
-//   .closebtn {
-//     // position: absolute;
-//     // top: 0;
-//     // right: 30px;
-//     // margin: 0 1rem;
-//     font-size: 60px;
-//     text-decoration: none;
-//     color: $white;
-//     line-height: 0.8;
-//   }
-// }
-// .wr-scroll-bar {
-//   max-width: 1315px;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   z-index: 90;
-//   margin: 0 auto;
-// }
-//   .scroll-bar {
-//     //background-color: rgba(255, 255, 255, 0.2);
-//     position: absolute;
-//     right: 40px;
-//     height: 100vh;
-//     width: 40px;
-//     z-index: 91;
-//     .btn-rect {
-//       width: 40px;
-//       height: 40px;
-//       object-fit: contain;
-//       background-color: #ffffff;
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//       position: absolute;
-//       &.sun {
-//         top: 20%;
-//       }
-//       &.moon {
-//         top: calc(20% + 40px);
-//         background-color: #eaeaea;
-//       }
-//       &.meter {
-//         top: 50%;
-//       }
-//       &.calc {
-//         top: calc(50% - 40px);
-//       }
-//       &.ask {
-//         bottom: 5%;
-//         background-color: #cbcbcb;
-//         border-radius: 50%;
-//       }
-//     }
-//   }
-// @media screen and(max-height: 450px) {
-//   .overlay {
-//     a {
-//       font-size: 20px;
-//     }
-//     .closebtn {
-//       font-size: 40px;
-//       top: 15px;
-//       right: 35px;
-//     }
-//   }
-// }

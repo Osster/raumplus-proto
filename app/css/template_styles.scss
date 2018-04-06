@@ -1,42 +1,10 @@
+@import "mixins";
+
 // Import Fonts
 @import "webfonts";
 
 @import url('https://fonts.googleapis.com/css?family=Cousine:400,700&subset=cyrillic-ext');
 
-
-@mixin transition {
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-
-@mixin underline ($height, $margin, $bgcolor) {
-  &:after {
-      content: "";
-      display: block;
-      width: 0%;
-      opacity: 0.2;
-      height: $height;
-      margin: $margin;
-      background-color: $bgcolor;
-      -webkit-transition: width 0.3s ease, opacity 0.5s ease;
-      -o-transition: width 0.3s ease, opacity 0.5s ease;
-      -moz-transition: width 0.3s ease, opacity 0.5s ease;
-      transition: width 0.3s ease, opacity 0.5s ease;
-      pointer-events: none;
-    }
-
-    &:hover {
-      text-decoration: none;
-
-      &:after {
-        width: 100%;
-        opacity: 1;      
-      }
-    }
-}
 
 
 
@@ -52,8 +20,18 @@ button:focus {
 }
 
 header {
-  padding-left: 6%;
-  padding-right: 13%;
+  text-align: center;
+
+  @include media-breakpoint-down (sm) {
+    background-color: #fff;
+  }
+
+  .wr-header {
+    width:100%;
+    height: 85px;
+    padding-left: 165px;
+    padding-right: calc(100% - 1300px);
+  }
 
 
   .phone, .email {
@@ -89,6 +67,10 @@ main {
   //max-width: 1560px;
   margin: 0 auto;
   position: relative;
+
+  @include media-breakpoint-down (sm) {
+    margin-top: 85px;
+  }
 
   .slider-bar {
     position: relative;
@@ -175,11 +157,19 @@ main {
   .offers-bar {
     padding: 80px 0 40px;
 
+    @include media-breakpoint-down (sm) {
+      padding: 10px 0 0;
+    }
+
     .offer {
       position: relative;
 
       &__media {
         position: relative;
+        img {
+          max-height: 340px;
+          object-fit: cover;
+        }
       }
 
       &__title {
@@ -193,6 +183,13 @@ main {
         letter-spacing: normal;
         text-align: left;
         color: #666666;
+
+        @include media-breakpoint-down (sm) {
+          font-size: 14px;
+          line-height: 1.29;
+          padding: 10px 0 20px;
+        }
+
       }
 
       &__hoverblock {
@@ -207,6 +204,10 @@ main {
         align-items: center;
         transition: opacity 0.6s ease;
 
+        @include media-breakpoint-down (sm) {
+          opacity: 1;
+        }
+
         &:hover {
           opacity: 1;
         }
@@ -219,11 +220,20 @@ main {
 
     padding: 40px 0;
 
+    @include media-breakpoint-down (sm) {
+      padding: 0;
+    }
+
     &__navbar {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      @include media-breakpoint-down (sm) {
+        flex-direction: column;
+        align-items: left;
+      }
 
       &__title {
         min-width: 282px;
@@ -239,6 +249,16 @@ main {
         text-transform: uppercase;
         padding: 22px 0;
         position: relative;
+
+        @include media-breakpoint-down (sm) {
+          height: auto;
+          min-width: auto;
+          font-size: 20px;
+          margin-left: 40px;
+          margin-right: 40px;
+          padding: 0;
+          margin-bottom: 10px;
+        }
 
         &:before {
           position: absolute;
@@ -296,6 +316,10 @@ main {
         .button {
           width: 180px;
           margin: 0;
+          @include media-breakpoint-down (sm) {
+            margin: 0 auto;
+          }
+
         }
       }
       
@@ -316,6 +340,12 @@ main {
           bottom: auto;
           left: auto;
           width: 250px;
+
+          @include media-breakpoint-down (sm) {
+            position: relative;
+            width: 100%;
+            justify-content: center;
+          }
         }
 
         &__content {
@@ -323,6 +353,16 @@ main {
 
           .slide {
             min-height: 600px;
+
+            @include media-breakpoint-down (sm) {
+              min-height: 220px;
+
+              img {
+                height: 220px;
+                object-fit: cover;
+              }
+            }
+
           }
         }
       }
@@ -332,6 +372,10 @@ main {
   .about-bar {
 
     padding: 40px 0;
+
+    @include media-breakpoint-down (sm) {
+      padding: 30px 0;
+    }
 
     &__navbar {
       width: 100%;
@@ -354,6 +398,16 @@ main {
         padding: 22px 0;
         position: relative;
 
+        @include media-breakpoint-down (sm) {
+          height: auto;
+          min-width: auto;
+          font-size: 20px;
+          margin-left: 40px;
+          margin-right: 40px;
+          padding: 0;
+          margin-bottom: 10px;
+        }
+
         &:before {
           position: absolute;
           content: '';
@@ -370,8 +424,16 @@ main {
     &__content {
       padding: 40px 0 0;
 
+      @include media-breakpoint-down (sm) {
+        padding: 20px 0 0;
+      }
+
       &__heading {
         position: relative;
+
+        @include media-breakpoint-down (sm) {
+          margin-bottom: 20px;
+        }
 
         &__image {
           width: 320px;
@@ -398,7 +460,6 @@ main {
         &__link {
           text-transform: uppercase;
           font-family: Cousine;
-          display: block;
           margin-top: 30px;
           font-size: 14px;
           font-weight: normal;
@@ -409,17 +470,30 @@ main {
           text-align: left;
           color: #000000;
 
+          @include media-breakpoint-down (sm) {
+            margin-top: 20px;
+          }
+
         }
 
       }
 
       &__row {
-        display: flex;
-        justify-content: space-between;
+        // display: flex;
+        // justify-content: space-between;
+        &__features {
+          padding-left: 85px;
+
+          @include media-breakpoint-down (sm) {
+            padding-left: 0;
+          }
+
+
+        }
 
         &__feature {
           text-align: center;
-          margin: 45px auto;
+          margin: 45px 0;
 
           .value {
             font-size: 48px;
@@ -448,8 +522,6 @@ main {
       }
 
       &__text {
-        width: 470px;
-        height: 96px;
         font-size: 18px;
         font-weight: 300;
         font-style: normal;
@@ -459,6 +531,11 @@ main {
         text-align: left;
         color: #322d27;
         margin-left: 12px;
+
+        @include media-breakpoint-down (sm) {
+          font-size: 14px;
+          margin-left: 0;
+        }
       }
 
       &__video {
@@ -470,7 +547,13 @@ main {
         letter-spacing: normal;
         text-align: center;
         color: #909090;
-        width: 165px;
+        width: 245px;
+        margin-left: 80px;
+
+        @include media-breakpoint-down (sm) {
+          margin-left: 0;
+          width: auto;
+        }
 
         a {
           color: #909090;
@@ -540,6 +623,9 @@ main {
   .constructor-bar {
 
     padding: 40px 0 80px;
+    @include media-breakpoint-down (sm) {
+      padding: 30px 0;
+    }
 
     &__navbar {
       width: 100%;
@@ -562,6 +648,16 @@ main {
         padding: 22px 0;
         position: relative;
 
+        @include media-breakpoint-down (sm) {
+          height: auto;
+          min-width: auto;
+          font-size: 20px;
+          margin-left: 40px;
+          margin-right: 40px;
+          padding: 0;
+          margin-bottom: 10px;
+        }
+
         &:before {
           position: absolute;
           content: '';
@@ -578,6 +674,10 @@ main {
     &__content {
       padding: 40px 0 0;
 
+      @include media-breakpoint-down (sm) {
+        padding: 10px 0 0;
+      }
+
       &__text {
         width: 300px;
         height: 100px;
@@ -590,6 +690,14 @@ main {
         text-align: left;
         color: #666666;
         margin: 31px 0 38px;
+
+        @include media-breakpoint-down (sm) {
+          width: auto;
+          height: auto;
+          font-size: 14px;
+          line-height: 1.57;
+          margin: 0 0 20px;
+        }
       }
 
       &__list {
@@ -598,11 +706,18 @@ main {
           padding-left: 0px;
           margin-bottom: 50px;
 
+          @include media-breakpoint-down (sm) {
+            margin-bottom: 20px;
+          }
+
           li {
             list-style: none;
             margin-bottom: 25px;
             margin-left: 60px;
             position: relative;
+            @include media-breakpoint-down (sm) {
+              margin-left: 20px;
+            }
 
             &:before {
               position: absolute;
@@ -647,6 +762,11 @@ main {
         padding-right: 130px;
         position: relative;
 
+        @include media-breakpoint-down (sm) {
+          padding-right: 0;
+          margin: 20px auto 0;
+        }
+
         &:after {
           position: absolute;
           content: '';
@@ -655,6 +775,10 @@ main {
           background: #9b9b9b;
           right: -30px;
           top: 50%;
+
+           @include media-breakpoint-down (sm) {
+            display: none;
+           }
         }
 
         .button {
@@ -682,6 +806,14 @@ main {
       bottom: 20px;
       left: 166px;
       width: 250px;
+
+      @include media-breakpoint-down (sm) {
+        background-color: #f5f5f5;
+        top: 158px;
+        left: 20px;
+        bottom: auto;
+        width: calc(100% - 40px);
+      }
     }
 
     .slide {
@@ -722,6 +854,11 @@ main {
     .slide {
       min-height: 416px;
 
+      @include media-breakpoint-down (sm) {
+        min-height: auto;
+        margin-bottom: 10px;
+      }
+
       &__title {
         padding: 26px 0;
         font-size: 17px;
@@ -732,6 +869,10 @@ main {
         letter-spacing: normal;
         text-align: left;
         color: #666666;
+
+        @include media-breakpoint-down (sm) {
+          display: none;
+        }
       }
     }
 
@@ -751,6 +892,16 @@ main {
       background-color: #f5f5f5;
       padding: 51px 65px;
       text-align: left;
+
+      @include media-breakpoint-down (sm) {
+        position: relative;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        margin-bottom: 10px;
+      }
 
       .Made-in-Germany {
         font-size: 14px;
@@ -775,6 +926,10 @@ main {
         color: #322d27;
         margin: 20px 0 0;
         text-transform: uppercase;
+
+        @include media-breakpoint-down (sm) {
+          font-size: 36px;
+        }
       }
 
       .line-2 {
@@ -788,6 +943,10 @@ main {
         color: #b0aeb0;
         margin: 0 0;
         text-transform: uppercase;
+
+        @include media-breakpoint-down (sm) {
+          font-size: 36px;
+        }
       }
 
       .line-3 {
@@ -800,6 +959,12 @@ main {
         text-align: left;
         color: #666666;
         margin: 35px 10px 0;
+
+        @include media-breakpoint-down (sm) {
+          font-size: 14px;
+          line-height: 1.57;
+          margin: 10px 70px 10px 0;
+        }
       }
 
       .txt-bar-link {
@@ -814,6 +979,10 @@ main {
         color: #909090;
         margin: 70px 0 0;
         @include transition;
+
+        @include media-breakpoint-down (sm) {
+          margin-top: 0;
+        }
 
         .video-button {
           width: 49px;
@@ -845,6 +1014,10 @@ main {
 footer {
   padding: 80px 0 0;
 
+  @include media-breakpoint-down (sm) {
+    padding: 30px 0;
+  }
+
   .footer-top {
     border: 1px solid #909090;
     border-left: none;
@@ -854,12 +1027,10 @@ footer {
     font-family: FrutigerLTCYR-Roman !important;
 
     .container {
-      max-width: 1160px;
+      max-width: 1190px;
     }
 
     .row {
-      display: flex;
-      justify-content: space-between;
       font-size: 12px;
       font-weight: normal;
       font-style: normal;
@@ -869,14 +1040,6 @@ footer {
       text-align: left;
       color: #909090;
 
-       > * {
-         &:first-of-type {
-           padding-left: 0;
-         }
-         &:last-of-type {
-           padding-right: 0;
-         }
-       }
 
       .address {
         font-size: 14px;
@@ -942,18 +1105,7 @@ footer {
     margin-bottom: 80px;
 
     .container {
-      max-width: 1160px;
-    }
-
-    .row {
-      > * {
-        &:first-of-type {
-          padding-left: 0;
-        }
-        &:last-of-type {
-          padding-right: 0;
-        }
-      }
+      max-width: 1190px;
     }
 
     .label {
@@ -1004,13 +1156,19 @@ footer {
       border: 1px solid #909090;
       border-left: none;
       border-right: none;
-      padding: 28px 0;
+      padding-top: 28px;
       max-width: 1160px;
 
+
       .row {
-        display: flex;
-        justify-content: space-around;
-        padding: 0 150px;
+        > div {
+          margin: 0 40px 28px;
+
+          @include media-breakpoint-down(sm) {
+            margin: 0 0 28px;
+            padding: 0 25px;
+          }
+        }
       }
     }
 
@@ -1027,9 +1185,12 @@ footer {
     font-family: FrutigerLTCYR-Roman !important;
     color: #666666;
 
+    @include media-breakpoint-down (sm) {
+      margin-bottom: 40px;
+    }
+
     .container {
-      max-width: 1160px;
-      padding: 0;
+      max-width: 1190px;
     }
 
     a {
@@ -1050,6 +1211,12 @@ footer {
 .container {
   //max-width: 1315px;
   max-width: 1280px;
+
+  @include media-breakpoint-down (sm) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
 }
 
 /* NAVIGATOR COMPONENT */
@@ -1066,6 +1233,10 @@ footer {
     list-style: none;
     margin: 0;
 
+    @include media-breakpoint-down (sm) {
+      justify-content: center;
+    }
+
     li {
       display: block;
 
@@ -1079,9 +1250,15 @@ footer {
 
       .prev {
         background-image: url("/img/arrow-left.svg");
+        @include media-breakpoint-down (sm) {
+          display: none;
+        }
       }
       .next {
         background-image: url("/img/arrow-right.svg");
+        @include media-breakpoint-down (sm) {
+          display: none;
+        }
       }
       .page {
         background-image: url("/img/bullet-inactive.svg");
@@ -1214,12 +1391,9 @@ footer {
   display: block;
   width: 200px;
   height: 50px;
-  padding: 0 20px;
+  padding: 0;
   margin: 0 20px;
-  background-color: #ffffff;
   color: #000000;
-  border: solid 1px #e3dcd3;
-  border-radius: 4px;
   font-family: Cousine !important;
   font-weight: 600;
   font-style: normal;
@@ -1234,11 +1408,25 @@ footer {
   cursor: pointer;
   overflow-x: visible;
   transition: transform 0.6s ease;
+  background-color: transparent;
+  border: none;
+  position: relative;
 
   > span {
     display: block;
     height: 100%;
+    background-color: #ffffff;
+    border: solid 1px #e3dcd3;
+    border-radius: 4px;
     transition: transform 0.6s ease;
+    position: relative;
+
+    > span {
+      position: absolute;
+      display: block;
+      width: 100%;
+      transition: transform 0.6s ease;
+    }
   }
 
   &:before, &:after {
@@ -1248,6 +1436,7 @@ footer {
     width: 15px;
     background-color: #9b9b9b;
     border: none;
+    z-index: 999;
   }
 
   &:before {
@@ -1263,10 +1452,14 @@ footer {
 
   &:hover {
     color: #000001;
-    transform: rotateX(180deg);
+    //transform: rotateX(180deg);
 
     > span {
-      transform: rotateX(-180deg);
+      transform: rotateX(180deg);
+
+       > span {
+        transform: rotateX(-180deg);
+      }
     }
 
     &:before {
@@ -1277,4 +1470,28 @@ footer {
     }
   }
 
+}
+
+
+/*   TOOLTIP   */
+.tooltip {
+ -webkit-transition: opacity 0.3s ease-in;
+    -o-transition: opacity 0.3s ease-in;
+    transition: opacity 0.3s ease-in;
+
+  .arrow:before {
+    border-left: none;
+  }
+
+  .tooltip-inner {
+    background-color: #9b9b9b;
+    font-size: 18px;
+    padding: 11px 22px;
+    border-radius: 24px;
+  }
+
+  &.show {
+  opacity: 1;
+  filter:alpha(opacity=100);
+  }
 }

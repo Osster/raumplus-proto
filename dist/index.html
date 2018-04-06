@@ -12,36 +12,36 @@
 <p class="browsehappy">Вы используете <strong>УСТАРЕВШИЙ Internet Explorer</strong> браузер. Пожалуйста, <a
         href="http://browsehappy.com/">обновите ваш Браузер</a> чтобы увидеть больше возможностей на сайтах!</p>
 <![endif]-->
-
+<div class="wr-menu-button">
     <button class="menu-button" type="button">
         <span class="sr-only">Меню</span>
         <span class="line line-top"></span>
         <span class="line line-middle"></span>
         <span class="line line-bottom"></span>
     </button>
+</div>
 
-    <div class="wr-scroll-bar">
+<div class="wr-scroll-bar">
+    <section class="scroll-bar">
+        <div class="btn-rect sun">
+            <a href="#" title="Theme Switcher Day"><img src="img/sun.svg" alt="Sun"></a>
+        </div>
+        <div class="btn-rect moon">
+            <a href="#" title="Theme Switcher Night"><img src="img/moon.svg" alt="Moon"></a>
+        </div>
 
-        <section class="scroll-bar">
-            <div class="btn-rect sun">
-                <a href="#" title="Theme Switcher Day"><img src="img/sun.svg" alt="Sun"></a>
-            </div>
-            <div class="btn-rect moon">
-                <a href="#" title="Theme Switcher Night"><img src="img/moon.svg" alt="Moon"></a>
-            </div>
+        <div class="btn-rect meter" data-toggle="tooltip" data-placement="left" title="Конструктор">
+            <a href="#"><img src="img/meter.png" alt="Meter"></a>
+        </div>
+        <div class="btn-rect calc" data-toggle="tooltip" data-placement="left" title="Заявка на расчет">
+            <a href="#"><img src="img/calc.png" alt="Calc"></a>
+        </div>
 
-            <div class="btn-rect meter">
-                <a href="#" title="Show Modal"><img src="img/meter.png" alt="Meter"></a>
-            </div>
-            <div class="btn-rect calc">
-                <a href="#" title="Calculate"><img src="img/calc.png" alt="Calc"></a>
-            </div>
-
-            <div class="btn-rect ask">
-                <a href="#" title="Ask Question"><img src="img/ask.png" alt="Ask"></a>
-            </div>
-        </section>
-    </div>
+        <div class="btn-rect ask">
+            <a href="#" title="Ask Question"><img src="img/ask.png" alt="Ask"></a>
+        </div>
+    </section>
+</div>
 
 
 <nav class="primary-nav">
@@ -70,16 +70,18 @@
 </div>
 
 
-<header class="w-100 d-inline-flex justify-content-between align-items-center">
-    <div class="logo">
-        <a href="/" title="Raumplus">
-            <img src="img/logo.svg" alt="Raumplus">
-        </a>
-    </div>
-    <div class="d-inline-flex justify-content-end align-items-center">
-        <a class="phone mx-3" href="tel:84951911252">8&nbsp;495&nbsp;191&nbsp;12&nbsp;52</a>
-        <a class="email mx-3" href="mailto:mebel@raumplus.ru">mebel@raumplus.ru</a>
-        <a class="search mx-3" href="#"><img src="img/search.svg" alt="Search"></a>
+<header class="w-100">
+    <div class="wr-header d-inline-flex justify-content-start justify-content-sm-between align-items-center">
+        <div class="logo">
+            <a href="/" title="Raumplus">
+                <img src="img/logo.svg" alt="Raumplus">
+            </a>
+        </div>
+        <div class="d-inline-flex justify-content-end align-items-center">
+            <a class="phone d-none d-sm-inline-block mx-3" href="tel:84951911252">8&nbsp;495&nbsp;191&nbsp;12&nbsp;52</a>
+            <a class="email d-none d-sm-inline-block mx-3" href="mailto:mebel@raumplus.ru">mebel@raumplus.ru</a>
+            <a class="search mx-5 mx-sm-3" href="#"><img src="img/search.svg" alt="Search"></a>
+        </div>
     </div>
 </header>
 
@@ -176,7 +178,7 @@
 
         </div>
 
-        <div class="next-screen">
+        <div class="next-screen d-none d-sm-flex">
             <a class="next-screen__btn" href="#second-screen" title="Next Screen">
                 <img src="img/arrow-down.svg" alt="Scroll Down">
             </a>
@@ -210,7 +212,7 @@
                 </div>
                 <div class="form__group">
                     <button class="form__group__control button" type="submit">
-                        <span>Отправить</span>
+                        <span><span>Отправить</span></span>
                     </button>
                 </div>
             </form>
@@ -226,19 +228,19 @@
                         <div class="slideset__content">
                             <ul class="slides">
                                 <li class="slide">
-                                    <img class="img-fluid" src="img/slides/slideset_slide.jpg" alt="Slide"
+                                    <img class="img-fluid w-100" src="img/slides/slideset_slide.jpg" alt="Slide"
                                          srcset="img/slides/slideset_slide@2x.jpg 3120w, img/slides/slideset_slide@3x.jpg 4680w">
 
                                     <div class="slide__title">Любой размер за 189 000 рублей!</div>
                                 </li>
                                 <li class="slide">
-                                    <img class="img-fluid" src="img/slides/slideset_slide.jpg" alt="Slide"
+                                    <img class="img-fluid w-100" src="img/slides/slideset_slide.jpg" alt="Slide"
                                          srcset="img/slides/slideset_slide@2x.jpg 3120w, img/slides/slideset_slide@3x.jpg 4680w">
 
                                     <div class="slide__title">Любой размер за 189 000 рублей!</div>
                                 </li>
                                 <li class="slide">
-                                    <img class="img-fluid" src="img/slides/slideset_slide.jpg" alt="Slide"
+                                    <img class="img-fluid w-100" src="img/slides/slideset_slide.jpg" alt="Slide"
                                          srcset="img/slides/slideset_slide@2x.jpg 3120w, img/slides/slideset_slide@3x.jpg 4680w">
 
                                     <div class="slide__title">Любой размер за 189 000 рублей!</div>
@@ -246,15 +248,24 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="slideset__nav navigator">
+                        <ul>
+                            <li><a class="prev" href="#" title="Previous"></a></li>
+                            <li><a class="page active" href="#" title="Slide 1"></a></li>
+                            <li><a class="page" href="#" title="Slide 2"></a></li>
+                            <li><a class="page" href="#" title="Slide 3"></a></li>
+                            <li><a class="next" href="#" title="Next"></a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 mt-2 mt-sm-0">
                     <div class="offer">
                         <div class="offer__media">
-                            <img class="img-fluid offer__picture" src="img/content/offers/offer_1.jpg" alt="Slide"
+                            <img class="img-fluid w-100 offer__picture" src="img/content/offers/offer_1.jpg" alt="Slide"
                                  srcset="img/content/offers/offer_1@2x.jpg 3120w, img/content/offers/offer_1@3x.jpg 4680w">
                             <div class="offer__hoverblock">
                                 <a class="button" href="#">
-                                    <span>Подробнее</span>
+                                    <span><span>Подробнее</span></span>
                                 </a>
                             </div>
                         </div>
@@ -265,28 +276,15 @@
                 <div class="col-lg-3">
                     <div class="offer">
                         <div class="offer__media">
-                            <img class="img-fluid offer__picture" src="img/content/offers/offer_2.jpg" alt="Slide"
+                            <img class="img-fluid w-100 offer__picture" src="img/content/offers/offer_2.jpg" alt="Slide"
                                  srcset="img/content/offers/offer_2@2x.jpg 3120w, img/content/offers/offer_2@3x.jpg 4680w">
                             <div class="offer__hoverblock">
                                 <a class="button" href="#">
-                                    <span>Подробнее</span>
+                                    <span><span>Подробнее</span></span>
                                 </a>
                             </div>
                         </div>
                         <a class="offer__title" href="#">Новая RPS система распашных дверей</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 pt-4">
-                    <div class="slideset__nav navigator">
-                        <ul>
-                            <li><a class="prev" href="#" title="Previous"></a></li>
-                            <li><a class="page active" href="#" title="Slide 1"></a></li>
-                            <li><a class="page" href="#" title="Slide 2"></a></li>
-                            <li><a class="page" href="#" title="Slide 3"></a></li>
-                            <li><a class="next" href="#" title="Next"></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -312,8 +310,8 @@
                     </ul>
                 </div>
 
-                <div class="catalog-bar__navbar__link">
-                    <a href="#" class="button"><span>В КАТАЛОГ</span></a>
+                <div class="catalog-bar__navbar__link d-none d-sm-block">
+                    <a href="#" class="button"><span><span>В КАТАЛОГ</span></span></a>
                 </div>
 
             </div>
@@ -349,6 +347,10 @@
                 </div>
             </div>
 
+            <div class="catalog-bar__navbar__link d-sm-none">
+                <a href="#" class="button"><span><span>В КАТАЛОГ</span></span></a>
+            </div>
+
         </div>
     </section>
 
@@ -372,23 +374,24 @@
                             <img class="img-fluid about-bar__content__heading__image" src="img/content/about/about.jpg"
                                  alt="Slide"
                                  srcset="img/content/about/about@2x.jpg 3120w, img/content/about/about@3x.jpg 4680w">
-                            <div class="about-bar__content__heading__title">
+                            <div class="about-bar__content__heading__title d-none d-sm-block">
                                 Производство<br>
                                 с комплексным<br>
                                 подходом
                             </div>
-                            <a class="about-bar__content__heading__link" href="#">Подробнее о системах Raumplus</a>
+                            <a class="about-bar__content__heading__link d-none d-sm-block" href="#">Подробнее о системах Raumplus</a>
                         </div>
                     </div>
 
                     <div class="col-lg-7">
 
-                        <div class="about-bar__content__row">
+                        <div class="about-bar__content__row d-block d-sm-flex justify-content-between">
                             <div class="about-bar__content__text">
                                 Инновационные технологические решения позволяют воплощать творческие дизайнерские
                                 замыслы и идеи, которые невозможны с серийными стандартизированными мебельными изделиями
                             </div>
-                            <div class="about-bar__content__video">
+                            <a class="about-bar__content__heading__link d-block d-sm-none" href="#">Подробнее о системах Raumplus</a>
+                            <div class="about-bar__content__video d-none d-sm-block">
                                 <a href="#">
                                     <img src="img/video-button.svg" class="btn-play"/>
 
@@ -399,7 +402,7 @@
                             </div>
                         </div>
 
-                        <div class="about-bar__content__row">
+                        <div class="about-bar__content__row about-bar__content__row__features d-block d-sm-flex justify-content-between">
                             <div class="about-bar__content__row__feature">
                                 <img src="img/cycle.svg"
                                      class="cycle">
@@ -423,6 +426,15 @@
                                 <div class="desc">лет профессиональный<br>
                                     опыт
                                 </div>
+                            </div>
+                            <div class="about-bar__content__video d-block d-sm-none">
+                                <a href="#">
+                                    <img src="img/video-button.svg" class="btn-play"/>
+
+                                    Посмотреть видео<br>
+                                    о нашем<br>
+                                    производстве
+                                </a>
                             </div>
                         </div>
 
@@ -454,7 +466,7 @@
                 </div>
                 <div class="form__group">
                     <button class="form__group__control button" type="submit">
-                        <span>Подписаться</span>
+                        <span><span>Подписаться</span></span>
                     </button>
                 </div>
             </form>
@@ -477,33 +489,33 @@
             <div class="constructor-bar__content">
 
                 <div class="row">
-                    <div class="col-lg-1"></div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 offset-lg-1">
                         <div class="constructor-bar__content__text">
-                            Каждый проект требует<br>
-                            индивидуального подхода,<br>
-                            создайте свой в нашем<br>
-                            конструкторе!
+                            Каждый проект требует индивидуального подхода, создайте свой в нашем конструкторе!
                         </div>
                         <div class="constructor-bar__content__list">
                             <ul>
-                                <li><a href="#">индвидуальный<br> размер</a></li>
+                                <li><a href="#">индивидуальный<br> размер</a></li>
                                 <li><a href="#">большой выбор<br> материалов</a></li>
                                 <li><a href="#">разнобразное<br> наполнение</a></li>
                             </ul>
                         </div>
-                        <div class="constructor-bar__content__link">
-                            <a class="button"><span>Попробовать</span></a>
+                        <div class="constructor-bar__content__link d-none d-sm-block">
+                            <a class="button"><span><span>Попробовать</span></span></a>
                         </div>
                     </div>
 
                     <div class="col-lg-7">
 
-                        <img class="img-fluid" src="img/content/constructor.jpg"
+                        <img class="img-fluid w-100" src="img/content/constructor.jpg"
                              alt="Constructor"
                              srcset="img/content/constructor@2x.jpg 3120w, img/content/constructor@3x.jpg 4680w">
-
                     </div>
+
+                    <div class="constructor-bar__content__link d-block d-sm-none">
+                        <a class="button"><span><span>Попробовать</span></span></a>
+                    </div>
+                    
                 </div>
 
             </div>
@@ -538,11 +550,10 @@
                 </div>
                 <div class="form__group">
                     <button class="form__group__control button" type="submit">
-                        <span>Отправить</span>
+                        <span><span>Отправить</span></span>
                     </button>
                 </div>
-            </form>
-
+            </form>                        
         </div>
     </section>
 
@@ -551,24 +562,24 @@
 <footer>
     <section class="footer-top">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-auto address">
+            <div class="row justify-content-between">
+                <div class="col-lg-auto address mb-3 mb-sm-0">
                     г.Одинцово, ул. Говорова, 34, оф. 2.<br>
                     Московская область, 143005
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-lg-auto mb-3 mb-sm-0">
                     <a class="phone" href="tel:8 800 500 71 93">8 800 500 71 93</a><br>
                     <span class="sub">Розница по всей России</span>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-lg-auto mb-3 mb-sm-0">
                     <a class="phone" href="tel:8 800 500 71 93">8 495 120 46 28</a><br>
                     <span class="sub">Москва и московская область</span>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-lg-auto mb-3 mb-sm-0">
                     <a class="email" href="mailto:mebel@raumplus.ru">mebel@raumplus.ru</a><br>
                     <span class="sub">По вопросам покупки</span>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-lg-auto mb-3 mb-sm-0">
                     <a class="email" href="mailto:mebel@raumplus.ru">pr@raumplus.ru</a><br>
                     <span class="sub">По вопросам сотрудничества</span>
                 </div>
@@ -659,26 +670,26 @@
     </section>
     <section class="footer-soc">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-auto">
+            <div class="row justify-content-start justify-content-sm-center">
+                <div class="col-3 col-lg-auto">
                     <a href="#"><img src="img/soc/vk.svg"></a>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-3 col-lg-auto">
                     <a href="#"><img src="img/soc/fb.svg"></a>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-3 col-lg-auto">
                     <a href="#"><img src="img/soc/insta.svg"></a>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-3 col-lg-auto">
                     <a href="#"><img src="img/soc/odnoklassniki-logo.svg"></a>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-3 col-lg-auto">
                     <a href="#"><img src="img/soc/soc-4.png"></a>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-3 col-lg-auto">
                     <a href="#"><img src="img/soc/soc-5.png"></a>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-3 col-lg-auto">
                     <a href="#"><img src="img/soc/soc-7.png"></a>
                 </div>
             </div>
@@ -691,10 +702,10 @@
                     <p>© 2009-2018 ООО «Раумплюс» <br>
                         © 2018 ИП Федосов Д.Д.</p>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <a href="#">Информация о заказе, доставке, оплате и возврате товара</a>
+                <div class="col-lg-6 text-left text-sm-center">
+                    <p><a href="#">Информация о заказе, доставке, оплате и возврате товара</a></p>
                 </div>
-                <div class="col-lg-3 text-right">
+                <div class="col-lg-3 text-left text-sm-right">
                     <p>Дизайн и разработка <a href="#">First</a></p>
                 </div>
             </div>
