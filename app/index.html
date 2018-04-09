@@ -186,36 +186,41 @@
     </section>
 
     <section id="second-screen" class="counter-bar w-100">
-        <div class="container d-inline-flex justify-content-between align-items-center nav-down">
+        <div class="container d-block d-sm-inline-flex justify-content-between align-items-center nav-down">
 
-            <div class="counter-bar__title">
-                Рассчитаем стоимость за 30 минут
+            <div class="counter-bar__title collapse-title collapsed" data-toggle="collapse" data-target="#counterBar" aria-expanded="false" aria-controls="counterBar">
+                <span>Рассчитаем стоимость за 30 минут</span>
             </div>
 
-            <form class="counter-bar__form form">
-                <div class="form__group">
-                    <input class="form__group__control" type="email" name="email" placeholder="Электронная почта">
+            <div id="counterBar" class="counter-bar__topline">
+                <div class="counter-bar__title d-sm-none collapse-title collapsed" data-toggle="collapse" data-target="#counterBar" aria-expanded="false" aria-controls="counterBar">
+                    <span></span>
                 </div>
-                <div class="form__group">
-                    <select class="form__group__control select" name="type">
-                        <option value="1">Шкаф-купе</option>
-                        <option value="2">Шкаф-купе</option>
-                        <option value="3">Шкаф-купе</option>
-                    </select>
-                </div>
-                <div class="form__group">
-                    <!--<input class="form__group__control" type="file" name="project" placeholder="Прикрепить проект"/>-->
-                    <div class="form__group__control file">
-                        <input type="file" id="project" name="project">
-                        <label class="file__label" for="project">Прикрепить проект</label>
+                <form class="counter-bar__form form">
+                    <div class="form__group">
+                        <input class="form__group__control" type="email" name="email" placeholder="Электронная почта">
                     </div>
-                </div>
-                <div class="form__group">
-                    <button class="form__group__control button" type="submit">
-                        <span><span>Отправить</span></span>
-                    </button>
-                </div>
-            </form>
+                    <div class="form__group">
+                        <select class="form__group__control select" name="type">
+                            <option value="1">Шкаф-купе</option>
+                            <option value="2">Шкаф-купе</option>
+                            <option value="3">Шкаф-купе</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <!--<input class="form__group__control" type="file" name="project" placeholder="Прикрепить проект"/>-->
+                        <div class="form__group__control file">
+                            <input type="file" id="project" name="project">
+                            <label class="file__label" for="project">Прикрепить проект</label>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <button class="form__group__control button" type="submit">
+                            <span><span>Отправить</span></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
 
     </section>
@@ -301,12 +306,12 @@
                 </div>
 
                 <div class="catalog-bar__navbar__menu">
-                    <ul>
-                        <li class="active"><a href="#">Шкафы</a></li>
-                        <li><a href="#">Гардеробные</a></li>
-                        <li><a href="#">Раздвижные двери</a></li>
-                        <li><a href="#">Комоды</a></li>
-                        <li><a href="#">Готовые проекты</a></li>
+                    <ul id="catalogLinks">
+                        <li><a class="active" id="catalogLink1" data-catid="catalogContent1">Шкафы</a></li>
+                        <li><a id="catalogLink2" data-catid="catalogContent2">Гардеробные</a></li>
+                        <li><a id="catalogLink3" data-catid="catalogContent3">Раздвижные двери</a></li>
+                        <li><a id="catalogLink4" data-catid="catalogContent4">Комоды</a></li>
+                        <li><a id="catalogLink5" data-catid="catalogContent5">Готовые проекты</a></li>
                     </ul>
                 </div>
 
@@ -317,32 +322,82 @@
             </div>
 
             <div class="catalog-bar_content">
-                <div class="slideset">
-                    <div class="slideset__content">
-                        <ul class="slides">
-                            <li class="slide">
-                                <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
-                            </li>
-                            <li class="slide">
-                                <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
-                            </li>
-                            <li class="slide">
-                                <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
-                            </li>
-                        </ul>
-                    </div>
+                    <div class="slideset">
+                            <div class="slideset__content">
+                                <ul class="slides">
+                                    <li class="slide" data-catid="catalogContent1">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent1">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent1">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent2">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent2">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent2">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent3">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent3">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent3">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent4">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent4">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent4">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent5">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent5">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                    <li class="slide" data-catid="catalogContent5">
+                                        <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
+                                             srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="slideset__nav navigator">
+                                <ul>
+<!--                                     <li><a class="prev" href="#" title="Previous"></a></li>
+                                    <li><a class="page active" href="#" title="Slide 1"></a></li>
+                                    <li><a class="page" href="#" title="Slide 2"></a></li>
+                                    <li><a class="page" href="#" title="Slide 3"></a></li>
+                                    <li><a class="next" href="#" title="Next"></a></li>   -->                                  
+                                </ul>
+                            </div>
+                        </div>
 
-                    <div class="slideset__nav navigator">
-                        <ul>
-                            <li><a class="prev" href="#" title="Previous"></a></li>
-                            <li><a class="page active" href="#" title="Slide 1"></a></li>
-                            <li><a class="page" href="#" title="Slide 2"></a></li>
-                            <li><a class="page" href="#" title="Slide 3"></a></li>
-                            <li><a class="next" href="#" title="Next"></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -449,27 +504,32 @@
     <section class="follow-bar">
         <div class="container">
 
-            <div class="follow-bar__title">
-                Подпишитесь на рассылку от Raumplus
+            <div class="follow-bar__title collapse-title" data-toggle="collapse" data-target="#followBar" aria-expanded="false" aria-controls="followBar">
+                <span>Подпишитесь на рассылку от Raumplus</span>
             </div>
 
-            <form class="follow-bar__form form">
-                <div class="form__group">
-                    <input class="form__group__control" type="email" name="email" placeholder="Электронная почта">
+            <div id="followBar" class="follow-bar__topline">
+                <div class="follow-bar__title d-sm-none collapse-title collapsed" data-toggle="collapse" data-target="#followBar" aria-expanded="false" aria-controls="followBar">
+                    <span>Подпишитесь на рассылку от Raumplus</span>
                 </div>
-                <div class="form__group">
-                    <select class="form__group__control select" name="type">
-                        <option value="1">Шкаф-купе</option>
-                        <option value="2">Шкаф-купе</option>
-                        <option value="3">Шкаф-купе</option>
-                    </select>
-                </div>
-                <div class="form__group">
-                    <button class="form__group__control button" type="submit">
-                        <span><span>Подписаться</span></span>
-                    </button>
-                </div>
-            </form>
+                <form class="follow-bar__form form">
+                    <div class="form__group">
+                        <input class="form__group__control" type="email" name="email" placeholder="Электронная почта">
+                    </div>
+                    <div class="form__group">
+                        <select class="form__group__control select" name="type">
+                            <option value="1">Шкаф-купе</option>
+                            <option value="2">Шкаф-купе</option>
+                            <option value="3">Шкаф-купе</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <button class="form__group__control button" type="submit">
+                            <span><span>Подписаться</span></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
 
         </div>
     </section>
@@ -515,7 +575,7 @@
                     <div class="constructor-bar__content__link d-block d-sm-none">
                         <a class="button"><span><span>Попробовать</span></span></a>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -523,38 +583,44 @@
         </div>
     </section>
 
-    <section class="counter-bar">
-        <div class="container d-inline-flex justify-content-between align-items-center nav-down">
+    <section class="counter-bar w-100">
+        <div class="container d-block d-sm-inline-flex justify-content-between align-items-center nav-down">
 
-            <div class="counter-bar__title">
-                Рассчитаем стоимость за 30 минут
+            <div class="counter-bar__title collapse-title collapsed" data-toggle="collapse" data-target="#counterBar2" aria-expanded="false" aria-controls="counterBar2">
+                <span>Рассчитаем стоимость за 30 минут</span>
             </div>
 
-            <form class="counter-bar__form form">
-                <div class="form__group">
-                    <input class="form__group__control" type="email" name="email" placeholder="Электронная почта">
+            <div id="counterBar2" class="counter-bar__topline">
+                <div class="counter-bar__title d-sm-none collapse-title collapsed" data-toggle="collapse" data-target="#counterBar" aria-expanded="false" aria-controls="counterBar">
+                    <span></span>
                 </div>
-                <div class="form__group">
-                    <select class="form__group__control select" name="type">
-                        <option value="1">Шкаф-купе</option>
-                        <option value="2">Шкаф-купе</option>
-                        <option value="3">Шкаф-купе</option>
-                    </select>
-                </div>
-                <div class="form__group">
-                    <!--<input class="form__group__control" type="file" name="project" placeholder="Прикрепить проект"/>-->
-                    <div class="form__group__control file">
-                        <input type="file" id="project" name="project">
-                        <label class="file__label" for="project">Прикрепить проект</label>
+                <form class="counter-bar__form form">
+                    <div class="form__group">
+                        <input class="form__group__control" type="email" name="email" placeholder="Электронная почта">
                     </div>
-                </div>
-                <div class="form__group">
-                    <button class="form__group__control button" type="submit">
-                        <span><span>Отправить</span></span>
-                    </button>
-                </div>
-            </form>                        
+                    <div class="form__group">
+                        <select class="form__group__control select" name="type">
+                            <option value="1">Шкаф-купе</option>
+                            <option value="2">Шкаф-купе</option>
+                            <option value="3">Шкаф-купе</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <!--<input class="form__group__control" type="file" name="project" placeholder="Прикрепить проект"/>-->
+                        <div class="form__group__control file">
+                            <input type="file" id="project" name="project">
+                            <label class="file__label" for="project">Прикрепить проект</label>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <button class="form__group__control button" type="submit">
+                            <span><span>Отправить</span></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
+
     </section>
 
 </main>
@@ -590,80 +656,94 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
-                    <div class="label">Основные</div>
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu1" aria-expanded="false" aria-controls="menu1">Основные</div>
 
-                    <ul>
-                        <li><a href="#">О системах</a></li>
-                        <li><a href="#">Каталог</a></li>
-                        <li><a href="#">Акции</a></li>
-                        <li><a href="#">Блог</a></li>
-                        <li><a href="#">Шоурумы</a></li>
-                        <li><a href="#">Производителям</a></li>
-                        <li><a href="#">Дизайнерам</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
+                    <div id="menu1">
+                        <ul>
+                            <li><a href="#">О системах</a></li>
+                            <li><a href="#">Каталог</a></li>
+                            <li><a href="#">Акции</a></li>
+                            <li><a href="#">Блог</a></li>
+                            <li><a href="#">Шоурумы</a></li>
+                            <li><a href="#">Производителям</a></li>
+                            <li><a href="#">Дизайнерам</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-lg-2">
-                    <div class="label">Шкафы купе</div>
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu2" aria-expanded="false" aria-controls="menu2">Шкафы купе</div>
 
-                    <ul>
-                        <li><a href="#">Шкаф купе</a></li>
-                        <li><a href="#">Шкаф купе в спальню</a></li>
-                        <li><a href="#">Угловой шкаф купе</a></li>
-                        <li><a href="#">Встроенный шкаф купе  в прихожую</a></li>
-                        <li><a href="#">Шкаф купе в прихожую</a></li>
-                        <li><a href="#">Угловой шкаф в спальню</a></li>
-                    </ul>
+                    <div id="menu2">
+                        <ul>
+                            <li><a href="#">Шкаф купе</a></li>
+                            <li><a href="#">Шкаф купе в спальню</a></li>
+                            <li><a href="#">Угловой шкаф купе</a></li>
+                            <li><a href="#">Встроенный шкаф купе 
+                        в прихожую</a></li>
+                            <li><a href="#">Шкаф купе в прихожую</a></li>
+                            <li><a href="#">Угловой шкаф
+                        в спальню</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-lg-2">
-                    <div class="label">Гардеробные</div>
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu3" aria-expanded="false" aria-controls="menu3">Гардеробные</div>
 
-                    <ul>
-                        <li><a href="#">Угловая гардеробная</a></li>
-                        <li><a href="#">Шкаф купе в детскую</a></li>
-                        <li><a href="#">Мансардные шкафы купе</a></li>
-                        <li><a href="#">Встроенная гардеробная</a></li>
-                        <li><a href="#">Гардеробные системы</a></li>
-                        <li><a href="#">Встроенные угловые гардеробные</a></li>
-                        <li><a href="#">Г-образная гардеробная</a></li>
-                        <li><a href="#">П-образная гардеробная</a></li>
-                    </ul>
+                    <div id="menu3">
+                        <ul>
+                            <li><a href="#">Угловая гардеробная</a></li>
+                            <li><a href="#">Шкаф купе в детскую</a></li>
+                            <li><a href="#">Мансардные шкафы купе</a></li>
+                            <li><a href="#">Встроенная гардеробная</a></li>
+                            <li><a href="#">Гардеробные системы</a></li>
+                            <li><a href="#">Встроенные угловые гардеробные</a></li>
+                            <li><a href="#">Г-образная гардеробная</a></li>
+                            <li><a href="#">П-образная гардеробная</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-lg-2">
-                    <div class="label">Двери</div>
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu4" aria-expanded="false" aria-controls="menu4">Двери</div>
 
-                    <ul>
-                        <li><a href="#">Раздвижные межкомнатные двери</a></li>
-                        <li><a href="#">Остекленные двери межкомнатные</a></li>
-                        <li><a href="#">Складные двери</a></li>
-                        <li><a href="#">Складные двери межкомнатные книжка</a></li>
-                    </ul>
+                    <div id="menu4">
+                        <ul>
+                            <li><a href="#">Раздвижные межкомнатные двери</a></li>
+                            <li><a href="#">Остекленные двери межкомнатные</a></li>
+                            <li><a href="#">Складные двери</a></li>
+                            <li><a href="#">Складные двери межкомнатные книжка</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-lg-2">
-                    <div class="label">Офисные
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu5" aria-expanded="false" aria-controls="menu5">Офисные
                         перегородки
                     </div>
 
-                    <ul>
-                        <li><a href="#">Офисные перегородки</a></li>
-                        <li><a href="#">Офисные перегородки с матовым стеклом</a></li>
-                        <li><a href="#">Офисные перегородки экраны</a></li>
-                        <li><a href="#">Офисные межкомнатные двери</a></li>
-                        <li><a href="#">Декоративные офисные перегородки</a></li>
-                        <li><a href="#">Комбинированные офисные перегородки</a></li>
-                    </ul>
+                    <div id="menu5">
+                        <ul>
+                            <li><a href="#">Офисные перегородки</a></li>
+                            <li><a href="#">Офисные перегородки с матовым стеклом</a></li>
+                            <li><a href="#">Офисные перегородки экраны</a></li>
+                            <li><a href="#">Офисные межкомнатные двери</a></li>
+                            <li><a href="#">Декоративные офисные перегородки</a></li>
+                            <li><a href="#">Комбинированные офисные перегородки</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-lg-2">
-                    <div class="label">Комоды</div>
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu6" aria-expanded="false" aria-controls="menu6">Комоды</div>
 
-                    <ul>
-                        <li><a href="#">Офисные перегородки</a></li>
-                        <li><a href="#">Офисные перегородки с матовым стеклом</a></li>
-                        <li><a href="#">Офисные перегородки экраны</a></li>
-                        <li><a href="#">Офисные межкомнатные двери</a></li>
-                        <li><a href="#">Декоративные офисные перегородки</a></li>
-                        <li><a href="#">Комбинированные офисные перегородки</a></li>
-                    </ul>
+                    <div id="menu6">
+                        <ul>
+                            <li><a href="#">Офисные перегородки</a></li>
+                            <li><a href="#">Офисные перегородки с матовым стеклом</a></li>
+                            <li><a href="#">Офисные перегородки экраны</a></li>
+                            <li><a href="#">Офисные межкомнатные двери</a></li>
+                            <li><a href="#">Декоративные офисные перегородки</a></li>
+                            <li><a href="#">Комбинированные офисные перегородки</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

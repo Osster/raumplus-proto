@@ -87,10 +87,6 @@
             navElement: $(".offers-bar .slideset__nav ul")
         });
 
-        $('.catalog-bar .slideset').slideset({
-            navElement: $(".catalog-bar .slideset__nav ul")
-        });
-
     });
 
 })();

@@ -2,6 +2,7 @@
 //= scripts/smoothScrolling.js
 //= scripts/topSlider.js
 //= scripts/slidesetSlider.js
+//= scripts/catalogSlider.js
 //= scripts/overlayNav.js
 
 
