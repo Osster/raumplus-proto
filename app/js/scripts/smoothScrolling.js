@@ -9,7 +9,7 @@
 
         if ($navLinks.length > 0) {
 
-            console.log('$navLinks.length', $navLinks.length);
+            //console.log('$navLinks.length', $navLinks.length);
 
             $navLinks.on("click", function(){
 

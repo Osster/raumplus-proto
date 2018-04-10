@@ -145,38 +145,11 @@ jQuery(document).ready(function($) {
 	    var desktopView = $(window).width();
 	    if(desktopView >= "768"){
 	        $(".collapse-title").attr("data-toggle","");
-	       	$('#counterBar').removeClass('collapse');
-	        $('#followBar').removeClass('collapse');
-	        $('#counterBar2').removeClass('collapse');
-	        $('#menu1').removeClass('collapse');
-	        $('#menu2').removeClass('collapse');
-	        $('#menu3').removeClass('collapse');
-	        $('#menu4').removeClass('collapse');
-	        $('#menu5').removeClass('collapse');
-	        $('#menu6').removeClass('collapse');
+	       	$('.collapsebar').removeClass('collapse');
 	    }else{
 	        $(".collapse-title").attr("data-toggle","collapse");
-	        $('#counterBar').addClass('collapse');
-	        $('#followBar').addClass('collapse');
-	        $('#counterBar2').addClass('collapse');
-	        $('#menu1').addClass('collapse');
-	        $('#menu2').addClass('collapse');
-	        $('#menu3').addClass('collapse');
-	        $('#menu4').addClass('collapse');
-	        $('#menu5').addClass('collapse');
-	        $('#menu6').addClass('collapse');
+	        $('.collapsebar').addClass('collapse');
 	    }
 	});
 
-	$(function(){
-	    adjustCollapseView();
-	    $(window).on("resize", function(){
-	        adjustCollapseView();
-	    });
-	});
-
-	$('#catalogLinks a').on('click', function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	})
 });

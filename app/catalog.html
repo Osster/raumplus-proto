@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>RAUMPLUS - PROTOTYPE ALFA VERSION</title>
+
+    <!-- styles -->
+    <!-- <link rel="stylesheet" href="css/critical.css" as="style"/> -->
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browsehappy">Вы используете <strong>УСТАРЕВШИЙ Internet Explorer</strong> браузер. Пожалуйста, <a
+        href="http://browsehappy.com/">обновите ваш Браузер</a> чтобы увидеть больше возможностей на сайтах!</p>
+<![endif]-->
+<div class="wr-menu-button">
+    <button class="menu-button" type="button">
+        <span class="sr-only">Меню</span>
+        <span class="line line-top"></span>
+        <span class="line line-middle"></span>
+        <span class="line line-bottom"></span>
+    </button>
+    <div class="menu-overlay-circle">
+        <span></span>
+    </div>
+    <div class="content-overlay-circle">
+        <span></span>
+    </div>
+</div>
+
+<div class="wr-scroll-bar">
+    <section class="scroll-bar">
+        <div class="btn-rect sun">
+            <a href="#" title="Theme Switcher Day"><img src="img/sun.svg" alt="Sun"></a>
+        </div>
+        <div class="btn-rect moon">
+            <a href="#" title="Theme Switcher Night"><img src="img/moon.svg" alt="Moon"></a>
+        </div>
+
+        <div class="btn-rect meter" data-toggle="tooltip" data-placement="left" title="Конструктор">
+            <a href="#"><img src="img/meter.png" alt="Meter"></a>
+        </div>
+        <div class="btn-rect calc" data-toggle="tooltip" data-placement="left" title="Заявка на расчет">
+            <a href="#"><img src="img/calc.png" alt="Calc"></a>
+        </div>
+
+        <div class="btn-rect ask">
+            <a href="#" title="Ask Question"><img src="img/ask.png" alt="Ask"></a>
+        </div>
+    </section>
+</div>
+
+
+<nav class="primary-nav">
+
+    <ul>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">01.</span> О системах</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">02.</span> Каталог</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">03.</span> Акции</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">04.</span> Блог</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">05.</span> Шоурумы</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">06.</span> Производителям</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">07.</span> Дизайнерам</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">08.</span> Конструктор</a></li>
+        <li><a href="#"><span class="li-line animated fadeOutLeftBig"></span><span class="counter">09.</span> Контакты</a></li>
+    </ul>
+
+</nav>
+
+
+<header class="w-100">
+    <div class="wr-header d-inline-flex justify-content-start justify-content-sm-between align-items-center">
+        <div class="logo">
+            <a href="/" title="Raumplus">
+                <img src="img/logo.svg" alt="Raumplus">
+            </a>
+        </div>
+        <div class="d-inline-flex justify-content-end align-items-center">
+            <a class="phone d-none d-sm-inline-block mx-3" href="tel:84951911252">8&nbsp;495&nbsp;191&nbsp;12&nbsp;52</a>
+            <a class="email d-none d-sm-inline-block mx-3" href="mailto:mebel@raumplus.ru">mebel@raumplus.ru</a>
+            <a class="search mx-5 mx-sm-3" href="#"><img src="img/search.svg" alt="Search"></a>
+        </div>
+    </div>
+</header>
+
+
+<main>
+    <div class="inner-page">
+        <section class="breadcrumbs">
+            <div class="container">
+                <ul>
+                    <li>Главная</li>
+                    <li class="active">Каталог</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="inner-page__header">
+            <div class="container">
+            <h1>Каталог</h1>
+        </div>
+        </div>
+        
+        <section class="catalog-inner-bar">
+            <div class="container">
+                <div class="catalog-inner-bar__navbar">
+        
+                    <div class="catalog-inner-bar__navbar__title">
+                        Шкафы
+                    </div>
+        
+                    <div class="catalog-inner-bar__navbar__menu">
+                        <ul>
+                            <li><a href="#" class="active">Шкафы-купе</a></li>
+                            <li><a href="#">Встроенные</a></li>
+                            <li><a href="#">Распашные</a></li>
+                        </ul>
+                    </div>
+        
+                </div>
+        
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="img/content/catalog/pic-1-1.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="catalog-inner-bar__content">
+                            <img src="img/content/catalog/pic-1-2.jpg" alt="">
+                            <p>Инновационные технологические решения позволяют воплощать творческие дизайнерские замыслы и идеи, которые невозможны с серийными стандартизированными мебельными изделиями и прочими нюансами для систем хранения.</p>
+                        </div>
+                        <a class="button" href="#">
+                            <span><span>Смотреть все</span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="catalog-inner-bar">
+            <div class="container">
+        
+                <div class="catalog-inner-bar__navbar">
+        
+                    <div class="catalog-inner-bar__navbar__title">
+                        Гардеробные
+                    </div>
+        
+                    <div class="catalog-inner-bar__navbar__menu">
+                        <ul>
+                            <li><a href="#" class="active">Классика</a></li>
+                            <li><a href="#">Система Uno</a></li>
+                            <li><a href="#">Система Cornice</a></li>
+                        </ul>
+                    </div>
+        
+                </div>
+        
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="catalog-inner-bar__content">
+                            <img src="img/content/catalog/pic-2-2.jpg" alt="">
+                            <p>Инновационные технологические решения позволяют воплощать творческие дизайнерские замыслы и идеи, которые невозможны с серийными стандартизированными мебельными изделиями и прочими нюансами для систем хранения.</p>
+                        </div>
+                        <a class="button" href="#">
+                            <span><span>Смотерть все</span></span>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="img/content/catalog/pic-2-1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="catalog-inner-bar">
+            <div class="container">
+                <div class="catalog-inner-bar__navbar">
+        
+                    <div class="catalog-inner-bar__navbar__title">
+                        Двери
+                    </div>
+        
+                    <div class="catalog-inner-bar__navbar__menu">
+                        <ul>
+                            <li><a href="#" class="active">Раздвижные</a></li>
+                            <li><a href="#">Складные</a></li>
+                            <li><a href="#">Подвесные</a></li>
+                        </ul>
+                    </div>
+        
+                </div>
+        
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="img/content/catalog/pic-3-1.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="catalog-inner-bar__content">
+                            <img src="img/content/catalog/pic-3-2.jpg" alt="">
+                            <p>Инновационные технологические решения позволяют воплощать творческие дизайнерские замыслы и идеи, которые невозможны с серийными стандартизированными мебельными изделиями и прочими нюансами для систем хранения.</p>
+                        </div>
+                        <a class="button" href="#">
+                            <span><span>Смотреть все</span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="catalog-inner-bar">
+            <div class="container">
+        
+                <div class="catalog-inner-bar__navbar">
+        
+                    <div class="catalog-inner-bar__navbar__title">
+                        Системы хранения
+                    </div>
+        
+                    <div class="catalog-inner-bar__navbar__menu">
+                        <ul>
+                            <li><a href="#" class="active">Напольные</a></li>
+                            <li><a href="#">Подвесные</a></li>
+                            <li><a href="#">Стеллажи</a></li>
+                        </ul>
+                    </div>
+        
+                </div>
+        
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="catalog-inner-bar__content">
+                            <img src="img/content/catalog/pic-4-2.jpg" alt="">
+                            <p>Инновационные технологические решения позволяют воплощать творческие дизайнерские замыслы и идеи, которые невозможны с серийными стандартизированными мебельными изделиями и прочими нюансами для систем хранения.</p>
+                        </div>
+                        <a class="button" href="#">
+                            <span><span>Смотерть все</span></span>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="img/content/catalog/pic-4-1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="values-bar">
+            <div class="container">
+                <div class="values-bar__title">
+                    Ценности в деталях
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="values-bar__about">
+                            <p>Успех компании в России объясняются этическими принципами ООО «Раумплюс», которые с годами остаются неизменными. Совместно с немецкими партнерами мы четко определяем сильные составляющие бренда: уровень сервиса, разнообразие ассортимента, качества всего остального и качество продукции.</p>
+                            <a href="#">Подробнее о компании</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="values-bar__quote">
+                            <p>Бескомпромиссное качество, немецкое наследие</p>
+                        </div>
+                        <div class="values-bar__text">
+                            <p>Мы ориентированы на непрерывное совершенствование технологий и прогрессивные методы работы. Команда raumplus придерживается принципов честного ведения бизнеса и корпоративной этики.</p>
+                            <p>Для нас важны следующие правила: быть справедливыми, уважительными и честными по отношению к деловым партнерам, покупателям, а так же к сотрудникам компании.</p>
+                            <p>Мы выполняем взятые на себя обязательства, выстраивая взаимовыгодные, выстраивая взаимовыгодные и долгосрочные партнерские связи.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+</main>
+
+<footer>
+    <section class="footer-top">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-auto address mb-3 mb-sm-0">
+                    г.Одинцово, ул. Говорова, 34, оф. 2.<br>
+                    Московская область, 143005
+                </div>
+                <div class="col-lg-auto mb-3 mb-sm-0">
+                    <a class="phone" href="tel:8 800 500 71 93">8 800 500 71 93</a><br>
+                    <span class="sub">Розница по всей России</span>
+                </div>
+                <div class="col-lg-auto mb-3 mb-sm-0">
+                    <a class="phone" href="tel:8 800 500 71 93">8 495 120 46 28</a><br>
+                    <span class="sub">Москва и московская область</span>
+                </div>
+                <div class="col-lg-auto mb-3 mb-sm-0">
+                    <a class="email" href="mailto:mebel@raumplus.ru">mebel@raumplus.ru</a><br>
+                    <span class="sub">По вопросам покупки</span>
+                </div>
+                <div class="col-lg-auto mb-3 mb-sm-0">
+                    <a class="email" href="mailto:mebel@raumplus.ru">pr@raumplus.ru</a><br>
+                    <span class="sub">По вопросам сотрудничества</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu1" aria-expanded="false" aria-controls="menu1">Основные</div>
+
+                    <div id="menu1" class="collapsebar">
+                        <ul>
+                            <li><a href="#">О системах</a></li>
+                            <li><a href="#">Каталог</a></li>
+                            <li><a href="#">Акции</a></li>
+                            <li><a href="#">Блог</a></li>
+                            <li><a href="#">Шоурумы</a></li>
+                            <li><a href="#">Производителям</a></li>
+                            <li><a href="#">Дизайнерам</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu2" aria-expanded="false" aria-controls="menu2">Шкафы купе</div>
+
+                    <div id="menu2" class="collapsebar">
+                        <ul>
+                            <li><a href="#">Шкаф купе</a></li>
+                            <li><a href="#">Шкаф купе в спальню</a></li>
+                            <li><a href="#">Угловой шкаф купе</a></li>
+                            <li><a href="#">Встроенный шкаф купе 
+                        в прихожую</a></li>
+                            <li><a href="#">Шкаф купе в прихожую</a></li>
+                            <li><a href="#">Угловой шкаф
+                        в спальню</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu3" aria-expanded="false" aria-controls="menu3">Гардеробные</div>
+
+                    <div id="menu3" class="collapsebar">
+                        <ul>
+                            <li><a href="#">Угловая гардеробная</a></li>
+                            <li><a href="#">Шкаф купе в детскую</a></li>
+                            <li><a href="#">Мансардные шкафы купе</a></li>
+                            <li><a href="#">Встроенная гардеробная</a></li>
+                            <li><a href="#">Гардеробные системы</a></li>
+                            <li><a href="#">Встроенные угловые гардеробные</a></li>
+                            <li><a href="#">Г-образная гардеробная</a></li>
+                            <li><a href="#">П-образная гардеробная</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu4" aria-expanded="false" aria-controls="menu4">Двери</div>
+
+                    <div id="menu4" class="collapsebar">
+                        <ul>
+                            <li><a href="#">Раздвижные межкомнатные двери</a></li>
+                            <li><a href="#">Остекленные двери межкомнатные</a></li>
+                            <li><a href="#">Складные двери</a></li>
+                            <li><a href="#">Складные двери межкомнатные книжка</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu5" aria-expanded="false" aria-controls="menu5">Офисные
+                        перегородки
+                    </div>
+
+                    <div id="menu5" class="collapsebar">
+                        <ul>
+                            <li><a href="#">Офисные перегородки</a></li>
+                            <li><a href="#">Офисные перегородки с матовым стеклом</a></li>
+                            <li><a href="#">Офисные перегородки экраны</a></li>
+                            <li><a href="#">Офисные межкомнатные двери</a></li>
+                            <li><a href="#">Декоративные офисные перегородки</a></li>
+                            <li><a href="#">Комбинированные офисные перегородки</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="label collapse-title collapsed" data-toggle="collapse" data-target="#menu6" aria-expanded="false" aria-controls="menu6">Комоды</div>
+
+                    <div id="menu6" class="collapsebar">
+                        <ul>
+                            <li><a href="#">Офисные перегородки</a></li>
+                            <li><a href="#">Офисные перегородки с матовым стеклом</a></li>
+                            <li><a href="#">Офисные перегородки экраны</a></li>
+                            <li><a href="#">Офисные межкомнатные двери</a></li>
+                            <li><a href="#">Декоративные офисные перегородки</a></li>
+                            <li><a href="#">Комбинированные офисные перегородки</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer-soc">
+        <div class="container">
+            <div class="row justify-content-start justify-content-sm-center">
+                <div class="col-3 col-lg-auto">
+                    <a href="#"><img src="img/soc/vk.svg"></a>
+                </div>
+                <div class="col-3 col-lg-auto">
+                    <a href="#"><img src="img/soc/fb.svg"></a>
+                </div>
+                <div class="col-3 col-lg-auto">
+                    <a href="#"><img src="img/soc/insta.svg"></a>
+                </div>
+                <div class="col-3 col-lg-auto">
+                    <a href="#"><img src="img/soc/odnoklassniki-logo.svg"></a>
+                </div>
+                <div class="col-3 col-lg-auto">
+                    <a href="#"><img src="img/soc/soc-4.png"></a>
+                </div>
+                <div class="col-3 col-lg-auto">
+                    <a href="#"><img src="img/soc/soc-5.png"></a>
+                </div>
+                <div class="col-3 col-lg-auto">
+                    <a href="#"><img src="img/soc/soc-7.png"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer-copy">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <p>© 2009-2018 ООО «Раумплюс» <br>
+                        © 2018 ИП Федосов Д.Д.</p>
+                </div>
+                <div class="col-lg-6 text-left text-sm-center">
+                    <p><a href="#">Информация о заказе, доставке, оплате и возврате товара</a></p>
+                </div>
+                <div class="col-lg-3 text-left text-sm-right">
+                    <p>Дизайн и разработка <a href="#">First</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<!-- styles -->
+<link rel="stylesheet" href="css/main.css" as="style"/>
+
+<!-- scripts -->
+<script type="text/javascript" src="js/main.js"></script>
+
+<script>
+    (function () {
+//        $(window).load(function () {
+//            var activeSlide = 0;
+//            var totalSlides = 0;
+//            var $slider = $(".slider-bar .slider");
+//            var $container = $(".slider-bar .slider__content");
+//            var $slides = $(".slider-bar .slider__content > .slide");
+//            var $nav = $(".slider-bar .slider__nav ul");
+//
+//            var sliderWidth = $slider.width();
+//            var containerWidth = sliderWidth * $slides.length;
+//
+//            totalSlides = $slides.length;
+//
+//            $container.css('width', containerWidth);
+//            $slides.css('width', sliderWidth);
+//
+//            $nav.html('');
+//
+//            var goToSlide = function (_ActiveSlide) {
+//                activeSlide = _ActiveSlide;
+//                var slide = $slides[activeSlide];
+//                $container.css('left', -slide.offsetLeft);
+//                $nav.find('a.page.active').removeClass('active');
+//                $(navLinks[activeSlide]).addClass('active');
+//                //console.log('slide.offsetLeft', slide.offsetLeft);
+//            };
+//
+//            if (totalSlides > 0) {
+//                $nav.append('<li><a class="prev" href="#" title="Previous"></a></li>');
+//                for (var i=0;i<$slides.length; i++) {
+//                    $nav.append('<li><a class="page" href="#" data-slide="' + i + '" title="Slide ' + i + '"></a></li>');
+//                }
+//                $nav.append('<li><a class="next" href="#" title="Next"></a></li>');
+//
+//                var navLinks = $nav.find('a.page');
+//                var navPrev = $nav.find('a.prev');
+//                var navNext = $nav.find('a.next');
+//
+//                $(navLinks[activeSlide]).addClass('active');
+//                $container.css('left', 0);
+//
+//                navLinks.on('click', function () {
+//                    activeSlide = $(this).data('slide');
+//                    goToSlide(activeSlide);
+//                    return false;
+//                });
+//
+//                navPrev.on('click', function () {
+//                    activeSlide = (activeSlide == 0) ? totalSlides-1 : activeSlide-1;
+//                    goToSlide(activeSlide);
+//                    return false;
+//                });
+//
+//                navNext.on('click', function () {
+//                    activeSlide = (activeSlide == totalSlides-1) ? 0 : activeSlide+1;
+//                    goToSlide(activeSlide);
+//                    return false;
+//                });
+//
+//                $(window).on('resize', function () {
+//                    goToSlide(activeSlide);
+//                });
+//            }
+//        });
+    })();
+</script>
+
+</body>
+</html>

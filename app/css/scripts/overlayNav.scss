@@ -14,7 +14,7 @@ $seashell: #f1f1f1;
     max-width: 1360px;
     top: 0;
     left: 50%;
-    z-index: 145;
+    z-index: 1004;
     transform: translateX(-50%);
 
 }
@@ -26,12 +26,11 @@ $seashell: #f1f1f1;
     border: none;
     background: none;
     position: fixed;
-    z-index: 100;
     right: 0;
     top: 17px;
     outline: none;
     cursor: pointer;
-    z-index: 150;
+    z-index: 1003;
 
     @include media-breakpoint-down (sm) {
         right: 5px;
@@ -87,7 +86,7 @@ $seashell: #f1f1f1;
     left: 30%;
     width: 65%;
     bottom: 0;
-    z-index: 100;
+    z-index: 1006;
     -webkit-overflow-scrolling: touch;
     opacity: 0;
     visibility: hidden;
@@ -198,7 +197,7 @@ $seashell: #f1f1f1;
 .content-overlay-circle {
     position: fixed;
     top: 23px;
-    right: 10%;
+    right: 0;
     left: auto;
     height: 4px;
     width: 4px;
@@ -225,7 +224,7 @@ $seashell: #f1f1f1;
 }
 
 .menu-overlay-circle {
-    z-index: 97;
+    z-index: 1000;
 }
 
 .menu-overlay-circle span {
@@ -233,7 +232,7 @@ $seashell: #f1f1f1;
 }
 
 .content-overlay-circle {
-    z-index: 98;
+    z-index: 1001;
 }
 
 .content-overlay-circle span {

@@ -4,22 +4,25 @@
 
         var $slider = this;
 
-        var activeCatalogSection = null;
+        var $activeMenu = null;
+        var activeCatalogSectionKey = null;
+        var catalogSections = [];
+
         var totalSlides = 0; 
-        var activeSlide = 0;
+        var activeSlideKey = 0;
         var $container = null;
         var $slides = null;
         var $nav = null;
 
-        var navLinks = null;
-        var navPrev = null;
-        var navNext = null;
+        var $navLinks = null;
+        var $navPrev = null;
+        var $navNext = null;
 
         var catalogIdInit = function () {
 
-            var catalogId = activeMenu.data('catid');
+            var catalogId = $activeMenu.data('catid');
 
-            activeSlide = 0;
+            activeSlideKey = 0;
             totalSlides = 0;
             $container = $slider.find(".slideset__content .slides");
 
@@ -35,11 +38,11 @@
         };
 
         var goToSlide = function (_ActiveSlide) {
-                activeSlide = _ActiveSlide;
-                var slide = $slides[activeSlide];
+                activeSlideKey = _ActiveSlide;
+                var slide = $slides[activeSlideKey];
                 $container.css('left', -slide.offsetLeft);
                 $nav.find('a.page.active').removeClass('active');
-                $(navLinks[activeSlide]).addClass('active');
+                $($navLinks[activeSlideKey]).addClass('active');
                 //console.log('slide.offsetLeft', slide.offsetLeft);
         };
 
@@ -62,43 +65,49 @@
         };
 
         var bindActions = function() {
-            navLinks = $nav.find('a.page');
-            navPrev = $nav.find('a.prev');
-            navNext = $nav.find('a.next');
+            $navLinks = $nav.find('a.page');
+            $navPrev = $nav.find('a.prev');
+            $navNext = $nav.find('a.next');
 
-            $(navLinks[activeSlide]).addClass('active');
+            $($navLinks[activeSlideKey]).addClass('active');
             $container.css('left', 0);
 
-            navLinks.off('click').on('click', function () {
-                activeSlide = $(this).data('slide');
-                goToSlide(activeSlide);
+            $navLinks.off('click').on('click', function () {
+                activeSlideKey = $(this).data('slide');
+                goToSlide(activeSlideKey);
                 return false;
             });
 
-            navPrev.off('click').on('click', function () {
+            $navPrev.off('click').on('click', function () {
 
-                if (activeSlide == 0) {
+                if (activeSlideKey == 0) {
                     // Переключаем каталог
-                    activeSlide = 'TODO';
-                    goToSlide(activeSlide);
+                    activeCatalogSectionKey = (activeCatalogSectionKey > 0) ? activeCatalogSectionKey-- : $catalogSections.length-1;
+                    var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
+                    switchCatalogSection(catid);
+
+                    //goToSlide(activeSlideKey);
                 } else {
-                    activeSlide = activeSlide - 1;
-                    goToSlide(activeSlide);
+                    activeSlideKey = activeSlideKey - 1;
+                    goToSlide(activeSlideKey);
                 }
 
                 return false;
             });
 
 
-            navNext.off('click').on('click', function () {
+            $navNext.off('click').on('click', function () {
 
-                if (activeSlide == totalSlides - 1) {
+                if (activeSlideKey == totalSlides - 1) {
                     // Переключаем каталог
-                    activeSlide = 'TODO';
-                    goToSlide(activeSlide);
+                    activeCatalogSectionKey = (activeCatalogSectionKey < $catalogSections.length-1) ? activeCatalogSectionKey++ : 0;
+                    var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
+                    switchCatalogSection(catid);
+
+                    //goToSlide(activeSlideKey);
                 } else {
-                    activeSlide = activeSlide + 1;
-                    goToSlide(activeSlide);
+                    activeSlideKey = activeSlideKey + 1;
+                    goToSlide(activeSlideKey);
                 }
 
                 return false;
@@ -106,31 +115,43 @@
 
             $(window).off('resize').on('resize', function () {
                 recalcSize();
-                goToSlide(activeSlide);
+                goToSlide(activeSlideKey);
             });
         };
 
-        var switchCatalogSection = function() {
-            activeCatalogSection
+        var switchCatalogSection = function(catid, callback) {
+            
+            
+            console.log('catid', catid);
+            
         };
 
 
         if ($slider.length > 0) {
 
-            var activeMenu = $('.catalog-bar .catalog-bar__navbar__menu .active');
+            $activeMenu = $('.catalog-bar .catalog-bar__navbar__menu .active');
 
-            if (activeMenu.length == 0) {
+            if ($activeMenu.length == 0) {
                 var links = $('.catalog-bar .catalog-bar__navbar__menu a');
-                activeMenu = (links.length > 0) ? $(links[0]) : null;
+                $activeMenu = (links.length > 0) ? $(links[0]) : null;
             }
 
-            if (!activeMenu) {
+            if (!$activeMenu) {
                 console.error('Error! Object Not Found.');
                 return;
             }    
 
-            activeCatalogSection = $('.catalog-bar .catalog-bar__navbar__menu .active').index( activeMenu );
-            console.log('activeCatalogSection', activeCatalogSection);
+            var $catalogSections = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a');
+
+            // Object.keys(catalogSections).map(function(k) {
+            //     catalogSections[k];
+            // });
+
+            activeCatalogSectionKey = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a').index( $activeMenu );
+            //console.log('activeCatalogSectionKey', activeCatalogSectionKey);
+
+            var dataCatId = $(this).data('catid');
+
 
             catalogIdInit();        
 
