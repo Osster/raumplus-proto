@@ -57,6 +57,16 @@ $seashell: #f1f1f1;
             bottom: -8px;
             transform: translateY(-10px) rotate(-45deg);
         }
+        &:hover {
+            .line-top {
+                top: 2px;
+                transform: rotate(35deg);
+            }
+            .line-bottom {
+                bottom: -8px;
+                transform: translateY(-10px) rotate(-35deg);
+            }
+        }
     }
 
     .line {
@@ -72,6 +82,14 @@ $seashell: #f1f1f1;
     }
     .line-bottom {
         bottom: -8px;
+    }
+    &:hover {
+        .line-top {
+            top: -10px;
+        }
+        .line-bottom {
+            bottom: -10px;
+        }
     }
 }
 
