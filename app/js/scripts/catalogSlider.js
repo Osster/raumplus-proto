@@ -82,9 +82,14 @@
 
                 if (activeSlideKey == 0) {
                     // Переключаем каталог
-                    activeCatalogSectionKey = (activeCatalogSectionKey > 0) ? activeCatalogSectionKey-- : $catalogSections.length-1;
+                    activeCatalogSectionKey = (activeCatalogSectionKey > 0) ? activeCatalogSectionKey-1 : $catalogSections.length-1;
                     var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
-                    switchCatalogSection(catid);
+
+
+                    switchCatalogSection(catid, function() {
+                        activeSlideKey = totalSlides - 1;
+                        goToSlide(activeSlideKey);
+                    });
 
                     //goToSlide(activeSlideKey);
                 } else {
@@ -98,13 +103,19 @@
 
             $navNext.off('click').on('click', function () {
 
-                if (activeSlideKey == totalSlides - 1) {
-                    // Переключаем каталог
-                    activeCatalogSectionKey = (activeCatalogSectionKey < $catalogSections.length-1) ? activeCatalogSectionKey++ : 0;
-                    var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
-                    switchCatalogSection(catid);
 
-                    //goToSlide(activeSlideKey);
+                if (activeSlideKey == (totalSlides - 1)) {
+                    // Переключаем каталог
+                    activeCatalogSectionKey = (activeCatalogSectionKey < ($catalogSections.length-1)) ? activeCatalogSectionKey+1 : 0;
+                    var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
+
+
+                    switchCatalogSection(catid, function() {
+                        activeSlideKey = 0;
+                        goToSlide(activeSlideKey);
+                    });
+
+                    //
                 } else {
                     activeSlideKey = activeSlideKey + 1;
                     goToSlide(activeSlideKey);
@@ -120,9 +131,28 @@
         };
 
         var switchCatalogSection = function(catid, callback) {
-            
-            
-            console.log('catid', catid);
+
+            var $_activeMenu = $('.catalog-bar .catalog-bar__navbar__menu a[data-catid="' + catid + '"]');
+
+                //console.log('_activeMenu', $_activeMenu);
+
+            if ($_activeMenu.length > 0) {
+                $activeMenu.removeClass('active');
+                $activeMenu = $_activeMenu;
+                $activeMenu.addClass('active');
+
+                catalogIdInit();        
+
+                if (totalSlides > 0) {
+                    refreshNav();
+                }
+
+                if (typeof callback == 'function') {
+                    callback();
+                }
+            }
+
+            //console.log('catid', catid);
             
         };
 
@@ -162,7 +192,7 @@
 
         }
 
-        console.log($slider);
+        //console.log($slider);
 
 
     };

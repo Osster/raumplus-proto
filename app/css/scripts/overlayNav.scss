@@ -19,9 +19,9 @@ $seashell: #f1f1f1;
 
 }
 .menu-button {
-    width: 56px;
-    height: 56px;
-    padding: 8px 14px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
     border-radius: 50%;
     border: none;
     background: none;
@@ -60,11 +60,13 @@ $seashell: #f1f1f1;
         &:hover {
             .line-top {
                 top: 2px;
-                transform: rotate(35deg);
+                width: 28px;
+                transform: rotate(40deg);
             }
             .line-bottom {
                 bottom: -8px;
-                transform: translateY(-10px) rotate(-35deg);
+                width: 28px;
+                transform: translateY(-10px) rotate(-40deg);
             }
         }
     }
@@ -77,6 +79,13 @@ $seashell: #f1f1f1;
         border-radius: 2px;
         transition: all 0.1s ease-in-out;
     }
+    .line-top,
+    .line-middle,
+    .line-bottom {
+        width: 28px;
+        @include transition;
+    }
+
     .line-top {
         top: -8px;
     }
@@ -85,10 +94,13 @@ $seashell: #f1f1f1;
     }
     &:hover {
         .line-top {
-            top: -10px;
+            width: 24px;
+        }
+        .line-middle {
+            width: 20px;
         }
         .line-bottom {
-            bottom: -10px;
+            width: 26px;
         }
     }
 }
