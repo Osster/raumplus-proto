@@ -8,7 +8,7 @@
         var activeCatalogSectionKey = null;
         var $catalogSections = null;
 
-        var totalSlides = 0; 
+        var totalSlides = 0;
         var activeSlideKey = 0;
         var $container = null;
         var $slides = null;
@@ -38,12 +38,12 @@
         };
 
         var goToSlide = function (_ActiveSlide) {
-                activeSlideKey = _ActiveSlide;
-                var slide = $slides[activeSlideKey];
-                $container.css('left', -slide.offsetLeft);
-                $nav.find('a.page.active').removeClass('active');
-                $($navLinks[activeSlideKey]).addClass('active');
-                //console.log('slide.offsetLeft', slide.offsetLeft);
+            activeSlideKey = _ActiveSlide;
+            var slide = $slides[activeSlideKey];
+            $container.css('left', -slide.offsetLeft);
+            $nav.find('a.page.active').removeClass('active');
+            $($navLinks[activeSlideKey]).addClass('active');
+            //console.log('slide.offsetLeft', slide.offsetLeft);
         };
 
         var recalcSize = function () {
@@ -53,7 +53,7 @@
             $slides.css('width', sliderWidth);
         };
 
-        var refreshNav = function() {
+        var refreshNav = function () {
             $nav.html('');
             $nav.append('<li><a class="prev" href="#" title="Назад"></a></li>');
             for (var i = 0; i < $slides.length; i++) {
@@ -64,7 +64,7 @@
             bindActions();
         };
 
-        var bindActions = function() {
+        var bindActions = function () {
             $navLinks = $nav.find('a.page');
             $navPrev = $nav.find('a.prev');
             $navNext = $nav.find('a.next');
@@ -75,10 +75,10 @@
             $catalogSections.off('click').on('click', function () {
                 var catid = $(this).data('catid');
                 if (catid) {
-                    console.log('Active catid', catid);
-                    console.log('$activeMenu', $activeMenu);
+                    //console.log('Active catid', catid);
+                    //console.log('$activeMenu', $activeMenu);
 
-                    switchCatalogSection(catid, function() {
+                    switchCatalogSection(catid, function () {
                         activeSlideKey = 0;
                         goToSlide(activeSlideKey);
                     });
@@ -98,11 +98,11 @@
 
                 if (activeSlideKey == 0) {
                     // Переключаем каталог
-                    activeCatalogSectionKey = (activeCatalogSectionKey > 0) ? activeCatalogSectionKey-1 : $catalogSections.length-1;
+                    activeCatalogSectionKey = (activeCatalogSectionKey > 0) ? activeCatalogSectionKey - 1 : $catalogSections.length - 1;
                     var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
 
 
-                    switchCatalogSection(catid, function() {
+                    switchCatalogSection(catid, function () {
                         activeSlideKey = totalSlides - 1;
                         goToSlide(activeSlideKey);
                     });
@@ -121,11 +121,11 @@
 
                 if (activeSlideKey == (totalSlides - 1)) {
                     // Переключаем каталог
-                    activeCatalogSectionKey = (activeCatalogSectionKey < ($catalogSections.length-1)) ? activeCatalogSectionKey+1 : 0;
+                    activeCatalogSectionKey = (activeCatalogSectionKey < ($catalogSections.length - 1)) ? activeCatalogSectionKey + 1 : 0;
                     var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
 
 
-                    switchCatalogSection(catid, function() {
+                    switchCatalogSection(catid, function () {
                         activeSlideKey = 0;
                         goToSlide(activeSlideKey);
                     });
@@ -139,24 +139,44 @@
                 return false;
             });
 
+            var xDown;
+            $slides.off('mousedown touchstart')
+                .off('mouseup touchend')
+                .on('mousedown touchstart', function (e) {
+                    var t = e.originalEvent.touches[0];
+                    xDown = t.pageX;
+                })
+                .on('mouseup touchend', function (e) {
+                    var t = e.originalEvent.changedTouches[0];
+                    var xUp = t.pageX;
+
+                    if (xDown > xUp && (xDown - xUp) > 20) {
+                        //console.log('Swiped rtl');
+                        $navNext.trigger('click');
+                    } else if (xDown < xUp && (xUp - xDown) > 20) {
+                        //console.log('Swiped ltr');
+                        $navPrev.trigger('click');
+                    }
+                });
+
             $(window).off('resize').on('resize', function () {
                 recalcSize();
                 goToSlide(activeSlideKey);
             });
         };
 
-        var switchCatalogSection = function(catid, callback) {
+        var switchCatalogSection = function (catid, callback) {
 
             var $_activeMenu = $('.catalog-bar .catalog-bar__navbar__menu a[data-catid="' + catid + '"]');
 
-                //console.log('_activeMenu', $_activeMenu);
+            //console.log('_activeMenu', $_activeMenu);
 
             if ($_activeMenu.length > 0) {
                 $activeMenu.removeClass('active');
                 $activeMenu = $_activeMenu;
                 $activeMenu.addClass('active');
 
-                catalogIdInit();        
+                catalogIdInit();
 
                 if (totalSlides > 0) {
                     refreshNav();
@@ -168,7 +188,7 @@
             }
 
             //console.log('catid', catid);
-            
+
         };
 
 
@@ -192,13 +212,13 @@
             //     catalogSections[k];
             // });
 
-            activeCatalogSectionKey = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a').index( $activeMenu );
+            activeCatalogSectionKey = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a').index($activeMenu);
             //console.log('activeCatalogSectionKey', activeCatalogSectionKey);
 
             var dataCatId = $(this).data('catid');
 
 
-            catalogIdInit();        
+            catalogIdInit();
 
 
             if (totalSlides > 0) {

@@ -64,21 +64,21 @@
                 return false;
             });
 
-            var xDown, yDown;
-            $slides.on('mousedown touchstart', function (e) {
-                var t = e.originalEvent.touches[0];
-                xDown = t.pageX;
-                yDown = t.pageY;
-            })
+            var xDown;
+            $slides.off('mousedown touchstart')
+                .off('mouseup touchend')
+                .on('mousedown touchstart', function (e) {
+                    var t = e.originalEvent.touches[0];
+                    xDown = t.pageX;
+                })
                 .on('mouseup touchend', function (e) {
                     var t = e.originalEvent.changedTouches[0];
                     var xUp = t.pageX;
-                    var yUp = t.pageY;
 
                     if (xDown > xUp && (xDown - xUp) > 20) {
                         console.log('Swiped rtl');
                         navNext.trigger('click');
-                    } else if(xDown < xUp && (xUp - xDown) > 20) {
+                    } else if (xDown < xUp && (xUp - xDown) > 20) {
                         console.log('Swiped ltr');
                         navPrev.trigger('click');
                     }

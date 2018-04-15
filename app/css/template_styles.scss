@@ -1,5 +1,4 @@
 @import "mixins";
-
 // Import Fonts
 @import "webfonts";
 @import url('https://fonts.googleapis.com/css?family=Cousine:400,700&subset=cyrillic-ext');
@@ -18,8 +17,21 @@ button:focus {
 .svg-fill {
   fill: $color_black;
 }
+
 .svg-stroke {
-  stroke:$color_black;
+  stroke: $color_black;
+}
+
+@keyframes secondScreenBtnAnimation {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 10px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 header {
@@ -61,7 +73,7 @@ header {
     width: 20px;
     height: 20px;
     object-fit: contain;
-    margin-left: 20px;
+    margin: 0 20px;
     @include transition;
 
     &:hover {
@@ -132,6 +144,12 @@ main {
       background-image: url("/img/next-section-bg.svg");
       height: 62px;
       width: 151px;
+      &:hover {
+        svg {
+          animation: secondScreenBtnAnimation 2s infinite;
+          position: relative;
+        }
+      }
     }
   }
 
@@ -360,7 +378,7 @@ main {
               text-align: left;
               text-decoration: none;
               text-transform: uppercase;
-              color: #909090;
+              color: $color_gray_lt;
               position: relative;
               display: block;
               transition: color 0.6s ease;
@@ -617,7 +635,7 @@ main {
         line-height: 1.13;
         letter-spacing: normal;
         text-align: center;
-        color: #909090;
+        color: $color_gray_lt;
         width: 245px;
         margin-left: 80px;
 
@@ -627,7 +645,7 @@ main {
         }
 
         a {
-          color: #909090;
+          color: $color_gray_lt;
           display: flex;
           flex-flow: column nowrap;
           align-items: center;
@@ -823,7 +841,7 @@ main {
           li {
             list-style: none;
             margin-bottom: 25px;
-            margin-left: 60px;
+            margin-left: 50px;
             position: relative;
             @include media-breakpoint-down (sm) {
               margin-left: 20px;
@@ -870,6 +888,7 @@ main {
         justify-content: flex-end;
         padding-right: 130px;
         position: relative;
+        left: -15px;
 
         @include media-breakpoint-down (sm) {
           padding-right: 0;
@@ -879,11 +898,11 @@ main {
         &:after {
           position: absolute;
           content: '';
-          width: 166px;
+          width: 208px;
           height: 1px;
           background: #9b9b9b;
-          right: -30px;
-          top: 50%;
+          right: -45px;
+          top: calc(50% - 1px);
 
           @include media-breakpoint-down (sm) {
             display: none;
@@ -932,6 +951,10 @@ main {
 
       img {
         object-fit: cover;
+      }
+
+      a {
+        text-decoration: none;
       }
     }
   }
@@ -1018,7 +1041,7 @@ main {
         line-height: 1.29;
         letter-spacing: normal;
         text-align: left;
-        color: #909090;
+        color: $color_gray_lt;
         margin: 0 10px 6px;
       }
 
@@ -1083,7 +1106,7 @@ main {
         line-height: 1.13;
         letter-spacing: normal;
         text-align: left;
-        color: #909090;
+        color: $color_gray_lt;
         margin: 70px 0 0;
         @include transition;
 
@@ -1119,7 +1142,7 @@ footer {
   }
 
   .footer-top {
-    border: 1px solid #909090;
+    border: 1px solid $color_gray_lt;
     border-left: none;
     border-right: none;
     padding: 14px 0;
@@ -1143,7 +1166,7 @@ footer {
       line-height: 1;
       letter-spacing: normal;
       text-align: left;
-      color: #909090;
+      color: $color_gray_lt;
 
       .address {
         font-size: 14px;
@@ -1307,7 +1330,7 @@ footer {
     }
 
     .container {
-      border: 1px solid #909090;
+      border: 1px solid $color_gray_lt;
       border-left: none;
       border-right: none;
       padding-top: 28px;
@@ -1329,12 +1352,20 @@ footer {
       }
     }
 
-    a:hover {
-      img {
-        @include transition;
-        transform: scale(1.15);
+    a {
+      svg {
+        fill: $color_gray_lt;
+      }
+
+      &:hover {
+        svg {
+          @include transition;
+          transform: scale(1.15);
+          fill: darken($color_gray_lt, 10%);
+        }
       }
     }
+
   }
 
   .footer-copy {
@@ -1704,12 +1735,12 @@ footer {
       a {
         font-size: 14px;
         line-height: 1.29;
-        color: #909090;
+        color: $color_gray_lt;
       }
 
       &:after {
         content: "/";
-        color: #909090;
+        color: $color_gray_lt;
         display: inline-block;
         margin: 0 5px;
       }
@@ -1804,7 +1835,7 @@ footer {
             text-align: left;
             text-decoration: none;
             text-transform: uppercase;
-            color: #909090;
+            color: $color_gray_lt;
             position: relative;
             display: block;
             transition: color 0.6s ease;
@@ -1932,13 +1963,13 @@ footer {
 
 .tm-night {
   background-color: $color_black !important;
-  color: $color_white;
+  color: $color_white !important;
 
   .svg-fill {
     fill: $color_white !important;
   }
   .svg-stroke {
-    stroke:$color_white !important;
+    stroke: $color_white !important;
   }
 
   .wr-scroll-bar {
@@ -1947,6 +1978,24 @@ footer {
         background-color: $color_white;
       }
     }
+  }
+
+  .button {
+    color: $color_white;
+    > span {
+      background-color: $color_gray;
+      border: solid 1px darken($color_gray, 10%);
+    }
+  }
+
+  .nav-float {
+    background-color: $color_gray;
+  }
+
+  .form__group__control {
+    background-color: $color_gray;
+    border-color: $color_gray;
+    color: $color_white;
   }
 
   header {
@@ -1969,13 +2018,31 @@ footer {
       .slide {
         .txt-bar {
           background-color: $color_gray;
+          color: $color_gray_lt;
+
+          .line-1 {
+            color: $color_white;
+          }
+
+          .txt-bar-link {
+            &:hover {
+              color: $color_white;
+            }
+          }
         }
+      }
+    }
+
+    .slideset {
+      color: $color_gray_lt;
+      a, .slide__title {
+        color: $color_gray_lt;
       }
     }
 
     .catalog-bar__navbar__menu {
       ul {
-        li{
+        li {
           &:hover {
             a {
               color: $color_gray;
@@ -1993,17 +2060,65 @@ footer {
         background-image: radial-gradient(ellipse at 75% top, $color_gray 10%, transparent 60%, transparent 100%);
       }
     }
+
+    .about-bar {
+      &__navbar {
+        &__title {
+          color: $color_gray_lt;
+        }
+      }
+      &__content {
+        &__text {
+          color: $color_gray_lt;
+        }
+        &__row {
+          &__feature {
+            .value, .desc {
+              color: $color_gray_lt;
+            }
+          }
+        }
+      }
+    }
+
+    .constructor-bar__navbar__title, .about-bar__navbar__title, .catalog-bar__navbar__title {
+      color: $color_gray_lt;
+    }
+
   }
 
-  .button {
-    color: $color_white;
-    > span {
-      background-color: $color_gray;
-      border: solid 1px darken($color_gray, 10%);
+  footer {
+    a {
+      color: $color_gray_lt;
+    }
+
+    .footer-menu {
+      ul {
+        li {
+          a {
+            color: $color_gray_lt;
+          }
+        }
+      }
+    }
+    .footer-top {
+      .row {
+        .email, .phone {
+          color: $color_gray_lt;
+        }
+      }
     }
   }
 
-  .nav-float {
-    background-color: $color_gray;
+  .follow-bar, .counter-bar {
+    background-color: $color_gray_lt;
+    color: $color_white;
+
+    &__title {
+      color: $color_white;
+      &:before {
+        border-color: $color_white;
+      }
+    }
   }
 }
