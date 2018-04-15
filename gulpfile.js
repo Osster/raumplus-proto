@@ -105,21 +105,23 @@ gulp.task('css:build', function () {
 });
 
 gulp.task('css:critical', function () {
-    critical.generate({
-        inline: false,
-        base: path.dist.html,
-        src: 'index.html',
-        css: [path.dist.html + 'css/main.css'],
-        dest: 'css/critical.css',
-        dimensions: [{
-            height: 568,
-            width: 320
-        }, {
-            width: 1560,
-            height: 900
-        }]
+    setTimeout(function () {
+        critical.generate({
+            inline: false,
+            base: path.dist.html,
+            src: 'index.html',
+            css: [path.dist.html + 'css/main.css'],
+            dest: 'css/critical.css',
+            dimensions: [{
+                height: 568,
+                width: 320
+            }, {
+                width: 1560,
+                height: 900
+            }]
 
-    });
+        });
+    }, 500);
 });
 
 // сборка js

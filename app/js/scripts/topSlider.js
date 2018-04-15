@@ -1,4 +1,3 @@
-
 (function () {
     $(window).load(function () {
         var activeSlide = 0;
@@ -35,7 +34,7 @@
 
         if (totalSlides > 0) {
             $nav.append('<li><a class="prev" href="#" title="Назад"></a></li>');
-            for (var i=0;i<$slides.length; i++) {
+            for (var i = 0; i < $slides.length; i++) {
                 $nav.append('<li><a class="page" href="#" data-slide="' + i + '" title="Слайд ' + i + '"></a></li>');
             }
             $nav.append('<li><a class="next" href="#" title="Далее"></a></li>');
@@ -54,16 +53,36 @@
             });
 
             navPrev.on('click', function () {
-                activeSlide = (activeSlide == 0) ? totalSlides-1 : activeSlide-1;
+                activeSlide = (activeSlide == 0) ? totalSlides - 1 : activeSlide - 1;
                 goToSlide(activeSlide);
                 return false;
             });
 
             navNext.on('click', function () {
-                activeSlide = (activeSlide == totalSlides-1) ? 0 : activeSlide+1;
+                activeSlide = (activeSlide == totalSlides - 1) ? 0 : activeSlide + 1;
                 goToSlide(activeSlide);
                 return false;
             });
+
+            var xDown, yDown;
+            $slides.on('mousedown touchstart', function (e) {
+                var t = e.originalEvent.touches[0];
+                xDown = t.pageX;
+                yDown = t.pageY;
+            })
+                .on('mouseup touchend', function (e) {
+                    var t = e.originalEvent.changedTouches[0];
+                    var xUp = t.pageX;
+                    var yUp = t.pageY;
+
+                    if (xDown > xUp && (xDown - xUp) > 20) {
+                        console.log('Swiped rtl');
+                        navNext.trigger('click');
+                    } else if(xDown < xUp && (xUp - xDown) > 20) {
+                        console.log('Swiped ltr');
+                        navPrev.trigger('click');
+                    }
+                });
 
             $(window).on('resize', function () {
                 recalcSize();

@@ -4,6 +4,7 @@
 //= scripts/slidesetSlider.js
 //= scripts/catalogSlider.js
 //= scripts/overlayNav.js
+//= scripts/themeSwitcher.js
 
 
 $(document).ready(function() {

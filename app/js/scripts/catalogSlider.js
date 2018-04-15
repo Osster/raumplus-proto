@@ -6,7 +6,7 @@
 
         var $activeMenu = null;
         var activeCatalogSectionKey = null;
-        var catalogSections = [];
+        var $catalogSections = null;
 
         var totalSlides = 0; 
         var activeSlideKey = 0;
@@ -72,6 +72,22 @@
             $($navLinks[activeSlideKey]).addClass('active');
             $container.css('left', 0);
 
+            $catalogSections.off('click').on('click', function () {
+                var catid = $(this).data('catid');
+                if (catid) {
+                    console.log('Active catid', catid);
+                    console.log('$activeMenu', $activeMenu);
+
+                    switchCatalogSection(catid, function() {
+                        activeSlideKey = 0;
+                        goToSlide(activeSlideKey);
+                    });
+                } else {
+                    console.error('Active Section Data Not Set');
+                }
+                return false;
+            });
+
             $navLinks.off('click').on('click', function () {
                 activeSlideKey = $(this).data('slide');
                 goToSlide(activeSlideKey);
@@ -99,7 +115,6 @@
 
                 return false;
             });
-
 
             $navNext.off('click').on('click', function () {
 
@@ -159,7 +174,9 @@
 
         if ($slider.length > 0) {
 
-            $activeMenu = $('.catalog-bar .catalog-bar__navbar__menu .active');
+            $catalogSections = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a');
+
+            $activeMenu = $catalogSections.parent().find('.active');
 
             if ($activeMenu.length == 0) {
                 var links = $('.catalog-bar .catalog-bar__navbar__menu a');
@@ -169,9 +186,7 @@
             if (!$activeMenu) {
                 console.error('Error! Object Not Found.');
                 return;
-            }    
-
-            var $catalogSections = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a');
+            }
 
             // Object.keys(catalogSections).map(function(k) {
             //     catalogSections[k];
