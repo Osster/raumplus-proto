@@ -11299,12 +11299,6 @@ img:focus,
 button:focus {
   outline: none; }
 
-.svg-fill {
-  fill: #000000; }
-
-.svg-stroke {
-  stroke: #000000; }
-
 @-webkit-keyframes secondScreenBtnAnimation {
   0% {
     top: 0px; }
@@ -11373,7 +11367,9 @@ header {
       -webkit-transform: rotate(-15deg) scale(1.15);
               transform: rotate(-15deg) scale(1.15); }
     header .search svg {
-      padding: 2px; }
+      padding: 2px;
+      stroke: #000000;
+      fill: #000000; }
   header .menu-icon {
     width: 28px;
     height: 18px;
@@ -11779,6 +11775,8 @@ main {
       main .about-bar__content__row__feature {
         text-align: center;
         margin: 45px 0; }
+        main .about-bar__content__row__feature svg {
+          fill: #000000; }
         main .about-bar__content__row__feature .value {
           font-size: 48px;
           font-weight: normal;
@@ -11840,18 +11838,20 @@ main {
               justify-content: space-between;
           text-decoration: none;
           transition: all .3s ease-in-out; }
-          main .about-bar__content__video a img {
-            width: 43px;
-            height: 43px;
+          main .about-bar__content__video a .btn-play {
+            width: 54px;
+            height: 54px;
             object-fit: contain;
-            margin-bottom: 10px;
+            stroke: #909090;
             transition: all .3s ease-in-out; }
         main .about-bar__content__video:hover a {
           text-decoration: none;
           color: #000; }
-          main .about-bar__content__video:hover a img {
-            -webkit-transform: scale(1.2);
-                    transform: scale(1.2); }
+          main .about-bar__content__video:hover a .btn-play {
+            -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+            stroke: #000000;
+            stroke-width: 6px; }
   main .follow-bar {
     background-color: #f5f5f5;
     text-align: center; }
@@ -12115,7 +12115,7 @@ main {
     text-align: center; }
     main .slide .txt-bar {
       position: absolute;
-      top: 180px;
+      top: calc(42% - 245px);
       left: 90px;
       width: 680px;
       height: 490px;
@@ -12123,6 +12123,9 @@ main {
       background-color: #f5f5f5;
       padding: 51px 65px;
       text-align: left; }
+      @media (max-width: 1280px) {
+        main .slide .txt-bar {
+          top: calc(50% - 245px); } }
       @media (max-width: 767.98px) {
         main .slide .txt-bar {
           position: relative;
@@ -12186,7 +12189,10 @@ main {
             line-height: 1.57;
             margin: 10px 70px 10px 0; } }
       main .slide .txt-bar .txt-bar-link {
-        display: inline-block;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -ms-flex-align: center;
+            align-items: center;
         font-size: 16px;
         font-weight: 300;
         font-style: normal;
@@ -12201,17 +12207,22 @@ main {
           main .slide .txt-bar .txt-bar-link {
             margin-top: 0; } }
         main .slide .txt-bar .txt-bar-link .video-button {
-          width: 49px;
-          height: 49px;
+          width: 54px;
+          height: 54px;
           object-fit: contain;
-          margin-right: 15px;
+          margin-right: 5px;
+          stroke: #909090;
           transition: all .3s ease-in-out; }
+        main .slide .txt-bar .txt-bar-link > span {
+          margin-top: 4px; }
         main .slide .txt-bar .txt-bar-link:hover {
           text-decoration: none;
           color: #000; }
           main .slide .txt-bar .txt-bar-link:hover .video-button {
-            -webkit-transform: scale(1.2);
-                    transform: scale(1.2); }
+            -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+            stroke: #909090;
+            stroke-width: 6px; }
 
 footer {
   padding: 80px 0 0; }
@@ -12881,10 +12892,6 @@ footer {
 .tm-night {
   background-color: #000000 !important;
   color: #ffffff !important; }
-  .tm-night .svg-fill {
-    fill: #ffffff !important; }
-  .tm-night .svg-stroke {
-    stroke: #ffffff !important; }
   .tm-night .wr-scroll-bar .menu-button .line {
     background-color: #ffffff; }
   .tm-night .button {
@@ -12898,34 +12905,59 @@ footer {
     background-color: #3f3f3f;
     border-color: #3f3f3f;
     color: #ffffff; }
+    .tm-night .form__group__control.file .file__label {
+      color: #ffffff; }
   .tm-night header .logo svg {
     fill: #ffffff; }
   .tm-night header .phone, .tm-night header .email {
     color: #ffffff; }
     .tm-night header .phone:after, .tm-night header .email:after {
       background-color: #ffffff; }
+  .tm-night header svg {
+    fill: #ffffff;
+    stroke: #ffffff; }
   .tm-night main .slider .slide .txt-bar {
     background-color: #3f3f3f;
     color: #909090; }
     .tm-night main .slider .slide .txt-bar .line-1 {
       color: #ffffff; }
+    .tm-night main .slider .slide .txt-bar .txt-bar-link .video-button {
+      stroke: #ffffff !important; }
     .tm-night main .slider .slide .txt-bar .txt-bar-link:hover {
       color: #ffffff; }
   .tm-night main .slideset {
     color: #909090; }
     .tm-night main .slideset a, .tm-night main .slideset .slide__title {
       color: #909090; }
+  .tm-night main .catalog-bar__navbar__menu ul li a {
+    color: #909090; }
   .tm-night main .catalog-bar__navbar__menu ul li:hover a {
-    color: #3f3f3f; }
+    color: #ffffff; }
+    .tm-night main .catalog-bar__navbar__menu ul li:hover a:after {
+      background-color: #ffffff; }
   .tm-night main .catalog-bar__navbar__menu ul li .active {
-    color: #3f3f3f; }
+    color: #ffffff; }
+    .tm-night main .catalog-bar__navbar__menu ul li .active:after {
+      background-color: #ffffff; }
   .tm-night main .slider-bar .gradient-box {
     background-image: radial-gradient(ellipse at 75% top, #3f3f3f 10%, transparent 60%, transparent 100%); }
   .tm-night main .about-bar__navbar__title {
     color: #909090; }
+  .tm-night main .about-bar__content__heading__title {
+    color: #909090; }
   .tm-night main .about-bar__content__text {
     color: #909090; }
   .tm-night main .about-bar__content__row__feature .value, .tm-night main .about-bar__content__row__feature .desc {
+    color: #909090; }
+  .tm-night main .about-bar__content__row__feature svg {
+    fill: #909090; }
+  .tm-night main .about-bar__content__video a .btn-play {
+    stroke: #ffffff; }
+  .tm-night main .about-bar__content__video a:hover {
+    color: #ffffff; }
+  .tm-night main .constructor-bar__content__text {
+    color: #909090; }
+  .tm-night main .constructor-bar__content__list {
     color: #909090; }
   .tm-night main .constructor-bar__navbar__title, .tm-night main .about-bar__navbar__title, .tm-night main .catalog-bar__navbar__title {
     color: #909090; }

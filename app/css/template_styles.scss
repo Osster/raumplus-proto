@@ -14,14 +14,6 @@ button:focus {
   outline: none;
 }
 
-.svg-fill {
-  fill: $color_black;
-}
-
-.svg-stroke {
-  stroke: $color_black;
-}
-
 @keyframes secondScreenBtnAnimation {
   0% {
     top: 0px;
@@ -82,6 +74,8 @@ header {
 
     svg {
       padding: 2px;
+      stroke: $color_black;
+      fill: $color_black;
     }
   }
 
@@ -584,6 +578,10 @@ main {
           text-align: center;
           margin: 45px 0;
 
+          svg {
+            fill: $color_black;
+          }
+
           .value {
             font-size: 48px;
             font-weight: normal;
@@ -653,11 +651,11 @@ main {
           text-decoration: none;
           @include transition;
 
-          img {
-            width: 43px;
-            height: 43px;
+          .btn-play {
+            width: 54px;
+            height: 54px;
             object-fit: contain;
-            margin-bottom: 10px;
+            stroke: $color_gray_lt;
             @include transition;
           }
         }
@@ -665,8 +663,10 @@ main {
         &:hover a {
           text-decoration: none;
           color: #000;
-          img {
-            transform: scale(1.2);
+          .btn-play {
+            transform: scale(1.1);
+            stroke: $color_black;
+            stroke-width: 6px;
           }
         }
       }
@@ -1014,7 +1014,7 @@ main {
 
     .txt-bar {
       position: absolute;
-      top: 180px;
+      top: calc(42% - 245px);
       left: 90px;
       width: 680px;
       height: 490px;
@@ -1022,6 +1022,10 @@ main {
       background-color: #f5f5f5;
       padding: 51px 65px;
       text-align: left;
+
+      @media(max-width: 1280px) {
+        top: calc(50% - 245px);
+      }
 
       @include media-breakpoint-down (sm) {
         position: relative;
@@ -1098,7 +1102,8 @@ main {
       }
 
       .txt-bar-link {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         font-size: 16px;
         font-weight: 300;
         font-style: normal;
@@ -1115,18 +1120,25 @@ main {
         }
 
         .video-button {
-          width: 49px;
-          height: 49px;
+          width: 54px;
+          height: 54px;
           object-fit: contain;
-          margin-right: 15px;
+          margin-right: 5px;
+          stroke: $color_gray_lt;
           @include transition;
+        }
+
+        > span {
+          margin-top: 4px;
         }
 
         &:hover {
           text-decoration: none;
           color: #000;
           .video-button {
-            transform: scale(1.2);
+            transform: scale(1.1);
+            stroke: $color_gray_lt;
+            stroke-width: 6px;
           }
         }
       }
@@ -1965,13 +1977,6 @@ footer {
   background-color: $color_black !important;
   color: $color_white !important;
 
-  .svg-fill {
-    fill: $color_white !important;
-  }
-  .svg-stroke {
-    stroke: $color_white !important;
-  }
-
   .wr-scroll-bar {
     .menu-button {
       .line {
@@ -1996,6 +2001,12 @@ footer {
     background-color: $color_gray;
     border-color: $color_gray;
     color: $color_white;
+
+    &.file {
+      .file__label {
+        color: $color_white;
+      }
+    }
   }
 
   header {
@@ -2011,6 +2022,11 @@ footer {
         background-color: $color_white;
       }
     }
+
+    svg {
+      fill: $color_white;
+      stroke: $color_white;
+    }
   }
 
   main {
@@ -2025,10 +2041,16 @@ footer {
           }
 
           .txt-bar-link {
+
+            .video-button {
+              stroke: $color_white !important;
+            }
             &:hover {
               color: $color_white;
             }
           }
+
+
         }
       }
     }
@@ -2043,13 +2065,22 @@ footer {
     .catalog-bar__navbar__menu {
       ul {
         li {
+          a {
+            color: $color_gray_lt;
+          }
           &:hover {
             a {
-              color: $color_gray;
+              color: $color_white;
+              &:after {
+                background-color: $color_white;
+              }
             }
           }
           .active {
-            color: $color_gray;
+            color: $color_white;
+            &:after {
+              background-color: $color_white;
+            }
           }
         }
       }
@@ -2068,6 +2099,11 @@ footer {
         }
       }
       &__content {
+        &__heading{
+          &__title {
+            color: $color_gray_lt;
+          }
+        }
         &__text {
           color: $color_gray_lt;
         }
@@ -2076,7 +2112,31 @@ footer {
             .value, .desc {
               color: $color_gray_lt;
             }
+            svg {
+              fill: $color_gray_lt;
+            }
           }
+        }
+        &__video {
+          a {
+            .btn-play {
+              stroke: $color_white;
+            }
+            &:hover {
+              color: $color_white;
+            }
+          }
+        }
+      }
+    }
+
+    .constructor-bar{
+      &__content{
+        &__text {
+          color: $color_gray_lt;
+        }
+        &__list {
+          color: $color_gray_lt;
         }
       }
     }

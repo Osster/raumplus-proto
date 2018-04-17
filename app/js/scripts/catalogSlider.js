@@ -18,6 +18,8 @@
         var $navPrev = null;
         var $navNext = null;
 
+        var scrollBreakpoint = 100;
+
         var catalogIdInit = function () {
 
             var catalogId = $activeMenu.data('catid');
@@ -150,10 +152,10 @@
                     var t = e.originalEvent.changedTouches[0];
                     var xUp = t.pageX;
 
-                    if (xDown > xUp && (xDown - xUp) > 20) {
+                    if (xDown > xUp && (xDown - xUp) > scrollBreakpoint) {
                         //console.log('Swiped rtl');
                         $navNext.trigger('click');
-                    } else if (xDown < xUp && (xUp - xDown) > 20) {
+                    } else if (xDown < xUp && (xUp - xDown) > scrollBreakpoint) {
                         //console.log('Swiped ltr');
                         $navPrev.trigger('click');
                     }
