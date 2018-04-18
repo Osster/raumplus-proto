@@ -17,8 +17,6 @@
 //= ../../node_modules/bootstrap/js/dist/tooltip.js
 //= ../../node_modules/bootstrap/js/dist/popover.js
 
-// Импортируем необходимые js-файлы lightslider
-//= ../../node_modules/lightslider/dist/js/lightslider.js
 
 // Импортируем библиотеки для работы с формами
 //= ../../node_modules/jquery-mask-plugin/dist/jquery.mask.js

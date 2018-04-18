@@ -7,8 +7,10 @@
         var $activeMenu = null;
         var activeCatalogSectionKey = null;
         var $catalogSections = null;
+        var $dropDownMenu = null;
 
         var totalSlides = 0;
+        var totalActiveSlides = 0;
         var activeSlideKey = 0;
         var $container = null;
         var $slides = null;
@@ -21,22 +23,25 @@
         var scrollBreakpoint = 100;
 
         var catalogIdInit = function () {
-
             var catalogId = $activeMenu.data('catid');
 
             activeSlideKey = 0;
             totalSlides = 0;
+            totalActiveSlides = 0;
+            totalActiveSlides = 0;
             $container = $slider.find(".slideset__content .slides");
 
             $slides = $slider.find('.slideset__content .slide[data-catid="' + catalogId + '"]');
             $nav = (typeof args.navElement != 'undefined' && args.navElement.length > 0) ? $(args.navElement) : $slider.find(".catalog-bar .slideset__nav ul");
 
-            $slides.removeClass('d-none');
-            $slider.find('.slideset__content .slide[data-catid!="' + catalogId + '"]').addClass('d-none');
+            $slides.removeClass('inactive');
+            $slider.find('.slideset__content .slide[data-catid!="' + catalogId + '"]').addClass('inactive');
 
-            totalSlides = $slides.length;
+            totalActiveSlides = $slides.length;
+            totalSlides = $slider.find('.slideset__content .slide').length;
 
             recalcSize();
+            dropDownMenuInit();
         };
 
         var goToSlide = function (_ActiveSlide) {
@@ -52,7 +57,7 @@
             var sliderWidth = $slider.width();
             var containerWidth = sliderWidth * totalSlides;
             $container.css('width', containerWidth);
-            $slides.css('width', sliderWidth);
+            $slides.parent().find('.slide').css('width', sliderWidth);
         };
 
         var refreshNav = function () {
@@ -79,7 +84,6 @@
                 if (catid) {
                     //console.log('Active catid', catid);
                     //console.log('$activeMenu', $activeMenu);
-
                     switchCatalogSection(catid, function () {
                         activeSlideKey = 0;
                         goToSlide(activeSlideKey);
@@ -105,7 +109,7 @@
 
 
                     switchCatalogSection(catid, function () {
-                        activeSlideKey = totalSlides - 1;
+                        activeSlideKey = totalActiveSlides - 1;
                         goToSlide(activeSlideKey);
                     });
 
@@ -121,7 +125,7 @@
             $navNext.off('click').on('click', function () {
 
 
-                if (activeSlideKey == (totalSlides - 1)) {
+                if (activeSlideKey == (totalActiveSlides - 1)) {
                     // Переключаем каталог
                     activeCatalogSectionKey = (activeCatalogSectionKey < ($catalogSections.length - 1)) ? activeCatalogSectionKey + 1 : 0;
                     var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
@@ -178,9 +182,11 @@
                 $activeMenu = $_activeMenu;
                 $activeMenu.addClass('active');
 
+                activeCatalogSectionKey = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a').index($activeMenu);
+
                 catalogIdInit();
 
-                if (totalSlides > 0) {
+                if (totalActiveSlides > 0) {
                     refreshNav();
                 }
 
@@ -193,44 +199,61 @@
 
         };
 
+        var dropDownMenuInit = function () {
+            $dropDownMenu = $('.catalog-bar__navbar__dropdown');
+            $dropDownMenuSections = $dropDownMenu.find('.dropdown-item a');
+            $dropDownMenuLabel = $dropDownMenu.find('a.dropdown-toggle');
+            if ($dropDownMenu.length > 0 && $dropDownMenuSections.length > 0) {
+                $dropDownMenuSections.parent().removeClass('active');
+                var catalogId = $activeMenu.data('catid');
+                $dropDownMenuSections.parent().find('a[data-catid="' + catalogId + '"]').parent().addClass('active');
+                $dropDownMenuLabel.text($activeMenu.text());
+            }
+            $dropDownMenuSections
+                .off('click')
+                .on('click', function () {
+                    var catid = $(this).data('catid');
+                    switchCatalogSection(catid, function () {
+                        activeSlideKey = 0;
+                        goToSlide(activeSlideKey);
+                    });
+            });
+        };
 
         if ($slider.length > 0) {
 
-            $catalogSections = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a');
+            setTimeout(function () {
+                $catalogSections = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a');
 
-            $activeMenu = $catalogSections.parent().find('.active');
+                $activeMenu = $catalogSections.parent().find('.active');
 
-            if ($activeMenu.length == 0) {
-                var links = $('.catalog-bar .catalog-bar__navbar__menu a');
-                $activeMenu = (links.length > 0) ? $(links[0]) : null;
-            }
+                if ($activeMenu.length == 0) {
+                    var links = $('.catalog-bar .catalog-bar__navbar__menu a');
+                    $activeMenu = (links.length > 0) ? $(links[0]) : null;
+                }
 
-            if (!$activeMenu) {
-                console.error('Error! Object Not Found.');
-                return;
-            }
+                if (!$activeMenu) {
+                    console.error('Error! Object Not Found.');
+                    return;
+                }
 
-            // Object.keys(catalogSections).map(function(k) {
-            //     catalogSections[k];
-            // });
+                activeCatalogSectionKey = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a').index($activeMenu);
 
-            activeCatalogSectionKey = $('.catalog-bar .catalog-bar__navbar__menu > ul > li > a').index($activeMenu);
-            //console.log('activeCatalogSectionKey', activeCatalogSectionKey);
+                var dataCatId = $(this).data('catid');
 
-            var dataCatId = $(this).data('catid');
+                catalogIdInit();
 
+                if (totalActiveSlides > 0) {
+                    refreshNav();
+                }
 
-            catalogIdInit();
-
-
-            if (totalSlides > 0) {
-                refreshNav();
-            }
+                // go to first active slide
+                if ($slides.length > 0) {
+                    goToSlide(0);
+                }
+            }, 100);
 
         }
-
-        //console.log($slider);
-
 
     };
 

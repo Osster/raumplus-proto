@@ -1,114 +1,107 @@
 (function () {
 
-    $.fn.slideset = function (args) {
+    $(document).ready(function() {
+        var $slides, $nav, $navLinks, $navPrev, $navNext, activeSlideKey;
+        var $slider = $('.offers-bar .offers_slideset .offers_slides').lightSlider({
+            autoWidth:true,
+            //loop:true,
+            slideMargin: 25,
+            slideMove:3,
+            easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+            speed:600,
+            responsive : [
+                {
+                    breakpoint:800,
+                    settings: {
+                        item:3,
+                        slideMove:1,
+                        slideMargin:6,
+                    }
+                },
+                {
+                    breakpoint:480,
+                    settings: {
+                        item:1,
+                        slideMove:1
+                    }
+                }
+            ],
+            onSliderLoad: function() {
+                $('.lightSlider').removeClass('cS-hidden');
 
-        var $slider = this;
 
-        if ($slider.length > 0) {
+                // Bind Pager To Slideset
+                //var $slider = $('.offers-bar .offers_slideset .offers_slides');
+                $slides = $('.offers_slide:not(.clone)');
+                $nav = $(".offers-bar .slideset__nav ul");
+                activeSlideKey = 0;
 
-            var activeSlide = 0;
-            var totalSlides = 0;
-            var $container = $slider.find(".slideset__content .slides");
-            var $slides = $slider.find(".slideset__content .slide");
-            var $nav = (typeof args.navElement != 'undefined' && args.navElement.length > 0) ? $(args.navElement) : $slider.find(".slideset__nav ul");
-
-            var scrollBreakpoint = 100;
-
-            totalSlides = $slides.length;
-
-            $nav.html('');
-
-            var goToSlide = function (_ActiveSlide) {
-                activeSlide = _ActiveSlide;
-                var slide = $slides[activeSlide];
-                $container.css('left', -slide.offsetLeft);
-                $nav.find('a.page.active').removeClass('active');
-                $(navLinks[activeSlide]).addClass('active');
-                //console.log('slide.offsetLeft', slide.offsetLeft);
-            };
-
-            var recalcSize = function () {
-                var sliderWidth = $slider.width();
-                var containerWidth = sliderWidth * totalSlides;
-
-                $container.css('width', containerWidth);
-                $slides.css('width', sliderWidth);
-            };
-
-            recalcSize();
-
-            if (totalSlides > 0) {
+                $nav.html('');
                 $nav.append('<li><a class="prev" href="#" title="Назад"></a></li>');
                 for (var i = 0; i < $slides.length; i++) {
                     $nav.append('<li><a class="page" href="#" data-slide="' + i + '" title="Слайд ' + i + '"></a></li>');
                 }
                 $nav.append('<li><a class="next" href="#" title="Далее"></a></li>');
 
-                var navLinks = $nav.find('a.page');
-                var navPrev = $nav.find('a.prev');
-                var navNext = $nav.find('a.next');
+                $navLinks = $nav.find('a.page');
+                $navPrev = $nav.find('a.prev');
+                $navNext = $nav.find('a.next');
 
-                $(navLinks[activeSlide]).addClass('active');
-                $container.css('left', 0);
+                $($navLinks[0]).addClass('active');
 
-                navLinks.on('click', function () {
-                    activeSlide = $(this).data('slide');
-                    goToSlide(activeSlide);
+                $navPrev.on('click', function() {
+                    $slider.goToPrevSlide();
+                    if (typeof $navLinks[activeSlideKey-1] != '') {
+                        $navLinks.removeClass('active');
+                        activeSlideKey -= 1;
+                        $navLinks[activeSlideKey].addClass('active');
+                    }
+                    return false;
+                });
+                $navNext.on('click', function() {
+                    $slider.goToNextSlide();
+                    if (typeof $navLinks[activeSlideKey+1] != '') {
+                        $navLinks.removeClass('active');
+                        activeSlideKey += 1;
+                        $navLinks[activeSlideKey].addClass('active');
+                    }
+                    return false;
+                });
+                $navLinks.on('click', function() {
+                    var slideKey = $(this).attr('data-slide');
+                    $slider.goToSlide(slideKey);
+                    activeSlideKey = slideKey;
+                    //console.log('slideKey', slideKey);
                     return false;
                 });
 
-                navPrev.on('click', function () {
-                    activeSlide = (activeSlide == 0) ? totalSlides - 1 : activeSlide - 1;
-                    goToSlide(activeSlide);
-                    return false;
-                });
-
-                navNext.on('click', function () {
-                    activeSlide = (activeSlide == totalSlides - 1) ? 0 : activeSlide + 1;
-                    goToSlide(activeSlide);
-                    return false;
-                });
-
-                var xDown;
-                $slides.off('mousedown touchstart')
-                    .off('mouseup touchend')
-                    .on('mousedown touchstart', function (e) {
-                    var t = e.originalEvent.touches[0];
-                    xDown = t.pageX;
-                })
-                    .on('mouseup touchend', function (e) {
-                        var t = e.originalEvent.changedTouches[0];
-                        var xUp = t.pageX;
-
-                        if (xDown > xUp && (xDown - xUp) > scrollBreakpoint) {
-                            console.log('Swiped rtl');
-                            navNext.trigger('click');
-                        } else if(xDown < xUp && (xUp - xDown) > scrollBreakpoint) {
-                            console.log('Swiped ltr');
-                            navPrev.trigger('click');
-                        }
-                    });
-
-                $(window).on('resize', function () {
-                    recalcSize();
-                    goToSlide(activeSlide);
-                });
+                //console.log('$slides', $slides);
+            },
+            onAfterSlide: function () {
+                var _activeSlideKey = -1;
+                var activeSlide = $slides.parent().find('.active');
+                if (activeSlide.hasClass('left')) {
+                    _activeSlideKey = $slides.length - 1;
+                }
+                if (activeSlide.hasClass('right')) {
+                    _activeSlideKey = 0;
+                }
+                if (_activeSlideKey < 0) {
+                    _activeSlideKey = $slides.index(activeSlide);
+                }
+                $navLinks.removeClass('active');
+                $($navLinks[_activeSlideKey]).addClass('active');
+                //  console.log('activeSlideKey', _activeSlideKey);
             }
-
-        }
-
-        //console.log($slider);
-
-
-    };
-
-
-    $(window).load(function () {
-
-        $('.offers-bar .slideset').slideset({
-            navElement: $(".offers-bar .slideset__nav ul")
         });
-
     });
+
+
+
+    //
+
+    //$slides.length;
+
+    //console.log('$nav', $nav);
 
 })();

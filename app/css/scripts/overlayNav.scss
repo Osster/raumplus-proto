@@ -1,10 +1,10 @@
 // Animate CSS
 @import '../../node_modules/animate.css/animate';
 
+@import '../variables';
+
 //colors
-$black: #706f6f;
 $black_90: rgba(0, 0, 0, 0.9);
-$white: #ffffff;
 $color_gray: #3f3f3f;
 $seashell: #f1f1f1;
 
@@ -48,11 +48,12 @@ $seashell: #f1f1f1;
     &:active {
       opacity: 0.6;
     }
+
     &.close-nav {
       background: none;
 
       .line {
-        background: $white;
+        background: $color_white;
       }
 
       .line-top {
@@ -60,7 +61,7 @@ $seashell: #f1f1f1;
         transform: rotate(45deg);
       }
       .line-middle {
-        background-color: transparent;
+        background-color: transparent !important;
       }
       .line-bottom {
         bottom: -8px;
@@ -83,7 +84,7 @@ $seashell: #f1f1f1;
     .line {
       display: block;
       height: 2px;
-      background: $black;
+      background: $color_gray_md;
       position: relative;
       border-radius: 2px;
       transition: all 0.1s ease-in-out;
@@ -125,7 +126,7 @@ $seashell: #f1f1f1;
       width: 40px;
       height: 40px;
       object-fit: contain;
-      background-color: #ffffff;
+      background-color: $color_white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -136,42 +137,46 @@ $seashell: #f1f1f1;
         top: 180px;
         background-color: #eaeaea;
         &.active {
-          background-color: #ffffff;
+          background-color: $color_white;
         }
 
         @include media-breakpoint-down (sm) {
-          top: calc(50% - 100px);
+          top: 15vh;
         }
       }
       &.moon {
         top: calc(180px + 40px);
         background-color: #eaeaea;
         &.active {
-          background-color: #ffffff;
+          background-color: $color_white;
         }
 
         @include media-breakpoint-down (sm) {
-          top: calc(50% - 60px);
+          top: calc(15vh + 40px);
         }
       }
       &.meter {
         top: 430px;
 
         @include media-breakpoint-down (sm) {
-          top: calc(50% + 20px);
+          top: calc(15vh + 90px);
         }
       }
       &.calc {
         top: calc(430px + 40px);
 
         @include media-breakpoint-down (sm) {
-          top: calc(50% + 60px);
+          top: calc(15vh + 131px);
         }
       }
       &.ask {
         bottom: 30px;
         background-color: #cbcbcb;
         border-radius: 50%;
+
+        @include media-breakpoint-down (sm) {
+          top: calc(15vh + 181px);
+        }
       }
     }
   }
@@ -231,8 +236,12 @@ $seashell: #f1f1f1;
         letter-spacing: 1px;
         text-align: left;
         text-transform: uppercase;
-        color: $white;
+        color: $color_white;
         transition: 0.6s ease;
+
+        @include media-breakpoint-down (sm) {
+          font-size: 20px;
+        }
 
         .counter {
           font-size: 14px;
@@ -255,7 +264,7 @@ $seashell: #f1f1f1;
           left: calc(-2050px);
           width: 2000px;
           height: 2px;
-          background-color: $white;
+          background-color: $color_white;
           animation-duration: 0.8s;
 
           &.fadeOutLeftBig {
@@ -267,10 +276,10 @@ $seashell: #f1f1f1;
         &:hover,
         &:focus,
         &.active {
-          color: $white;
+          color: $color_white;
 
           .counter {
-            color: $white;
+            color: $color_white;
           }
         }
       }
@@ -332,7 +341,7 @@ $seashell: #f1f1f1;
 }
 
 .menu-overlay-circle span {
-  background-color: #000;
+  background-color: $color_black;
 }
 
 .content-overlay-circle {
@@ -340,6 +349,6 @@ $seashell: #f1f1f1;
 }
 
 .content-overlay-circle span {
-  background-color: $white;
+  background-color: $color_white;
 }
 

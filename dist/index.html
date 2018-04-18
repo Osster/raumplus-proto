@@ -219,7 +219,7 @@
 
 <header class="w-100">
     <div class="container">
-        <div class="wr-header d-inline-flex justify-content-start justify-content-sm-between align-items-center">
+        <div class="wr-header">
             <div class="logo">
                 <a href="/" title="Raumplus">
                     <svg width="151" height="38">
@@ -289,7 +289,7 @@
             <div class="slider__content">
                 <div class="slide">
                     <img class="img-fluid" src="img/slides/slide.jpg" alt="Slide"
-                         srcset="img/slides/slide@2x.jpg 3120w, img/slides/slide@3x.jpg 4680w">
+                         srcset="img/slides/slide@2x.jpg 2x, img/slides/slide@3x.jpg 3x">
 
                     <a href="#">
                         <div class="container">
@@ -314,7 +314,7 @@
                 </div>
                 <div class="slide">
                     <img class="img-fluid" src="img/slides/slide.jpg" alt="Slide"
-                         srcset="img/slides/slide@2x.jpg 3120w, img/slides/slide@3x.jpg 4680w">
+                         srcset="img/slides/slide@2x.jpg 2x, img/slides/slide@3x.jpg 3x">
 
                     <a href="#">
                         <div class="container">
@@ -339,7 +339,7 @@
                 </div>
                 <div class="slide">
                     <img class="img-fluid" src="img/slides/slide.jpg" alt="Slide"
-                         srcset="img/slides/slide@2x.jpg 3120w, img/slides/slide@3x.jpg 4680w">
+                         srcset="img/slides/slide@2x.jpg 2x, img/slides/slide@3x.jpg 3x">
 
                     <a href="#">
                         <div class="container">
@@ -385,7 +385,7 @@
         </div>
     </section>
 
-    <section id="second-screen" class="counter-bar w-100">
+    <section id="second-screen" class="counter-bar w-100 d-none d-lg-block">
         <div class="container d-block d-sm-inline-flex justify-content-between align-items-center nav-down">
 
             <div class="counter-bar__title collapse-title collapsed" data-toggle="collapse" data-target="#counterBar"
@@ -428,133 +428,84 @@
 
     <section class="offers-bar">
         <div class="container">
-            <div class="slideset">
+            <div class="offers_slideset">
                 <div class="slideset__content">
-                    <ul class="slides">
-                        <li class="slide">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <img class="img-fluid w-100" src="img/slides/slideset_slide.jpg" alt="Slide"
-                                         srcset="img/slides/slideset_slide@2x.jpg 3120w, img/slides/slideset_slide@3x.jpg 4680w">
-
-                                    <div class="slide__title">Любой размер за 189 000 рублей!</div>
-                                </div>
-                                <div class="col-lg-3 mt-2 mt-sm-0">
-                                    <div class="offer">
-                                        <div class="offer__media">
-                                            <img class="img-fluid w-100 offer__picture"
-                                                 src="img/content/offers/offer_1.jpg" alt="Slide"
-                                                 srcset="img/content/offers/offer_1@2x.jpg 3120w, img/content/offers/offer_1@3x.jpg 4680w">
-                                            <div class="offer__hoverblock">
-                                                <a class="button" href="#">
-                                                    <span><span>Подробнее</span></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <a class="offer__title" href="#">Специальное предложение для дизайнеров и
-                                            архитекторов,
-                                            лучшее!</a>
+                    <ul class="offers_slides">
+                        <li class="offers_slide">
+                            <div class="offer lg">
+                                <div class="offer__media">
+                                    <img class="img-fluid w-100 offer__picture"
+                                         src="img/slides/slideset_slide.jpg" alt="Slide"
+                                         srcset="img/slides/slideset_slide@2x.jpg 2x, img/slides/slideset_slide@3x.jpg 3x">
+                                    <div class="offer__hoverblock">
+                                        <a class="button" href="#">
+                                            <span><span>Подробнее</span></span>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <div class="offer">
-                                        <div class="offer__media">
-                                            <img class="img-fluid w-100 offer__picture"
-                                                 src="img/content/offers/offer_2.jpg" alt="Slide"
-                                                 srcset="img/content/offers/offer_2@2x.jpg 3120w, img/content/offers/offer_2@3x.jpg 4680w">
-                                            <div class="offer__hoverblock">
-                                                <a class="button" href="#">
-                                                    <span><span>Подробнее</span></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <a class="offer__title" href="#">Новая RPS система распашных дверей</a>
-                                    </div>
-                                </div>
+                                <a class="offer__title" href="#">Любой размер за 189 000 рублей!</a>
                             </div>
                         </li>
-                        <li class="slide">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <img class="img-fluid w-100" src="img/slides/slideset_slide.jpg" alt="Slide"
-                                         srcset="img/slides/slideset_slide@2x.jpg 3120w, img/slides/slideset_slide@3x.jpg 4680w">
-
-                                    <div class="slide__title">Любой размер за 189 000 рублей!</div>
-                                </div>
-                                <div class="col-lg-3 mt-2 mt-sm-0">
-                                    <div class="offer">
-                                        <div class="offer__media">
-                                            <img class="img-fluid w-100 offer__picture"
-                                                 src="img/content/offers/offer_1.jpg" alt="Slide"
-                                                 srcset="img/content/offers/offer_1@2x.jpg 3120w, img/content/offers/offer_1@3x.jpg 4680w">
-                                            <div class="offer__hoverblock">
-                                                <a class="button" href="#">
-                                                    <span><span>Подробнее</span></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <a class="offer__title" href="#">Специальное предложение для дизайнеров и
-                                            архитекторов,
-                                            лучшее!</a>
+                        <li class="offers_slide">
+                            <div class="offer">
+                                <div class="offer__media">
+                                    <img class="img-fluid w-100 offer__picture"
+                                         src="img/content/offers/offer_1.jpg" alt="Slide"
+                                         srcset="img/content/offers/offer_1@2x.jpg 2x, img/content/offers/offer_1@3x.jpg 3x">
+                                    <div class="offer__hoverblock">
+                                        <a class="button" href="#">
+                                            <span><span>Подробнее</span></span>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <div class="offer">
-                                        <div class="offer__media">
-                                            <img class="img-fluid w-100 offer__picture"
-                                                 src="img/content/offers/offer_2.jpg" alt="Slide"
-                                                 srcset="img/content/offers/offer_2@2x.jpg 3120w, img/content/offers/offer_2@3x.jpg 4680w">
-                                            <div class="offer__hoverblock">
-                                                <a class="button" href="#">
-                                                    <span><span>Подробнее</span></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <a class="offer__title" href="#">Новая RPS система распашных дверей</a>
-                                    </div>
-                                </div>
+                                <a class="offer__title" href="#">Специальное предложение для дизайнеров и
+                                    архитекторов,
+                                    лучшее!</a>
                             </div>
                         </li>
-                        <li class="slide">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <img class="img-fluid w-100" src="img/slides/slideset_slide.jpg" alt="Slide"
-                                         srcset="img/slides/slideset_slide@2x.jpg 3120w, img/slides/slideset_slide@3x.jpg 4680w">
-
-                                    <div class="slide__title">Любой размер за 189 000 рублей!</div>
-                                </div>
-                                <div class="col-lg-3 mt-2 mt-sm-0">
-                                    <div class="offer">
-                                        <div class="offer__media">
-                                            <img class="img-fluid w-100 offer__picture"
-                                                 src="img/content/offers/offer_1.jpg" alt="Slide"
-                                                 srcset="img/content/offers/offer_1@2x.jpg 3120w, img/content/offers/offer_1@3x.jpg 4680w">
-                                            <div class="offer__hoverblock">
-                                                <a class="button" href="#">
-                                                    <span><span>Подробнее</span></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <a class="offer__title" href="#">Специальное предложение для дизайнеров и
-                                            архитекторов,
-                                            лучшее!</a>
+                        <li class="offers_slide">
+                            <div class="offer">
+                                <div class="offer__media">
+                                    <img class="img-fluid w-100 offer__picture"
+                                         src="img/content/offers/offer_2.jpg" alt="Slide"
+                                         srcset="img/content/offers/offer_2@2x.jpg 2x, img/content/offers/offer_2@3x.jpg 3x">
+                                    <div class="offer__hoverblock">
+                                        <a class="button" href="#">
+                                            <span><span>Подробнее</span></span>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <div class="offer">
-                                        <div class="offer__media">
-                                            <img class="img-fluid w-100 offer__picture"
-                                                 src="img/content/offers/offer_2.jpg" alt="Slide"
-                                                 srcset="img/content/offers/offer_2@2x.jpg 3120w, img/content/offers/offer_2@3x.jpg 4680w">
-                                            <div class="offer__hoverblock">
-                                                <a class="button" href="#">
-                                                    <span><span>Подробнее</span></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <a class="offer__title" href="#">Новая RPS система распашных дверей</a>
+                                <a class="offer__title" href="#">Новая RPS система распашных дверей</a>
+                            </div>
+                        </li>
+                        <li class="offers_slide">
+                            <div class="offer">
+                                <div class="offer__media">
+                                    <img class="img-fluid w-100 offer__picture"
+                                         src="img/content/offers/offer_2.jpg" alt="Slide"
+                                         srcset="img/content/offers/offer_2@2x.jpg 2x, img/content/offers/offer_2@3x.jpg 3x">
+                                    <div class="offer__hoverblock">
+                                        <a class="button" href="#">
+                                            <span><span>Подробнее</span></span>
+                                        </a>
                                     </div>
                                 </div>
+                                <a class="offer__title" href="#">Новая RPS система распашных дверей</a>
+                            </div>
+                        </li>
+                        <li class="offers_slide">
+                            <div class="offer">
+                                <div class="offer__media">
+                                    <img class="img-fluid w-100 offer__picture"
+                                         src="img/content/offers/offer_2.jpg" alt="Slide"
+                                         srcset="img/content/offers/offer_2@2x.jpg 2x, img/content/offers/offer_2@3x.jpg 3x">
+                                    <div class="offer__hoverblock">
+                                        <a class="button" href="#">
+                                            <span><span>Подробнее</span></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="offer__title" href="#">Новая RPS система распашных дверей</a>
                             </div>
                         </li>
                     </ul>
@@ -593,6 +544,20 @@
                     </ul>
                 </div>
 
+                <div class="catalog-bar__navbar__dropdown dropdown w-100">
+                    <a class="btn btn-outline-secondary dropdown-toggle w-100" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Шкафы
+                    </a>
+
+                    <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
+                        <li class="dropdown-item"><a data-catid="catalogContent1">Шкафы</a></li>
+                        <li class="dropdown-item"><a class="active" data-catid="catalogContent2">Гардеробные</a></li>
+                        <li class="dropdown-item"><a data-catid="catalogContent3">Раздвижные двери</a></li>
+                        <li class="dropdown-item"><a data-catid="catalogContent4">Комоды</a></li>
+                        <li class="dropdown-item"><a data-catid="catalogContent5">Готовые проекты</a></li>
+                    </ul>
+                </div>
+
                 <div class="catalog-bar__navbar__link d-none d-sm-block">
                     <a href="catalog.html" class="button"><span><span>В КАТАЛОГ</span></span></a>
                 </div>
@@ -605,78 +570,72 @@
                         <ul class="slides">
                             <li class="slide" data-catid="catalogContent1">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent1">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent1">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent1">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent2">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent2">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent2">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent3">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent3">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent3">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent4">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent4">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent4">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent5">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent5">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                             <li class="slide" data-catid="catalogContent5">
                                 <img class="img-fluid" src="img/content/products/product.jpg" alt="Slide"
-                                     srcset="img/content/products/product@2x.jpg 3120w, img/content/products/product@3x.jpg 4680w">
+                                     srcset="img/content/products/product@2x.jpg 2x, img/content/products/product@3x.jpg 3x">
                             </li>
                         </ul>
                     </div>
                     <div class="slideset__nav navigator">
-                        <ul>
-                            <!--                                     <li><a class="prev" href="#" title="Previous"></a></li>
-                                                                <li><a class="page active" href="#" title="Slide 1"></a></li>
-                                                                <li><a class="page" href="#" title="Slide 2"></a></li>
-                                                                <li><a class="page" href="#" title="Slide 3"></a></li>
-                                                                <li><a class="next" href="#" title="Next"></a></li>   -->
-                        </ul>
+                        <ul></ul>
                     </div>
                 </div>
 
@@ -710,7 +669,7 @@
                         <div class="about-bar__content__heading">
                             <img class="img-fluid about-bar__content__heading__image" src="img/content/about/about.jpg"
                                  alt="Slide"
-                                 srcset="img/content/about/about@2x.jpg 3120w, img/content/about/about@3x.jpg 4680w">
+                                 srcset="img/content/about/about@2x.jpg 2x, img/content/about/about@3x.jpg 3x">
                             <div class="about-bar__content__heading__title d-none d-sm-block">
                                 Производство<br>
                                 с комплексным<br>
@@ -771,15 +730,18 @@
                                     опыт
                                 </div>
                             </div>
-                            <div class="about-bar__content__video d-block d-sm-none">
-                                <a href="#">
-                                    <img src="img/video-button.svg" class="btn-play"/>
+                        </div>
 
-                                    Посмотреть видео<br>
+
+                        <div class="about-bar__content__video d-block d-sm-none">
+                            <a href="#">
+                                <svg width="54" height="54" class="btn-play">
+                                    <use xlink:href="#play-icon"></use>
+                                </svg>
+                                <span>Посмотреть видео<br>
                                     о нашем<br>
-                                    производстве
-                                </a>
-                            </div>
+                                    производстве</span>
+                            </a>
                         </div>
 
                     </div>
@@ -844,7 +806,7 @@
                         <div class="constructor-bar__content__text">
                             Каждый проект требует индивидуального подхода, создайте свой в нашем конструкторе!
                         </div>
-                        <div class="constructor-bar__content__list">
+                        <div class="constructor-bar__content__list d-sm-none d-lg-block">
                             <ul>
                                 <li>индивидуальный<br> размер</li>
                                 <li>большой выбор<br> материалов</li>
@@ -860,10 +822,10 @@
 
                         <img class="img-fluid w-100" src="img/content/constructor.jpg"
                              alt="Constructor"
-                             srcset="img/content/constructor@2x.jpg 3120w, img/content/constructor@3x.jpg 4680w">
+                             srcset="img/content/constructor@2x.jpg 2x, img/content/constructor@3x.jpg 3x">
                     </div>
 
-                    <div class="constructor-bar__content__link d-block d-sm-none">
+                    <div class="constructor-bar__content__link d-flex d-sm-none">
                         <a class="button"><span><span>Попробовать</span></span></a>
                     </div>
 
@@ -874,7 +836,7 @@
         </div>
     </section>
 
-    <section class="counter-bar w-100">
+    <section class="counter-bar w-100 d-none d-lg-block">
         <div class="container d-block d-sm-inline-flex justify-content-between align-items-center nav-down">
 
             <div class="counter-bar__title collapse-title collapsed" data-toggle="collapse" data-target="#counterBar2"
