@@ -13008,7 +13008,7 @@ footer {
   text-decoration: none !important;
   position: relative;
   cursor: pointer;
-  overflow-x: visible;
+  overflow: visible;
   transition: -webkit-transform 0.6s ease;
   transition: transform 0.6s ease;
   transition: transform 0.6s ease, -webkit-transform 0.6s ease;
