@@ -27,6 +27,7 @@
         vThumbWidth: 100,
         thumbItem: 10,
         pager: true,
+        pagerDirections: true,
         gallery: false,
         galleryMargin: 5,
         thumbMargin: 5,
@@ -344,7 +345,6 @@
                     var i = 0,
                         pagers = '',
                         v = 0;
-
                     for (i = 0; i < length; i++) {
                         if (settings.mode === 'slide') {
                             // calculate scene * slide value
@@ -358,14 +358,14 @@
                         if (settings.gallery === true) {
                             pagers += '<li style="width:100%;' + property + ':' + thumbWidth + 'px;' + gutter + ':' + settings.thumbMargin + 'px"><a href="#"><img src="' + thumb + '" /></a></li>';
                         } else {
-                            pagers += '<li><a class="page" href="#">' + (i + 1) + '</a></li>';
+                            pagers += '<li><a href="#">' + (i + 1) + '</a></li>';
                         }
                         if (settings.mode === 'slide') {
                             if ((v) >= w - elSize - settings.slideMargin) {
                                 i = i + 1;
                                 var minPgr = 2;
                                 if (settings.autoWidth) {
-                                    pagers += '<li><a class="page" href="#">' + (i + 1) + '</a></li>';
+                                    pagers += '<li><a href="#">' + (i + 1) + '</a></li>';
                                     minPgr = 1;
                                 }
                                 if (i < minPgr) {
@@ -378,9 +378,14 @@
                             }
                         }
                     }
-
                     var $cSouter = $slide.parent();
-                    $cSouter.find('.lSPager').html(pagers); 
+                    $cSouter.find('.lSPager').html(pagers);
+
+                    if (length > 1 && settings.pagerDirections === true) {
+                        $cSouter.find('.lSPager').prepend('<li class="prev"><a href="#">-1</a></li>');
+                        $cSouter.find('.lSPager').append('<li class="next"><a href="#">+1</a></li>');
+                    }
+
                     if (settings.gallery === true) {
                         if (settings.vertical === true) {
                             // set Gallery thumbnail width
@@ -396,11 +401,13 @@
                         }
                         $cSouter.find('.lSPager').css(property, pagerWidth + 'px');
                     }
-                    var $pager = $cSouter.find('.lSPager').find('li');
+                    var $pager = $cSouter.find('.lSPager').find('li:not(.prev):not(.next)');
+                    var $pagerNext = $cSouter.find('.lSPager').find('li.next');
+                    var $pagerPrev = $cSouter.find('.lSPager').find('li.prev');
                     $pager.first().addClass('active');
                     $pager.on('click', function () {
                         if (settings.loop === true && settings.mode === 'slide') {
-                            scene = scene + ($pager.index(this) - $cSouter.find('.lSPager').find('li.active').index());
+                            scene = scene + ($pager.index(this) - $pager.index($cSouter.find('.lSPager').find('li.active')));
                         } else {
                             scene = $pager.index(this);
                         }
@@ -408,6 +415,14 @@
                         if (settings.gallery === true) {
                             $this.slideThumb();
                         }
+                        return false;
+                    });
+                    $pagerNext.on('click', function () {
+                        $el.goToNextSlide();
+                        return false;
+                    });
+                    $pagerPrev.on('click', function () {
+                        $el.goToPrevSlide();
                         return false;
                     });
                 };
@@ -453,7 +468,7 @@
                         setCss();
                         if (!interval) {
                             $this.auto();
-                        }   
+                        }
                     }else{
                         obj.find('img').on('load', function () {
                             setTimeout(function () {
@@ -552,7 +567,7 @@
                         }, settings.speed, settings.easing);
                     }
                 }
-                var $thumb = $slide.parent().find('.lSPager').find('li');
+                var $thumb = $slide.parent().find('.lSPager').find('li:not(.prev):not(.next)');
                 this.active($thumb, true);
             },
             fade: function () {
@@ -614,14 +629,14 @@
             slideThumb: function () {
                 var position;
                 switch (settings.currentPagerPosition) {
-                case 'left':
-                    position = 0;
-                    break;
-                case 'middle':
-                    position = (elSize / 2) - (thumbWidth / 2);
-                    break;
-                case 'right':
-                    position = elSize - thumbWidth;
+                    case 'left':
+                        position = 0;
+                        break;
+                    case 'middle':
+                        position = (elSize / 2) - (thumbWidth / 2);
+                        break;
+                    case 'right':
+                        position = elSize - thumbWidth;
                 }
                 var sc = scene - $el.find('.clone.left').length;
                 var $pager = $slide.parent().find('.lSPager');
@@ -879,7 +894,7 @@
                 $(window).on('focus', function(){
                     $this.auto();
                 });
-                
+
                 $(window).on('blur', function(){
                     clearInterval(interval);
                 });
@@ -1082,7 +1097,7 @@
                 }
             }
             return sc + 1;
-        }; 
+        };
         $el.getTotalSlideCount = function () {
             return $slide.find('.lslide').length;
         };
@@ -1107,7 +1122,7 @@
                 $el.refresh = function(){};
                 $el.getCurrentSlideCount = function(){};
                 $el.getTotalSlideCount = function(){};
-                $el.goToSlide = function(){}; 
+                $el.goToSlide = function(){};
                 $el.lightSlider = null;
                 refresh = {
                     init : function(){}

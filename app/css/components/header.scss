@@ -1,0 +1,104 @@
+header {
+  text-align: center;
+
+  @include mobile-portrait() {
+    height: $header-height-mobile !important;
+    background-color: $color_white;
+  }
+  @include mobile-landscape() {
+    height: $header-height-mobile !important;
+    background-color: $color_white;
+
+    .container {
+      width: 100%;
+      max-width: 100% !important;
+    }
+  }
+  @include tablet-portrait() {
+    background-color: $color_white;
+  }
+
+  .wr-header {
+    height: $header-height;
+    width: 100%;
+    padding-right: 0px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 1380px) {
+      padding-right: 50px;
+    }
+
+    @include mobile-portrait() {
+      height: $header-height-mobile;
+      justify-content: space-between;
+    }
+    @include mobile-landscape() {
+      height: $header-height-mobile;
+      justify-content: space-between;
+    }
+    @include tablet-portrait() {
+      justify-content: space-between;
+    }
+  }
+
+  .logo {
+    margin-top: 5px;
+    @include mobile-portrait() {
+      margin-top: 6px;
+    }
+    @include mobile-landscape() {
+      margin-top: 6px;
+    }
+  }
+
+  .phone,
+  .email {
+    height: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: left;
+    color: $color_gray;
+    margin: 0 20px;
+
+    @include underline(3px, 0 auto, $color_gray);
+
+    @include mobile-portrait() {
+      display: none !important;
+    }
+    @include mobile-landscape() {
+      display: none !important;
+    }
+  }
+
+  .search {
+    width: 20px;
+    height: 24px;
+    object-fit: contain;
+    margin: 0 20px;
+    @include transition;
+
+    &:hover {
+      transform: rotate(-15deg) scale(1.15);
+    }
+
+    svg {
+      padding: 2px;
+      stroke: $color_gray_md;
+      fill: $color_gray_md;
+    }
+  }
+
+  .menu-icon {
+    width: 28px;
+    height: 18px;
+    object-fit: contain;
+    border-radius: 1px;
+  }
+}

@@ -4,8 +4,8 @@
 @import "../../node_modules/sweetalert2/dist/sweetalert2.min";
 
 @import "variables";
-@import "scripts/stickyHeader";
-@import "scripts/overlayNav";
-@import "scripts/lightslider";
+@import "template_mixins";
+@import "template_webfonts";
+@import "template_ext";
 
 @import "template_styles";

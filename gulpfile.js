@@ -6,10 +6,7 @@ var gulp = require('gulp'), // подключаем Gulp
     sourcemaps = require('gulp-sourcemaps'), // генерациz карты исходных файлов
     sass = require('gulp-sass'), //компиляция SASS в CSS
     autoprefixer = require('gulp-autoprefixer'), //автоматическая установки автопрефиксов
-    //spritesmith = require('gulp.spritesmith'),
-    //concat = require('gulp-concat'),
-    //uncss = require('gulp-uncss'), // убрать неиспользуемые css селекторы
-    //cssmin = require('gulp-cssmin'),
+    gcmq = require('gulp-group-css-media-queries'), // Обьединяем все медиа запросы
     cleanCSS = require('gulp-clean-css'), // минимизация CSS
     critical = require('critical'), // Создание Критичного CSS
     uglify = require('gulp-uglify'), // минимизации JavaScript
@@ -20,8 +17,7 @@ var gulp = require('gulp'), // подключаем Gulp
     del = require('del'), // плагин для удаления файлов и каталогов
     rigger = require('gulp-rigger'), //импорт содержимого одного файла в другой
     embed = require('gulp-image-embed'); // Добавляет картинки в css в формате BASE64
-//merge = require('merge-stream'),
-//buffer = require('vinyl-buffer');
+
 
 /* параметры для gulp-autoprefixer */
 var autoprefixerList = [
@@ -100,6 +96,7 @@ gulp.task('css:build', function () {
             asset: 'app/',
             extension: ['svg', 'png', 'gif']
         }))
+        .pipe(gcmq()) // Обьединяем медиа запросы
         .pipe(gulp.dest(path.dist.css)) // выгружаем в build
         .pipe(browserSync.reload({stream: true})); // перезагрузим сервер
 });

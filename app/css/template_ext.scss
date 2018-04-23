@@ -1,0 +1,86 @@
+@keyframes secondScreenBtnAnimation {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 10px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+
+%lSPager {
+  list-style: none outside none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+
+  &.lSpg {
+    display: flex;
+    margin: 10px 0 0;
+    padding: 0;
+    text-align: center;
+    > li {
+      cursor: pointer;
+      display: inline-flex !important;
+      padding: 0 10px !important;
+      align-items: center;
+      height: 16px;
+      a {
+        background-image: url("/img/bullet-inactive.svg");
+        background-color: transparent;
+        display: inline-block;
+        overflow: hidden;
+        text-indent: -999em;
+        position: relative;
+        z-index: 9;
+        transition: all 0.5s linear 0s;
+      }
+      &:hover a {
+        background-image: url("/img/bullet-active.svg");
+      }
+      &.active a {
+        background-image: url("/img/bullet-active.svg");
+      }
+      &.prev, &.next {
+        background-color: transparent !important;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        a {
+          background-color: transparent !important;
+          background-position: center;
+          background-repeat: no-repeat;
+          display: block;
+          height: 16px;
+          width: 16px;
+          &:hover {
+            background-color: none;
+          }
+        }
+        @include mobile-portrait() {
+          display: none !important;
+        }
+        @include mobile-landscape() {
+          display: none !important;
+        }
+        @include tablet-portrait() {
+          display: none !important;
+        }
+        &:hover {
+          background-color: transparent !important;
+        }
+      }
+      &.prev a {
+        background-image: url("/img/arrow-left.svg");
+      }
+      &.next a {
+        background-image: url("/img/arrow-right.svg");
+      }
+    }
+  }
+}

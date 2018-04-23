@@ -8,6 +8,9 @@ $black_90: rgba(0, 0, 0, 0.9);
 $color_gray: #3f3f3f;
 $seashell: #f1f1f1;
 
+$mobile-portrait-sb-top: 15vh;
+$mobile-landscape-sb-top: 25vh;
+
 %rightScrollBar {
   position: fixed;
   width: 0;
@@ -41,8 +44,11 @@ $seashell: #f1f1f1;
     cursor: pointer;
     z-index: 1001;
 
-    @include media-breakpoint-down (sm) {
-      right: 5px;
+    @include mobile-portrait() {
+      top: 12px;
+    }
+    @include mobile-landscape() {
+      top: 12px;
     }
 
     &:active {
@@ -140,8 +146,11 @@ $seashell: #f1f1f1;
           background-color: $color_white;
         }
 
-        @include media-breakpoint-down (sm) {
-          top: 15vh;
+        @include mobile-portrait() {
+          top: #{$mobile-portrait-sb-top};
+        }
+        @include mobile-landscape() {
+          top: #{$mobile-landscape-sb-top};
         }
       }
       &.moon {
@@ -151,22 +160,31 @@ $seashell: #f1f1f1;
           background-color: $color_white;
         }
 
-        @include media-breakpoint-down (sm) {
-          top: calc(15vh + 40px);
+        @include mobile-portrait() {
+          top: calc(#{$mobile-portrait-sb-top} + 40px);
+        }
+        @include mobile-landscape() {
+          top: calc(#{$mobile-landscape-sb-top} + 40px);
         }
       }
       &.meter {
         top: 430px;
 
-        @include media-breakpoint-down (sm) {
-          top: calc(15vh + 90px);
+        @include mobile-portrait() {
+          top: calc(#{$mobile-portrait-sb-top} + 90px);
+        }
+        @include mobile-landscape() {
+          top: calc(#{$mobile-landscape-sb-top} + 90px);
         }
       }
       &.calc {
         top: calc(430px + 40px);
 
-        @include media-breakpoint-down (sm) {
-          top: calc(15vh + 131px);
+        @include mobile-portrait() {
+          top: calc(#{$mobile-portrait-sb-top} + 131px);
+        }
+        @include mobile-landscape() {
+          top: calc(#{$mobile-landscape-sb-top} + 131px);
         }
       }
       &.ask {
@@ -174,8 +192,11 @@ $seashell: #f1f1f1;
         background-color: #cbcbcb;
         border-radius: 50%;
 
-        @include media-breakpoint-down (sm) {
-          top: calc(15vh + 181px);
+        @include mobile-portrait() {
+          top: calc(#{$mobile-portrait-sb-top} + 181px);
+        }
+        @include mobile-landscape() {
+          top: calc(#{$mobile-landscape-sb-top} + 181px);
         }
       }
     }

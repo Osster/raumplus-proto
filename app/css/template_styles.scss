@@ -1,7 +1,5 @@
-@import "mixins";
-// Import Fonts
-@import "webfonts";
-@import url('https://fonts.googleapis.com/css?family=Cousine:400,700&subset=cyrillic-ext');
+
+
 
 // STYLES
 body {
@@ -14,100 +12,25 @@ button:focus {
   outline: none;
 }
 
-@keyframes secondScreenBtnAnimation {
-  0% {
-    top: 0px;
-  }
-  50% {
-    top: 10px;
-  }
-  100% {
-    top: 0px;
-  }
-}
+@import "components/sticky-header";
+@import "components/overlay-nav";
+@import "components/lightslider";
+@import "components/header";
+@import "components/top-slider";
+@import "components/counter-bar";
+@import "components/offers-bar";
 
-header {
-  text-align: center;
-
-  @include media-breakpoint-down (sm) {
-    background-color: $color_white;
-  }
-
-  .wr-header {
-    height: 85px;
-    width: 100%;
-    padding-right: 0px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-
-    @include media-breakpoint-down (sm) {
-      justify-content: space-between;
-    }
-
-    @media (max-width: 1380px) {
-      padding-right: 50px;
-    }
-  }
-
-  .logo {
-    @include media-breakpoint-down (sm) {
-      margin-top: 6px;
-    }
-  }
-
-  .phone,
-  .email {
-    height: 16px;
-    font-size: 16px;
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 1px;
-    text-align: left;
-    color: $color_gray;
-    margin: 0 20px;
-
-    @include underline(3px,
-            0 auto,
-            $color_gray);
-  }
-
-  .search {
-    width: 20px;
-    height: 24px;
-    object-fit: contain;
-    margin: 0 20px;
-    @include transition;
-
-    &:hover {
-      transform: rotate(-15deg) scale(1.15);
-    }
-
-    svg {
-      padding: 2px;
-      stroke: $color_gray_md;
-      fill: $color_gray_md;
-    }
-  }
-
-  .menu-icon {
-    width: 28px;
-    height: 18px;
-    object-fit: contain;
-    border-radius: 1px;
-  }
-}
 
 main {
   //max-width: 1560px;
   margin: 0 auto;
   position: relative;
 
-  @include media-breakpoint-down (sm) {
-    margin-top: 85px;
+  @include mobile-portrait() {
+    margin-top: $header-height-mobile;
+  }
+  @include mobile-landscape() {
+    margin-top: $header-height-mobile;
   }
 
   .slider-bar {
@@ -122,13 +45,21 @@ main {
       height: 140px;
       z-index: 75;
 
-      @include media-breakpoint-down (sm) {
+      @include mobile-portrait() {
+        display: none;
+      }
+      @include mobile-landscape() {
+        display: none;
+      }
+      @include tablet-portrait() {
+        display: none;
+      }
+      @include tablet-landscape() {
         display: none;
       }
     }
 
     .slider {
-      @include transition;
 
       &.preload {
         opacity: 0;
@@ -140,9 +71,9 @@ main {
     position: absolute;
     bottom: 0px;
     width: 100%;
-    height: 62px;
+    height: 0;
     display: inline-flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 
     &__btn {
@@ -161,182 +92,8 @@ main {
     }
   }
 
-  .counter-bar {
-    min-height: 140px;
-    margin: 0 auto;
-    background-color: #f5f5f5;
-    text-align: center;
 
-    @include media-breakpoint-down (sm) {
-      .container {
-        padding-left: 0;
-        padding-right: 0;
-      }
 
-      &__topline {
-        border-top: 20px solid #FFF;
-
-        & .counter-bar__title:after {
-          transform: rotate(180deg);
-        }
-      }
-    }
-
-    &__title {
-      width: 178px;
-      font-size: 28px;
-      font-weight: 300;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.14;
-      letter-spacing: normal;
-      text-align: left;
-      color: $color_black;
-      text-transform: uppercase;
-      padding: 22px 0;
-      position: relative;
-
-      @include media-breakpoint-down (sm) {
-        margin-left: 60px;
-        margin-right: 40px;
-        position: relative;
-        width: auto;
-        cursor: pointer;
-
-        span {
-          padding-right: 60px;
-        }
-
-        &:after {
-          content: '';
-          display: block;
-          width: 25px;
-          height: 15px;
-          background-image: url("/img/arrow-down.svg");
-          position: absolute;
-          top: calc(50% - 7px);
-          right: 0;
-          @include transition;
-        }
-      }
-
-      &:before {
-        position: absolute;
-        content: '';
-        width: 500px;
-        height: 1px;
-        object-fit: contain;
-        border-top: solid 1px #9b9b9b;
-        left: -520px;
-        top: calc(50% - 1px);
-      }
-    }
-
-    &__form {
-      display: inline-flex;
-      margin-left: 65px;
-
-      @include media-breakpoint-down (sm) {
-        flex-direction: column;
-        margin-left: 0;
-        width: 100%;
-      }
-    }
-  }
-
-  .offers-bar {
-    padding: 80px 0 40px;
-
-    @include media-breakpoint-down (sm) {
-      padding: 10px 0 40px;
-    }
-
-    .offer {
-      position: relative;
-      width: 290px;
-      height: 518px;
-
-      @include media-breakpoint-down (sm) {
-        width: 100%;
-        height: 300px;
-      }
-
-      &.lg {
-        width: 600px;
-
-        @include media-breakpoint-down (sm) {
-          width: 90vw;
-        }
-      }
-
-      &__media {
-        position: relative;
-        img {
-          max-height: 418px;
-          object-fit: cover;
-
-          @include media-breakpoint-down (sm) {
-            height: 240px;
-          }
-        }
-      }
-
-      &__title {
-        display: block;
-        padding: 20px 0 10px;
-        font-size: 18px;
-        font-weight: 300;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.11;
-        letter-spacing: normal;
-        text-align: left;
-        color: $color_gray;
-
-        @include media-breakpoint-down (sm) {
-          font-size: 14px;
-          line-height: 1.29;
-          padding: 10px 0 20px;
-        }
-      }
-
-      &__hoverblock {
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.6s ease;
-
-        @include media-breakpoint-down (sm) {
-          opacity: 0 !important;
-
-          .button {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: auto;
-            height: auto;
-            margin: 0;
-          }
-        }
-
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
-
-    .lSPager {
-      display: none;
-    }
-  }
 
   .catalog-bar {
 
@@ -514,24 +271,6 @@ main {
           }
         }
 
-        &__nav {
-          display: flex;
-          justify-content: end;
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: auto;
-          left: auto;
-          width: 250px;
-
-          @include media-breakpoint-down (sm) {
-            position: relative;
-            width: 100%;
-            justify-content: center;
-            margin-bottom: 10px;
-          }
-        }
-
         &__content {
           width: 100%;
 
@@ -680,6 +419,7 @@ main {
         &__feature {
           text-align: center;
           margin: 45px 0;
+          min-height: 260px;
 
           @include media-breakpoint-down (sm) {
             margin: 0;
@@ -1049,53 +789,6 @@ main {
     }
   }
 
-  .slider {
-    position: relative;
-    width: 100%;
-    max-height: 100vh;
-    overflow: hidden;
-
-    &__content {
-      position: relative;
-      display: flex;
-      flex-flow: row nowrap;
-      transition: left 0.6s ease;
-    }
-
-    &__nav {
-      position: absolute;
-      bottom: 20px;
-      left: 166px;
-      width: 250px;
-
-      @include media-breakpoint-down (sm) {
-        background-color: #f5f5f5;
-        top: 214px;
-        left: 20px;
-        bottom: auto;
-        width: calc(100% - 40px);
-      }
-    }
-
-    .slide {
-      display: inline-block;
-      max-width: 100vw;
-      overflow: hidden;
-
-      img {
-        object-fit: cover;
-        width: 100%;
-
-        @include media-breakpoint-down (sm) {
-          height: 250px;
-        }
-      }
-
-      a {
-        text-decoration: none;
-      }
-    }
-  }
 
   .slideset {
 
@@ -1153,139 +846,10 @@ main {
   .slide {
     position: relative;
     text-align: center;
+  }
 
-    .txt-bar {
-      position: absolute;
-      top: calc(42% - 245px);
-      left: 90px;
-      width: 680px;
-      height: 490px;
-      opacity: 0.9;
-      background-color: #f5f5f5;
-      padding: 51px 65px;
-      text-align: left;
-
-      @media(max-width: 1280px) {
-        top: calc(50% - 245px);
-      }
-
-      @include media-breakpoint-down (sm) {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        padding: 20px 20px 10px;
-        margin-bottom: 10px;
-        opacity: 1;
-      }
-
-      .Made-in-Germany {
-        font-size: 14px;
-        font-weight: 300;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.29;
-        letter-spacing: normal;
-        text-align: left;
-        color: $color_gray_lt;
-        margin: 0 10px 6px;
-      }
-
-      .line-1 {
-        font-size: 86px;
-        font-weight: 600;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.08;
-        letter-spacing: 1.4px;
-        text-align: left;
-        color: #322d27;
-        margin: 20px 0 0;
-        text-transform: uppercase;
-
-        @include media-breakpoint-down (sm) {
-          font-size: 36px;
-        }
-      }
-
-      .line-2 {
-        font-size: 86px;
-        font-weight: 600;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.08;
-        letter-spacing: 1.4px;
-        text-align: left;
-        color: #b0aeb0;
-        margin: 0 0;
-        text-transform: uppercase;
-
-        @include media-breakpoint-down (sm) {
-          font-size: 36px;
-        }
-      }
-
-      .line-3 {
-        font-size: 21px;
-        font-weight: 300;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.19;
-        letter-spacing: normal;
-        text-align: left;
-        color: $color_gray;
-        margin: 35px 10px 0;
-
-        @include media-breakpoint-down (sm) {
-          font-size: 14px;
-          line-height: 1.57;
-          margin: 10px 70px 10px 0;
-        }
-      }
-
-      .txt-bar-link {
-        display: inline-flex;
-        align-items: center;
-        font-size: 16px;
-        font-weight: 300;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.13;
-        letter-spacing: normal;
-        text-align: left;
-        color: $color_gray_lt;
-        margin: 70px 0 0;
-        @include transition;
-
-        @include media-breakpoint-down (sm) {
-          display: none;
-        }
-
-        .video-button {
-          width: 54px;
-          height: 54px;
-          object-fit: contain;
-          margin-right: 5px;
-          stroke: $color_gray_lt;
-          @include transition;
-        }
-
-        > span {
-          margin-top: 4px;
-        }
-
-        &:hover {
-          text-decoration: none;
-          color: #000;
-          .video-button {
-            transform: scale(1.1);
-            stroke: $color_gray_lt;
-            stroke-width: 6px;
-          }
-        }
-      }
-    }
+  .lSPager {
+    @extend %lSPager;
   }
 }
 
@@ -1641,6 +1205,13 @@ footer {
         width: 100%;
         margin: 0 0 10px;
       }
+      @include media-breakpoint-only (lg) {
+        width: 184px;
+        height: 50px;
+        padding: 0 10px;
+        margin: 10px;
+        font-size: 14px;
+      }
 
       &.file {
         position: relative;
@@ -1677,6 +1248,10 @@ footer {
           border: none;
           border-radius: 0.25rem;
           text-align: left;
+
+          @include media-breakpoint-only (lg) {
+            padding: 0.375rem 1rem;
+          }
 
           &::after {
             background-image: url("/img/upload.svg");
@@ -1739,6 +1314,11 @@ footer {
         @include media-breakpoint-down (sm) {
           width: 100%;
           margin: 0 0 25px;
+        }
+        @include media-breakpoint-only (lg) {
+          width: 180px;
+          margin: 10px;
+
         }
       }
     }
@@ -2243,7 +1823,7 @@ footer {
     }
 
     .offers-bar {
-      .offer{
+      .offer {
         &__title {
           color: $color_gray_lt;
         }
