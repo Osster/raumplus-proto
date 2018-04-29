@@ -15530,6 +15530,7 @@ main .slide {
 
 .tm-night header .logo svg {
   fill: #ffffff;
+  stroke: transparent;
 }
 
 .tm-night header .phone,
