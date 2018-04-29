@@ -10,6 +10,18 @@
   }
 }
 
+@keyframes videoBtnAnimation {
+  0% {
+    box-shadow: 0 0 0 0 rgba($color_gray_md, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba($color_gray_md, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($color_gray_md, 0);
+  }
+}
+
 
 %lSPager {
   list-style: none outside none;
@@ -30,6 +42,7 @@
       padding: 0 10px !important;
       align-items: center;
       height: 16px;
+      z-index: 1;
       a {
         background-image: url("/img/bullet-inactive.svg");
         background-color: transparent;

@@ -2,7 +2,7 @@
   "name": "raumplus",
   "version": "1.0.0",
   "private": true,
-  "description": "bootstrap 4 base template",
+  "description": "raumplus bootstrap 4 template",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "animate.css": "^3.6.1",
+    "aos": "^2.2.0",
     "bootstrap": "^4.0.0",
     "jquery": "^1.12.4",
     "jquery-mask-plugin": "^1.14.15",

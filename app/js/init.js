@@ -1,4 +1,5 @@
-//= scripts/lightslider.js
+//= libs/lightslider.js
+//= libs/sectionslider.js
 //= scripts/stickyHeader.js
 //= scripts/smoothScrolling.js
 //= scripts/topSlider.js

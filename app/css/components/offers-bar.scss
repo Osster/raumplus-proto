@@ -7,7 +7,13 @@
   @include mobile-landscape() {
     padding: 40px 0 40px;
 
-    .container {
+  }
+
+  .container {
+    @include mobile-landscape() {
+      min-width: 100%;
+    }
+    @include tablet-portrait() {
       min-width: 100%;
     }
   }
@@ -29,6 +35,10 @@
       width: calc(240px - 25px);
       height: 420px;
     }
+    @include descktop() {
+      width: calc(308px - 25px);
+      height: 500px;
+    }
 
     &.lg {
       @include tablet-portrait() {
@@ -36,6 +46,9 @@
       }
       @include tablet-landscape() {
         width: calc(480px - 25px);
+      }
+      @include descktop() {
+        width: calc(615px - 25px);
       }
     }
 

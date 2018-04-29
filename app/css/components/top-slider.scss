@@ -49,38 +49,56 @@
 
     .txt-bar {
       position: absolute;
-      top: calc(42% - 245px);
-      left: 90px;
+      top: 23%;
+      left: calc(50% - 670px);
       width: 680px;
       height: 490px;
       opacity: 0.9;
       background-color: #f5f5f5;
       padding: 51px 65px;
       text-align: left;
+      cursor: pointer;
+      @include transition(0.4s);
 
       @media(max-width: 1280px) {
-        top: calc(50% - 245px);
+        top: -500px;
+        opacity: 0;
+        &.show {
+          top: calc(50% - 245px);
+          opacity: 1;
+        }
+        &.hide {
+          top: 150%;
+          opacity: 0;
+        }
       }
 
-      @include mobile-portrait() {
+      @include descktop() {
+        top: -500px;
+        opacity: 0;
+        &.show {
+          top: 23%;
+          opacity: 1;
+        }
+        &.hide {
+          top: 150%;
+          opacity: 0;
+        }
+      }
+      @include mobile-all() {
         position: relative;
         top: 0;
         left: 0;
         width: 100%;
         height: auto !important;
-        padding: 20px 20px 10px;
         margin-bottom: 10px;
         opacity: 1;
       }
+      @include mobile-portrait() {
+        padding: 20px 20px 10px;
+      }
       @include mobile-landscape() {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto !important;
         padding: 20px;
-        margin-bottom: 10px;
-        opacity: 1;
       }
       @include tablet-portrait() {
         position: relative;
@@ -92,6 +110,9 @@
         padding: 20px 40px;
         margin-bottom: 10px;
         opacity: 1;
+      }
+      @include tablet-landscape() {
+        left: 40px;
       }
 
       .Made-in-Germany {
@@ -171,6 +192,7 @@
 
       .txt-bar-link {
         display: inline-flex;
+        border: 1px solid transparent;
         align-items: center;
         font-size: 16px;
         font-weight: 300;
@@ -181,6 +203,8 @@
         text-align: left;
         color: $color_gray_lt;
         margin: 70px 0 0;
+        padding-right: 1rem;
+        box-shadow: 0 0 0 rgba($color_gray_md, 0.4);
         @include transition;
 
         @include mobile-portrait() {
@@ -198,6 +222,7 @@
           height: 54px;
           object-fit: contain;
           margin-right: 5px;
+          fill: $color_gray_lt;
           stroke: $color_gray_lt;
           @include transition;
         }
@@ -208,12 +233,23 @@
 
         &:hover {
           text-decoration: none;
-          color: #000;
+          color: $color_gray_lt;
           .video-button {
             transform: scale(1.1);
+            fill: $color_gray_lt;
             stroke: $color_gray_lt;
-            stroke-width: 6px;
+            stroke-width: 2px;
           }
+        }
+      }
+
+      &:hover {
+        .txt-bar-link {
+          //border: 1px solid $color_gray_lt;
+          animation-name: videoBtnAnimation;
+          animation-duration: 2000ms;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
         }
       }
     }
@@ -256,33 +292,26 @@
     .lSPager.lSpg {
       position: absolute;
       bottom: 2rem;
-      left: 12rem;
+      left: calc(50% - 610px);
       padding: 8px 0;
 
-      @include mobile-portrait() {
+      @include mobile-all() {
         background-color: #f5f5f5;
-        top: 214px;
         left: 20px;
         bottom: auto;
         width: calc(100% - 40px);
-
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 8px;
       }
 
-      @include mobile-landscape() {
-        background-color: #f5f5f5;
-        top: calc(100vh - 36px - #{$header-height});
-        left: 20px;
-        bottom: auto;
-        width: calc(100% - 40px);
+      @include mobile-portrait() {
+        top: 214px;
+      }
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px;
+      @include mobile-landscape() {
+        top: calc(100vh - 36px - #{$header-height});
       }
 
       @include tablet-portrait() {
@@ -292,13 +321,9 @@
         bottom: auto;
         width: calc(100% - 80px);
       }
-      //@include tablet-landscape() {
-      //  background-color: #f5f5f5;
-      //  top: calc(100vh - 32px);
-      //  left: 20px;
-      //  bottom: auto;
-      //  width: calc(100% - 40px);
-      //}
+      @include tablet-landscape() {
+        left: 40px;
+      }
     }
   }
 }
@@ -306,6 +331,16 @@
 @include mobile-portrait() {
   .slider {
     content: 'mobile-portrait';
+
+    .slide  {
+      img {
+        height: 320px;
+      }
+      .container {
+        top: -70px;
+        position: relative;
+      }
+    }
   }
 }
 

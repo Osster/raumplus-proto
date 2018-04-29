@@ -1,21 +1,23 @@
 header {
   text-align: center;
 
-  @include mobile-portrait() {
+  @include mobile-all() {
     height: $header-height-mobile !important;
     background-color: $color_white;
-  }
-  @include mobile-landscape() {
-    height: $header-height-mobile !important;
-    background-color: $color_white;
-
-    .container {
-      width: 100%;
-      max-width: 100% !important;
-    }
   }
   @include tablet-portrait() {
     background-color: $color_white;
+  }
+
+  .container {
+    @include mobile-all() {
+      width: 100%;
+      max-width: 100% !important;
+    }
+    @include tablet-all() {
+      width: 100%;
+      max-width: 100% !important;
+    }
   }
 
   .wr-header {
@@ -65,7 +67,7 @@ header {
     letter-spacing: 1px;
     text-align: left;
     color: $color_gray;
-    margin: 0 20px;
+    margin: 0 25px;
 
     @include underline(3px, 0 auto, $color_gray);
 
@@ -73,6 +75,9 @@ header {
       display: none !important;
     }
     @include mobile-landscape() {
+      display: none !important;
+    }
+    @include tablet-portrait() {
       display: none !important;
     }
   }

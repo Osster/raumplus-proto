@@ -1,5 +1,22 @@
 (function () {
 
+
+    // var $slider = $('.catalog-bar .slideset__content .slides');
+    //
+    // $slider.sectionSlider({
+    //     //auto:true,
+    //     loop:true,
+    //     item:1,
+    //     slideMove:1,
+    //     slideMargin: 0,
+    //     easing: 'cubic-bezier(0.5, 0, 0.25, 1)',
+    //     speed:1000,
+    //     pause: 6000,
+    //     onSliderLoad: function() {
+    //         $('.catalog-bar .slideset__content .slides').removeClass('cS-hidden');
+    //     }
+    // });
+
     $.fn.catalogSlider = function (args) {
 
         var $slider = this;
@@ -20,7 +37,7 @@
         var $navPrev = null;
         var $navNext = null;
 
-        var scrollBreakpoint = 100;
+        var scrollBreakpoint = 40;
 
         var catalogIdInit = function () {
             var catalogId = $activeMenu.data('catid');
@@ -28,10 +45,11 @@
             activeSlideKey = 0;
             totalSlides = 0;
             totalActiveSlides = 0;
-            totalActiveSlides = 0;
             $container = $slider.find(".slideset__content .slides");
 
-            $slides = $slider.find('.slideset__content .slide[data-catid="' + catalogId + '"]');
+            addBorderSlides();
+
+            $slides = $slider.find('.slideset__content .slide[data-catid="' + catalogId + '"]:not(.clone)');
             $nav = (typeof args.navElement != 'undefined' && args.navElement.length > 0) ? $(args.navElement) : $slider.find(".catalog-bar .slideset__nav ul");
 
             $slides.removeClass('inactive');
@@ -47,7 +65,12 @@
         var goToSlide = function (_ActiveSlide) {
             activeSlideKey = _ActiveSlide;
             var slide = $slides[activeSlideKey];
-            $container.css('left', -slide.offsetLeft);
+
+            $container.css('transform', 'translate3d(' + (-slide.offsetLeft) + 'px, 0px, 0px)');
+
+            $container.children().removeClass('active');
+            $(slide).addClass('active');
+
             $nav.find('a.page.active').removeClass('active');
             $($navLinks[activeSlideKey]).addClass('active');
             //console.log('slide.offsetLeft', slide.offsetLeft);
@@ -77,7 +100,7 @@
             $navNext = $nav.find('a.next');
 
             $($navLinks[activeSlideKey]).addClass('active');
-            $container.css('left', 0);
+            $container.css('transform', 'translate3d(0px, 0px, 0px)');
 
             $catalogSections.off('click').on('click', function () {
                 var catid = $(this).data('catid');
@@ -102,15 +125,33 @@
 
             $navPrev.off('click').on('click', function () {
 
+                var isSlideToEnd = false;
                 if (activeSlideKey == 0) {
+                    // Если это первая категория имитируем слайд и выполняем переход без анимации
+                    if (activeCatalogSectionKey == 0) {
+                        isSlideToEnd = true;
+                    }
                     // Переключаем каталог
                     activeCatalogSectionKey = (activeCatalogSectionKey > 0) ? activeCatalogSectionKey - 1 : $catalogSections.length - 1;
                     var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
 
 
                     switchCatalogSection(catid, function () {
-                        activeSlideKey = totalActiveSlides - 1;
-                        goToSlide(activeSlideKey);
+                        if (isSlideToEnd) {
+                            var slide = $slider.find('.slideset__content .slide.clone.left').get(0);
+                            $container.css('transform', 'translate3d(' + (-slide.offsetLeft) + 'px, 0px, 0px)');
+                            setTimeout(function () {
+                                $container.css('transition-duration', '0s');
+                                activeSlideKey = totalActiveSlides - 1;
+                                goToSlide(activeSlideKey);
+                                setTimeout(function () {
+                                    $container.css('transition-duration', '0.3s');
+                                }, 100);
+                            },350);
+                        } else {
+                            activeSlideKey = totalActiveSlides - 1;
+                            goToSlide(activeSlideKey);
+                        }
                     });
 
                     //goToSlide(activeSlideKey);
@@ -124,19 +165,37 @@
 
             $navNext.off('click').on('click', function () {
 
-
+                var isSlideToStart = false;
                 if (activeSlideKey == (totalActiveSlides - 1)) {
+
+                    // Если это последняя категория имитируем слайд и выполняем переход без анимации
+                    if (activeCatalogSectionKey == ($catalogSections.length - 1)) {
+                        isSlideToStart = true;
+                    }
                     // Переключаем каталог
                     activeCatalogSectionKey = (activeCatalogSectionKey < ($catalogSections.length - 1)) ? activeCatalogSectionKey + 1 : 0;
                     var catid = $($catalogSections[activeCatalogSectionKey]).data('catid');
 
-
                     switchCatalogSection(catid, function () {
-                        activeSlideKey = 0;
-                        goToSlide(activeSlideKey);
+                        if (isSlideToStart) {
+                            var slide = $slider.find('.slideset__content .slide.clone.right').get(0);
+                            //console.log('slide', slide);
+                            //console.log('slide.offsetLeft', slide.offsetLeft);
+                            $container.css('transform', 'translate3d(' + (-slide.offsetLeft) + 'px, 0px, 0px)');
+                            setTimeout(function () {
+                                $container.css('transition-duration', '0s');
+                                activeSlideKey = 0;
+                                goToSlide(activeSlideKey);
+                                setTimeout(function () {
+                                    $container.css('transition-duration', '0.3s');
+                                }, 100);
+                            },350);
+                        } else {
+                            activeSlideKey = 0;
+                            goToSlide(activeSlideKey);
+                        }
                     });
 
-                    //
                 } else {
                     activeSlideKey = activeSlideKey + 1;
                     goToSlide(activeSlideKey);
@@ -166,8 +225,14 @@
                 });
 
             $(window).off('resize').on('resize', function () {
+                $container.css('transition-duration', '0s');
                 recalcSize();
-                goToSlide(activeSlideKey);
+                setTimeout(function () {
+                    goToSlide(activeSlideKey);
+                    setTimeout(function () {
+                        $container.css('transition-duration', '0.3s');
+                    }, 100);
+                }, 300);
             });
         };
 
@@ -220,6 +285,16 @@
             });
         };
 
+        var addBorderSlides = function () {
+            var $_slides = $container.children();
+            var $clones = $container.find('.clone');
+            if ($_slides.length > 1 && $clones.length === 0) {
+                console.log('SC', $_slides.length);
+                $container.prepend($_slides.eq($_slides.length-1).clone().addClass('clone left'));
+                $container.append($_slides.eq(0).clone().addClass('clone right'));
+            }
+        };
+
         if ($slider.length > 0) {
 
             setTimeout(function () {
@@ -241,6 +316,7 @@
 
                 var dataCatId = $(this).data('catid');
 
+
                 catalogIdInit();
 
                 if (totalActiveSlides > 0) {
@@ -251,6 +327,9 @@
                 if ($slides.length > 0) {
                     goToSlide(0);
                 }
+
+                $container.css('transition-duration', '0.3s')
+                    .css('transition-timing-function', 'ease');
             }, 100);
 
         }

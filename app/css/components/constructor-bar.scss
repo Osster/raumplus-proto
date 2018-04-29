@@ -1,0 +1,196 @@
+.constructor-bar {
+  padding: 40px 0 80px;
+
+  @include mobile-all() {
+    padding: 30px 0;
+  }
+  @include tablet-all() {
+    padding: 30px 0;
+  }
+
+  &__navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      min-width: 360px;
+      height: 70px;
+      font-size: 28px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.14;
+      letter-spacing: normal;
+      text-align: left;
+      color: $color_black;
+      text-transform: uppercase;
+      padding: 22px 0;
+      position: relative;
+
+      @include mobile-all() {
+        height: auto;
+        min-width: auto;
+        font-size: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 0;
+        margin-bottom: 10px;
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        width: 500px;
+        height: 1px;
+        object-fit: contain;
+        border-top: solid 1px #9b9b9b;
+        left: -520px;
+        top: calc(50% - 1px);
+      }
+    }
+  }
+
+  &__content {
+    padding: 40px 0 0;
+
+    @include mobile-all() {
+      padding: 10px 0 0;
+    }
+    @include tablet-portrait() {
+      padding: 0px 0 0;
+    }
+    @include tablet-landscape() {
+      padding: 20px 0 0;
+    }
+
+    &__text {
+      width: 300px;
+      height: 100px;
+      font-size: 21px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.19;
+      letter-spacing: normal;
+      text-align: left;
+      color: $color_gray;
+      margin: 31px 0 38px;
+
+      @include mobile-all() {
+        width: auto;
+        height: auto;
+        font-size: 14px;
+        line-height: 1.57;
+        margin: 0 0 20px;
+      }
+    }
+
+    &__list {
+
+      @include mobile-all() {
+        display: none;
+      }
+
+      ul {
+        padding-left: 0px;
+        margin-bottom: 50px;
+
+        @include mobile-all() {
+          margin-bottom: 20px;
+        }
+
+        li {
+          list-style: none;
+          margin-bottom: 25px;
+          margin-left: 50px;
+          position: relative;
+          @include mobile-all() {
+            margin-left: 20px;
+          }
+
+          &:before {
+            position: absolute;
+            content: '';
+            width: 27px;
+            height: 1px;
+            border-top: 1px solid $color_gray;
+            left: -47px;
+            top: 10px;
+            @include transition;
+          }
+
+          a {
+            font-size: 18px;
+            font-weight: 600;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.28;
+            letter-spacing: normal;
+            text-align: left;
+            color: $color_gray;
+            @include transition;
+          }
+
+          &:hover {
+            &:before {
+              left: -57px;
+            }
+            a {
+              text-decoration: none;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+
+    &__link {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 130px;
+      position: relative;
+      left: -15px;
+
+      @include mobile-all() {
+        padding: 0;
+        margin: 20px auto 0;
+        width: 100%;
+        justify-content: center !important;
+        align-items: center;
+        left: auto;
+      }
+
+      @include tablet-all() {
+        padding: 0;
+        margin: 20px auto 0;
+        width: 100%;
+        justify-content: center !important;
+        align-items: center;
+        left: auto;
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 208px;
+        height: 1px;
+        background: #9b9b9b;
+        right: -45px;
+        top: calc(50% - 1px);
+
+        @include mobile-all() {
+          display: none;
+        }
+        @include tablet-all() {
+          display: none;
+        }
+      }
+
+      .button {
+        position: relative;
+      }
+    }
+  }
+}

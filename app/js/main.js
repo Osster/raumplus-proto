@@ -25,6 +25,8 @@
 // Форма вслывающего сообщения
 //= ../../node_modules/sweetalert2/dist/sweetalert2.js
 
+// Анимация при скроле страницы
+//= ../../node_modules/aos/dist/aos.js
 
 
 // Импортируем другие js-файлы
@@ -44,12 +46,6 @@ jQuery(document).ready(function($) {
 
 	//inizialize navigation and content layers
 	layerInit();
-	$(window).on('resize', function(){
-		window.requestAnimationFrame(layerInit);
-        navigation.removeClass('animated fadeInUp').css('visibility','hidden');
-        menuButton.removeClass('close-nav');
-        homeButton.css('visibility','hidden');
-	});
 
 	menuButton.on('click', function(){
 		if(!menuButton.hasClass('close-nav')) {
@@ -132,22 +128,39 @@ jQuery(document).ready(function($) {
 		function() {
 			$(this).find('.li-line').addClass('fadeOutLeftBig').removeClass('fadeInLeftBig');
 		}
-	)
+	);
 
 
 	$(function () {
 	  $('[data-toggle="tooltip"]').tooltip()
-	})
-
-	$(function adjustCollapseView(){
-	    var desktopView = $(window).width();
-	    if(desktopView >= "768"){
-	        $(".collapse-title").attr("data-toggle","");
-	       	$('.collapsebar').removeClass('collapse');
-	    }else{
-	        $(".collapse-title").attr("data-toggle","collapse");
-	        $('.collapsebar').addClass('collapse');
-	    }
 	});
+
+
+
+	var adjustCollapseView = function (){
+        var desktopView = parseInt($(window).width());
+        if(desktopView >= 813){
+            $(".collapse-title").attr("data-toggle","").addClass('collapsed');
+            $('.collapsebar').removeClass('collapse');
+        }else{
+            $(".collapse-title").attr("data-toggle","collapse");
+            $('.collapsebar').addClass('collapse');
+        }
+    };
+
+
+    adjustCollapseView();
+
+    AOS.init();
+
+
+    window.addEventListener('resize', function (e) {
+        window.requestAnimationFrame(layerInit);
+        navigation.removeClass('animated fadeInUp').css('visibility','hidden');
+        menuButton.removeClass('close-nav');
+        homeButton.css('visibility','hidden');
+        adjustCollapseView();
+        AOS.refresh();
+    });
 
 });

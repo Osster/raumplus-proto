@@ -1,8 +1,10 @@
-@mixin transition {
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+//$duration: 0.3s;
+
+@mixin transition($duration: 0.3s) {
+  -webkit-transition: all $duration ease-in-out;
+  -o-transition: all $duration ease-in-out;
+  -moz-transition: all $duration ease-in-out;
+  transition: all $duration ease-in-out;
 }
 
 @mixin underline($height, $margin, $bgcolor) {
@@ -31,33 +33,6 @@
   }
 }
 
-// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
-// Makes the @content apply to the given breakpoint and wider.
-@mixin media-breakpoint-up-c($name, $orientation, $breakpoints: $grid-breakpoints, $orientations: $device-orientations) {
-  $min: breakpoint-min($name, $breakpoints);
-  $dor: map_get($orientations, $orientation);
-  @if $min {
-    @media (min-width: $min) and (orientation: $dor) {
-      @content;
-    }
-  } @else {
-    @content;
-  }
-}
-
-// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
-// Makes the @content apply to the given breakpoint and narrower.
-@mixin media-breakpoint-down-c($name, $orientation, $breakpoints: $grid-breakpoints, $orientations: $device-orientations) {
-  $max: breakpoint-max($name, $breakpoints);
-  $dor: map_get($orientations, $orientation);
-  @if $max {
-    @media (max-width: $max) and (orientation: $dor) {
-      @content;
-    }
-  } @else {
-    @content;
-  }
-}
 
 @mixin descktop($breakpoints: $grid-breakpoints) {
   $minW: breakpoint-min(xl, $breakpoints);
@@ -95,11 +70,45 @@
   $maxW: breakpoint-min(xl, $breakpoints);
   $maxH: breakpoint-min(md, $breakpoints);
   @media (min-width: $minW) and (max-width: $maxW) and (min-height: $minH) and (max-height: $maxH) and (orientation: landscape),
-    (min-width: $minH) and (max-width: $maxH) and (min-height: $minW) and (max-height: $maxW) and (orientation: portrait) {
+  (min-width: $minH) and (max-width: $maxH) and (min-height: $minW) and (max-height: $maxW) and (orientation: portrait) {
     /* tablet-all */
     @content;
   }
 }
+
+//@mixin tablet-portrait($breakpoints: $grid-breakpoints) {
+//  $minW: breakpoint-min(sm, $breakpoints);
+//  $minH: breakpoint-min(md, $breakpoints);
+//  $maxW: breakpoint-min(md, $breakpoints);
+//  $maxH: breakpoint-min(xl, $breakpoints);
+//  @media (min-width: $minW) and (max-width: $maxW) and (orientation: portrait) {
+//    /* tablet-portrait */
+//    @content;
+//  }
+//}
+//
+//@mixin tablet-landscape($breakpoints: $grid-breakpoints) {
+//  $minW: breakpoint-min(md, $breakpoints);
+//  $minH: breakpoint-min(sm, $breakpoints);
+//  $maxW: breakpoint-min(xl, $breakpoints);
+//  $maxH: breakpoint-min(md, $breakpoints);
+//  @media (min-height: $minH) and (max-height: $maxH) and (orientation: landscape) {
+//    /* tablet-landscape */
+//    @content;
+//  }
+//}
+//
+//@mixin tablet-all($breakpoints: $grid-breakpoints) {
+//  $minW: breakpoint-min(md, $breakpoints);
+//  $minH: breakpoint-min(sm, $breakpoints);
+//  $maxW: breakpoint-min(xl, $breakpoints);
+//  $maxH: breakpoint-min(md, $breakpoints);
+//  @media (min-height: $minH) and (max-height: $maxH) and (orientation: landscape),
+//  (min-width: $minW) and (max-width: $maxW) and (orientation: portrait) {
+//    /* tablet-all */
+//    @content;
+//  }
+//}
 
 @mixin mobile-portrait($breakpoints: $grid-breakpoints) {
   $maxW: breakpoint-min(sm, $breakpoints);
